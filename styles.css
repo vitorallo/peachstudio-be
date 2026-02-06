@@ -59,25 +59,27 @@ body {
 
 /* Breadcrumbs */
 .breadcrumbs {
+    background-color: rgba(26, 26, 46, 0.95);
     padding: var(--spacing-sm) 0;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .breadcrumbs a {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .breadcrumbs a:hover {
-    color: var(--primary-color);
+    color: #ffffff;
 }
 
 .breadcrumbs span {
     margin: 0 8px;
-    color: var(--text-secondary);
-    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
 }
 
 /* Header */
