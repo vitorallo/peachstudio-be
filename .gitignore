@@ -28,3 +28,14 @@ Temporary Items
 *.swp
 *.swo
 *~
+
+# Claude Code
+.claude/
+CLAUDE.md
+claude.md
+
+# Task tracking & documentation
+task.md
+tasks.md
+TODO.md
+SEO-GUIDE.md

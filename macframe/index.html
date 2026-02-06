@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Performance & Resource Hints -->
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="preload" href="icon.svg" as="image">
+    <link rel="dns-prefetch" href="https://github.com">
+
     <!-- Primary Meta Tags -->
     <title>Macframe | IBM Mainframe Emulator for macOS | PEACH STUDIO</title>
     <meta name="title" content="Macframe | IBM Mainframe Emulator for macOS">
@@ -11,32 +16,32 @@
     <meta name="keywords" content="mainframe, MVS, IBM, emulator, Hercules, macOS, Apple Silicon, M1, M2, M3, 3270 terminal, COBOL, JCL">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://peachstudio.be/macframe">
+    <link rel="canonical" href="https://peachstudio.be/macframe/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://peachstudio.be/macframe">
+    <meta property="og:url" content="https://peachstudio.be/macframe/">
     <meta property="og:title" content="Macframe | IBM Mainframe Emulator for macOS">
     <meta property="og:description" content="Run MVS 3.8J on your Mac with a single click. Native Apple Silicon support. No configuration required.">
-    <meta property="og:image" content="https://peachstudio.be/macframe-screenshot.jpeg">
+    <meta property="og:image" content="https://peachstudio.be/macframe/screenshot.jpeg">
     <meta property="og:site_name" content="PEACH STUDIO">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://peachstudio.be/macframe">
+    <meta property="twitter:url" content="https://peachstudio.be/macframe/">
     <meta property="twitter:title" content="Macframe | IBM Mainframe Emulator for macOS">
     <meta property="twitter:description" content="Run MVS 3.8J on your Mac with a single click. Native Apple Silicon support.">
-    <meta property="twitter:image" content="https://peachstudio.be/macframe-screenshot.jpeg">
+    <meta property="twitter:image" content="https://peachstudio.be/macframe/screenshot.jpeg">
 
     <!-- Additional Meta -->
     <meta name="theme-color" content="#00D4AA">
     <meta name="apple-itunes-app" content="app-id=macframe">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="macframe-icon.svg">
-    <link rel="alternate icon" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="alternate icon" href="../favicon.svg">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <style>
         /* Macframe-specific styles */
         :root {
@@ -433,24 +438,34 @@
     <header class="header macframe-header">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="logo.svg" alt="PEACH STUDIO" class="logo-img">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="PEACH STUDIO" class="logo-img">
                 </a>
             </div>
             <nav class="nav">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#quickstart" class="nav-link">Quick Start</a>
                 <a href="#download" class="nav-link">Download</a>
-                <a href="index.html" class="nav-link">PEACH STUDIO</a>
+                <a href="../index.html" class="nav-link">PEACH STUDIO</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../index.html#products">Products</a>
+                <span>/</span>
+                <span>Macframe</span>
+            </div>
+        </div>
+
         <section class="macframe-hero">
             <div class="container">
-                <a href="index.html" class="back-link">&larr; Back to PEACH STUDIO</a>
-                <img src="macframe-icon.svg" alt="Macframe" class="macframe-logo">
+                <a href="../index.html" class="back-link">&larr; Back to PEACH STUDIO</a>
+                <img src="icon.svg" alt="Macframe" class="macframe-logo">
                 <span class="version-badge">Version 1.1</span>
                 <h1 class="hero-title">Macframe</h1>
                 <p class="hero-subtitle">Run an IBM Mainframe on your Mac. MVS 3.8J with a single click. No configuration required.</p>
@@ -464,7 +479,7 @@
         <section class="screenshot-section">
             <div class="container">
                 <div class="screenshot-container">
-                    <img src="macframe-screenshot.jpeg" alt="Macframe running MVS 3.8J on macOS">
+                    <img src="screenshot.jpeg" alt="Macframe running MVS 3.8J on macOS">
                 </div>
             </div>
         </section>
@@ -589,7 +604,7 @@
                 <p class="hero-subtitle">Free for personal and educational use</p>
                 <a href="https://github.com/vitorallo/macframe-releases/releases/download/v1.1/Macframe-1.1.dmg" class="cta-button macframe-cta">Download v1.1 (260 MB)</a>
                 <p class="download-info">Requires macOS 13.0+ on Apple Silicon (M1/M2/M3)</p>
-                <p class="download-info"><a href="macframe-license.txt" style="color: var(--macframe-green);">View License</a></p>
+                <p class="download-info"><a href="license.txt" style="color: var(--macframe-green);">View License</a></p>
             </div>
         </section>
     </main>
@@ -621,6 +636,33 @@
             "name": "PEACH STUDIO",
             "url": "https://peachstudio.be"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://peachstudio.be/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://peachstudio.be/#products"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Macframe",
+                "item": "https://peachstudio.be/macframe/"
+            }
+        ]
     }
     </script>
 </body>

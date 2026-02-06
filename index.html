@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Performance & Resource Hints -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="logo.svg" as="image">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.linkedin.com">
+    <link rel="dns-prefetch" href="https://medium.com">
+
     <!-- Primary Meta Tags -->
     <title>PEACH STUDIO | Creative AI & Development Studio in Belgium</title>
     <meta name="title" content="PEACH STUDIO | Creative AI & Development Studio in Belgium">
@@ -50,6 +57,7 @@
                 <a href="#focus" class="nav-link">What We Do</a>
                 <a href="#products" class="nav-link">Products</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
@@ -106,9 +114,9 @@
             <div class="container">
                 <h2 class="section-title" style="font-size: 36px; margin-bottom: 32px;">Built with AI</h2>
                 <div class="product-featured">
-                    <a href="macframe.html" class="product-card-link">
+                    <a href="macframe/" class="product-card-link">
                         <div class="product-card">
-                            <img src="macframe-icon.svg" alt="Macframe" class="product-icon">
+                            <img src="macframe/icon.svg" alt="Macframe" class="product-icon">
                             <div class="product-info">
                                 <h3 class="product-title">Macframe</h3>
                                 <p class="product-tagline">IBM Mainframe emulator for macOS</p>
@@ -117,9 +125,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="profilers.html" class="product-card-link">
+                    <a href="profilers/" class="product-card-link">
                         <div class="product-card">
-                            <img src="client-profiler-icon.svg" alt="AI Profilers" class="product-icon">
+                            <img src="profilers/client-profiler-icon.svg" alt="AI Profilers" class="product-icon">
                             <div class="product-info">
                                 <h3 class="product-title">AI Profilers</h3>
                                 <p class="product-tagline">Threat & Sales Intelligence Agents</p>
@@ -188,10 +196,42 @@
                         </p>
                     </div>
                     <div class="founder-section">
-                        <img src="vito-rallo.jpg" alt="Vito Rallo - Founder of PEACH STUDIO" class="founder-photo">
+                        <img src="images/vito-rallo.jpg" alt="Vito Rallo - Founder of PEACH STUDIO" class="founder-photo">
                         <p class="founder-text">
                             Founded by <a href="https://www.linkedin.com/in/vitorallo/" target="_blank" rel="noopener noreferrer" class="founder-link">Vito Rallo</a>
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does PEACH STUDIO do?</h3>
+                        <p class="faq-answer">PEACH STUDIO is a creative AI studio that builds innovative products powered by artificial intelligence. We specialize in AI development, autonomous agents, workflow automation, and provide expert keynotes on AI and cybersecurity topics. We create products, not services.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Where is PEACH STUDIO located?</h3>
+                        <p class="faq-answer">We're based in Everberg, Belgium (Molenstraat 64, 3078 Everberg), but we serve clients worldwide. We operate primarily in the BeNeLux region and across Europe.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is MacFrame?</h3>
+                        <p class="faq-answer">MacFrame is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What are AI Profilers?</h3>
+                        <p class="faq-answer">AI Profilers are intelligent automation agents available on Apify that generate threat intelligence and sales profiles. They include the Threat Profiler (for cybersecurity risk analysis with MITRE ATT&CK mapping) and Client Profiler (for sales intelligence combining threat profiling, financial analysis, and LinkedIn data).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you offer consulting services?</h3>
+                        <p class="faq-answer">We focus on building products rather than offering traditional consulting services. However, we do provide expert keynotes and speaking engagements on AI and cybersecurity topics. For product-related questions or collaboration opportunities, please get in touch.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">How can I contact PEACH STUDIO?</h3>
+                        <p class="faq-answer">You can reach us via email at info@peachstudio.be. We're also active on LinkedIn and Medium where we share insights on AI innovation and cybersecurity.</p>
                     </div>
                 </div>
             </div>
@@ -211,6 +251,7 @@
             <p class="footer-text">&copy; 2025 PEACH STUDIO. All rights reserved.</p>
             <p class="footer-address">Molenstraat 64, 3078 Everberg, Belgium</p>
             <p class="footer-privacy">This site does not use cookies. It is a static HTML page with no tracking or data collection.</p>
+            <p class="footer-privacy"><a href="sitemap.html" style="color: var(--text-secondary); text-decoration: underline;">Sitemap</a></p>
         </div>
     </footer>
 
@@ -218,18 +259,38 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LocalBusiness",
         "name": "PEACH STUDIO",
         "url": "https://peachstudio.be",
         "logo": "https://peachstudio.be/logo.svg",
-        "description": "Creative AI studio building innovative products, autonomous agents, and digital experiences.",
+        "image": "https://peachstudio.be/logo.svg",
+        "description": "Creative AI studio building innovative products, autonomous agents, and digital experiences. Specializing in AI development, cybersecurity, and workflow automation.",
         "email": "info@peachstudio.be",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Molenstraat 64",
             "addressLocality": "Everberg",
+            "addressRegion": "Flemish Brabant",
             "postalCode": "3078",
             "addressCountry": "BE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.8472",
+            "longitude": "4.5167"
+        },
+        "founder": {
+            "@type": "Person",
+            "@id": "https://peachstudio.be/#vito-rallo",
+            "name": "Vito Rallo",
+            "jobTitle": "Founder & CEO",
+            "image": "https://peachstudio.be/images/vito-rallo.jpg",
+            "url": "https://peachstudio.be/cv/",
+            "sameAs": [
+                "https://www.linkedin.com/in/vitorallo/",
+                "https://medium.com/@vito.rallo",
+                "https://github.com/vitorallo"
+            ]
         },
         "sameAs": [
             "https://www.linkedin.com/company/peachstudiobv",
@@ -245,10 +306,47 @@
             "Cybersecurity",
             "AI Keynotes"
         ],
-        "areaServed": {
-            "@type": "Place",
-            "name": "Worldwide"
-        }
+        "areaServed": [
+            {
+                "@type": "Country",
+                "name": "Belgium"
+            },
+            {
+                "@type": "Place",
+                "name": "Europe"
+            },
+            {
+                "@type": "Place",
+                "name": "Worldwide"
+            }
+        ],
+        "priceRange": "$$",
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Creative AI & Agentic Development",
+                    "description": "Building intelligent AI products and autonomous agent systems"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI & Cybersecurity Keynotes",
+                    "description": "Expert insights and thought leadership on AI and cybersecurity topics"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Business Workflow Automation",
+                    "description": "Building automation products that streamline operations"
+                }
+            }
+        ]
     }
     </script>
 
@@ -263,6 +361,176 @@
             "@type": "Organization",
             "name": "PEACH STUDIO"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Macframe",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS 13.0+",
+        "description": "IBM Mainframe emulator for macOS. Run MVS 3.8J with a single click. Native Apple Silicon support.",
+        "url": "https://peachstudio.be/macframe/",
+        "image": "https://peachstudio.be/macframe/screenshot.jpeg",
+        "screenshot": "https://peachstudio.be/macframe/screenshot.jpeg",
+        "softwareVersion": "1.1",
+        "datePublished": "2026-01-20",
+        "author": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "description": "Free for personal and educational use"
+        },
+        "softwareRequirements": "macOS 13.0 Ventura or later, Apple Silicon (M1/M2/M3)",
+        "memoryRequirements": "4 GB RAM",
+        "storageRequirements": "500 MB",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "AI Profilers",
+        "description": "AI-powered threat intelligence and sales profiling agents. Generate target-specific threat risk profiles and sales intelligence in minutes.",
+        "url": "https://peachstudio.be/profilers/",
+        "image": "https://peachstudio.be/profilers/apify-store.jpg",
+        "brand": {
+            "@type": "Brand",
+            "name": "PEACH STUDIO"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "url": "https://apify.com/peachstudio",
+            "priceCurrency": "USD",
+            "lowPrice": "0",
+            "availability": "https://schema.org/InStock",
+            "description": "Flexible pricing with free tier available"
+        },
+        "category": "Business Intelligence Software",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Cybersecurity Professionals, Sales Teams"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://peachstudio.be/#vito-rallo",
+        "name": "Vito Rallo",
+        "jobTitle": "Founder & CEO",
+        "description": "Cybersecurity expert, visionary, and keynote speaker with 25+ years in the industry. AI Security Researcher and former Red Team head.",
+        "url": "https://peachstudio.be/cv/",
+        "image": "https://peachstudio.be/images/vito-rallo.jpg",
+        "email": "vito.rallo@gmail.com",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        },
+        "alumniOf": [
+            {
+                "@type": "Organization",
+                "name": "Kyndryl"
+            },
+            {
+                "@type": "Organization",
+                "name": "Kroll"
+            },
+            {
+                "@type": "Organization",
+                "name": "PwC"
+            },
+            {
+                "@type": "Organization",
+                "name": "IBM"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/vitorallo/",
+            "https://medium.com/@vito.rallo",
+            "https://github.com/vitorallo"
+        ],
+        "knowsAbout": [
+            "Cybersecurity",
+            "Artificial Intelligence Security",
+            "Red Teaming",
+            "Threat Intelligence",
+            "AI Development"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does PEACH STUDIO do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PEACH STUDIO is a creative AI studio that builds innovative products powered by artificial intelligence. We specialize in AI development, autonomous agents, workflow automation, and provide expert keynotes on AI and cybersecurity topics. We create products, not services."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is PEACH STUDIO located?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We're based in Everberg, Belgium (Molenstraat 64, 3078 Everberg), but we serve clients worldwide. We operate primarily in the BeNeLux region and across Europe."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is MacFrame?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MacFrame is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are AI Profilers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI Profilers are intelligent automation agents available on Apify that generate threat intelligence and sales profiles. They include the Threat Profiler (for cybersecurity risk analysis with MITRE ATT&CK mapping) and Client Profiler (for sales intelligence combining threat profiling, financial analysis, and LinkedIn data)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer consulting services?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We focus on building products rather than offering traditional consulting services. However, we do provide expert keynotes and speaking engagements on AI and cybersecurity topics. For product-related questions or collaboration opportunities, please get in touch."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I contact PEACH STUDIO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can reach us via email at info@peachstudio.be. We're also active on LinkedIn and Medium where we share insights on AI innovation and cybersecurity."
+                }
+            }
+        ]
     }
     </script>
 </body>

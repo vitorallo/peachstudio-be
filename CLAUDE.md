@@ -30,11 +30,44 @@ PEACH STUDIO is a creative AI studio based in Everberg, Belgium (Molenstraat 64,
 
 ```
 /
-├── index.html          # Main HTML file
-├── styles.css          # All styles in one file
+├── index.html          # Main site entry point
+├── styles.css          # Main site styles (shared by all pages)
 ├── logo.svg           # PEACH STUDIO logo (vectorized)
-└── CLAUDE.md          # This file
+├── favicon.svg        # Site favicon
+├── robots.txt         # SEO directives
+├── sitemap.xml        # Site map for search engines
+├── CNAME              # Custom domain configuration
+├── CLAUDE.md          # This file
+├── images/            # Main site images
+│   ├── 3d-art.jpg
+│   ├── ai-development.jpg
+│   ├── automation.jpg
+│   ├── game-development.jpg
+│   ├── keynotes.jpg
+│   ├── video-production.jpg
+│   └── vito-rallo.jpg
+├── cv/                # CV mini-site (self-contained)
+│   ├── index.html
+│   ├── style.css
+│   └── profile.jpg
+├── macframe/          # MacFrame mini-site (self-contained)
+│   ├── index.html
+│   ├── icon.svg
+│   ├── license.txt
+│   ├── screenshot.jpeg
+│   └── dasd-browser.jpg
+└── profilers/         # AI Profilers mini-site (self-contained)
+    ├── index.html
+    ├── threat-profiler-icon.svg
+    ├── client-profiler-icon.svg
+    └── apify-store.jpg
 ```
+
+**Mini-Sites:**
+- Each mini-site is self-contained with its own images and assets
+- Mini-sites link back to main site using relative paths (`../`)
+- Mini-sites share the main `styles.css` from root
+- Accessible via clean URLs: `/macframe/`, `/profilers/`, `/cv/`
 
 ## Design System
 

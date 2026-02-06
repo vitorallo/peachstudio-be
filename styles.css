@@ -57,6 +57,29 @@ body {
     padding: 0 var(--spacing-md);
 }
 
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: var(--spacing-sm) 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.breadcrumbs a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-color);
+}
+
+.breadcrumbs span {
+    margin: 0 8px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
 /* Header */
 .header {
     position: sticky;
@@ -189,27 +212,27 @@ body {
 
 /* Service-specific images */
 .service-ai {
-    background: url('ai-development.jpg') center center / cover no-repeat !important;
+    background: url('images/ai-development.jpg') center center / cover no-repeat !important;
 }
 
 .service-security {
-    background: url('keynotes.jpg') center center / cover no-repeat !important;
+    background: url('images/keynotes.jpg') center center / cover no-repeat !important;
 }
 
 .service-automation {
-    background: url('automation.jpg') center center / cover no-repeat !important;
+    background: url('images/automation.jpg') center center / cover no-repeat !important;
 }
 
 .service-gamedev {
-    background: url('game-development.jpg') center center / cover no-repeat !important;
+    background: url('images/game-development.jpg') center center / cover no-repeat !important;
 }
 
 .service-3d {
-    background: url('3d-art.jpg') center center / cover no-repeat !important;
+    background: url('images/3d-art.jpg') center center / cover no-repeat !important;
 }
 
 .service-video {
-    background: url('video-production.jpg') center center / cover no-repeat !important;
+    background: url('images/video-production.jpg') center center / cover no-repeat !important;
 }
 
 .work-card-title {
@@ -466,6 +489,51 @@ body {
 
 .keynote-card .insight-link {
     cursor: pointer;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    background-color: var(--background);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(31, 31, 31, 0.08);
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.1);
+    border-color: rgba(255, 107, 53, 0.2);
+}
+
+.faq-question {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.faq-answer {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 /* About Section */

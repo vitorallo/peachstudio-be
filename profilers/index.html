@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Performance & Resource Hints -->
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="preload" href="threat-profiler-icon.svg" as="image">
+    <link rel="dns-prefetch" href="https://apify.com">
+
     <!-- Primary Meta Tags -->
     <title>AI Profilers | Threat & Client Intelligence | PEACH STUDIO</title>
     <meta name="title" content="AI Profilers | Threat & Client Intelligence on Apify">
@@ -11,31 +16,31 @@
     <meta name="keywords" content="AI, threat intelligence, MITRE ATT&CK, cybersecurity, sales intelligence, Apify, automation, threat profiler, client profiler">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://peachstudio.be/profilers">
+    <link rel="canonical" href="https://peachstudio.be/profilers/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://peachstudio.be/profilers">
+    <meta property="og:url" content="https://peachstudio.be/profilers/">
     <meta property="og:title" content="AI Profilers | Threat & Client Intelligence">
     <meta property="og:description" content="AI-powered threat intelligence and sales profiling agents on Apify.">
-    <meta property="og:image" content="https://peachstudio.be/apify-store.jpg">
+    <meta property="og:image" content="https://peachstudio.be/profilers/apify-store.jpg">
     <meta property="og:site_name" content="PEACH STUDIO">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://peachstudio.be/profilers">
+    <meta property="twitter:url" content="https://peachstudio.be/profilers/">
     <meta property="twitter:title" content="AI Profilers | Threat & Client Intelligence">
     <meta property="twitter:description" content="AI-powered threat intelligence and sales profiling agents on Apify.">
-    <meta property="twitter:image" content="https://peachstudio.be/apify-store.jpg">
+    <meta property="twitter:image" content="https://peachstudio.be/profilers/apify-store.jpg">
 
     <!-- Additional Meta -->
     <meta name="theme-color" content="#00D4AA">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
-    <link rel="alternate icon" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <link rel="alternate icon" href="../favicon.svg">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <style>
         /* Profilers-specific styles */
         :root {
@@ -447,23 +452,33 @@
     <header class="header profilers-header">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="logo.svg" alt="PEACH STUDIO" class="logo-img">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="PEACH STUDIO" class="logo-img">
                 </a>
             </div>
             <nav class="nav">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#products" class="nav-link">Agents</a>
                 <a href="#integration" class="nav-link">API & Integration</a>
-                <a href="index.html" class="nav-link">PEACH STUDIO</a>
+                <a href="../index.html" class="nav-link">PEACH STUDIO</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../index.html#products">Products</a>
+                <span>/</span>
+                <span>AI Profilers</span>
+            </div>
+        </div>
+
         <section class="profilers-hero">
             <div class="container">
-                <a href="index.html" class="back-link">&larr; Back to PEACH STUDIO</a>
+                <a href="../index.html" class="back-link">&larr; Back to PEACH STUDIO</a>
                 <img src="threat-profiler-icon.svg" alt="AI Profilers" class="profilers-logo" style="filter: drop-shadow(0 8px 24px rgba(239, 68, 68, 0.4));" />
                 <span class="version-badge">AI-Powered</span>
                 <h1 class="hero-title">AI Profilers</h1>
@@ -632,6 +647,33 @@
             "name": "PEACH STUDIO",
             "url": "https://peachstudio.be"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://peachstudio.be/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://peachstudio.be/#products"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI Profilers",
+                "item": "https://peachstudio.be/profilers/"
+            }
+        ]
     }
     </script>
 </body>
