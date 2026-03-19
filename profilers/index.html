@@ -7,13 +7,12 @@
     <!-- Performance & Resource Hints -->
     <link rel="preload" href="../styles.css" as="style">
     <link rel="preload" href="threat-profiler-icon.svg" as="image">
-    <link rel="dns-prefetch" href="https://apify.com">
 
     <!-- Primary Meta Tags -->
-    <title>AI Profilers | Threat & Client Intelligence | PEACH STUDIO</title>
-    <meta name="title" content="AI Profilers | Threat & Client Intelligence on Apify">
-    <meta name="description" content="AI-powered threat intelligence and sales profiling agents on Apify. Generate cyber threat reports and client intelligence in minutes.">
-    <meta name="keywords" content="AI, threat intelligence, MITRE ATT&CK, cybersecurity, sales intelligence, Apify, automation, threat profiler, client profiler">
+    <title>Business Profiler | Claude Code Plugin | PEACH STUDIO</title>
+    <meta name="title" content="Business Profiler | Threat Intelligence & Sales Targeting Plugin for Claude Code">
+    <meta name="description" content="Claude Code plugin for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting. 7 skills, 16 scripts, PDF reports. Free and open source.">
+    <meta name="keywords" content="Claude Code, plugin, threat intelligence, MITRE ATT&CK, cybersecurity, sales targeting, attack surface, KYC, OSINT">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://peachstudio.be/profilers/">
@@ -21,20 +20,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://peachstudio.be/profilers/">
-    <meta property="og:title" content="AI Profilers | Threat & Client Intelligence">
-    <meta property="og:description" content="AI-powered threat intelligence and sales profiling agents on Apify.">
-    <meta property="og:image" content="https://peachstudio.be/profilers/apify-store.jpg">
+    <meta property="og:title" content="Business Profiler | Claude Code Plugin for Threat Intelligence & Sales Targeting">
+    <meta property="og:description" content="7 skills for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting. Open source Claude Code plugin.">
     <meta property="og:site_name" content="PEACH STUDIO">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://peachstudio.be/profilers/">
-    <meta property="twitter:title" content="AI Profilers | Threat & Client Intelligence">
-    <meta property="twitter:description" content="AI-powered threat intelligence and sales profiling agents on Apify.">
-    <meta property="twitter:image" content="https://peachstudio.be/profilers/apify-store.jpg">
+    <meta property="twitter:title" content="Business Profiler | Claude Code Plugin">
+    <meta property="twitter:description" content="7 skills for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting.">
 
     <!-- Additional Meta -->
-    <meta name="theme-color" content="#00D4AA">
+    <meta name="theme-color" content="#E86B3F">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../logo.svg">
@@ -42,71 +39,58 @@
 
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* Profilers-specific styles */
         :root {
-            --profilers-green: #00D4AA;
-            --profilers-dark: #1a1a2e;
-            --profilers-bg: #0a0a14;
+            --profilers-accent: #E86B3F;
+            --profilers-accent-light: #F5A582;
+            --profilers-dark: #2F2218;
+            --profilers-bg: #FFF5F0;
         }
 
         .profilers-hero {
             padding: var(--spacing-xl) 0 var(--spacing-lg);
             text-align: center;
-            background: linear-gradient(135deg, var(--profilers-dark) 0%, #16213e 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFEEE4 100%);
+            color: var(--profilers-dark);
         }
 
         .profilers-logo {
             width: 120px;
             height: 120px;
             margin-bottom: var(--spacing-md);
-            filter: drop-shadow(0 8px 24px rgba(124, 58, 237, 0.3));
+            filter: drop-shadow(0 8px 24px rgba(232, 107, 63, 0.4));
         }
 
-        .profilers-hero .hero-title {
-            color: var(--white);
-            font-size: clamp(42px, 6vw, 64px);
-        }
-
-        .profilers-hero .hero-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-        }
+        .profilers-hero .hero-title { color: var(--profilers-dark); font-size: clamp(42px, 6vw, 64px); }
+        .profilers-hero .hero-subtitle { color: #6b5344; max-width: 700px; }
 
         .profilers-cta {
-            background-color: var(--profilers-green);
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            background-color: var(--profilers-accent);
+            box-shadow: 0 4px 20px rgba(232, 107, 63, 0.4);
         }
-
         .profilers-cta:hover {
-            background-color: #6d28d9;
-            box-shadow: 0 6px 28px rgba(124, 58, 237, 0.5);
+            background-color: #C85A34;
+            box-shadow: 0 6px 28px rgba(232, 107, 63, 0.5);
         }
 
         .profilers-cta-secondary {
             background-color: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(232, 107, 63, 0.4);
+            color: #E86B3F;
             box-shadow: none;
             margin-left: var(--spacing-sm);
         }
-
         .profilers-cta-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(232, 107, 63, 0.08);
+            border-color: #E86B3F;
             box-shadow: none;
         }
 
-        .cta-group {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .cta-group { display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; }
 
         .version-badge {
             display: inline-block;
-            background: rgba(0, 212, 170, 0.2);
-            color: var(--profilers-green);
+            background: rgba(232, 107, 63, 0.2);
+            color: var(--profilers-accent);
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 14px;
@@ -114,29 +98,32 @@
             margin-bottom: var(--spacing-md);
         }
 
-        .screenshot-section {
+        .install-section {
             padding: var(--spacing-xl) 0;
-            background: linear-gradient(180deg, #16213e 0%, var(--background) 100%);
+            background: linear-gradient(180deg, #FFEEE4 0%, var(--background) 100%);
         }
 
-        .screenshot-container {
-            max-width: 900px;
+        .install-box {
+            max-width: 700px;
             margin: 0 auto;
+            background: var(--profilers-dark);
             border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(232, 107, 63, 0.2);
         }
 
-        .screenshot-container img {
-            width: 100%;
-            height: auto;
+        .install-box code {
             display: block;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #F5A582;
+            line-height: 2;
         }
 
-        .features-section {
-            padding: var(--spacing-xxl) 0;
-            background-color: var(--background);
-        }
+        .install-box .comment { color: rgba(255, 255, 255, 0.4); }
+        .install-box .command { color: #E86B3F; }
+
+        .features-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
 
         .features-grid {
             display: grid;
@@ -145,11 +132,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        @media (max-width: 640px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
 
         .feature-card {
             background-color: var(--white);
@@ -158,39 +141,21 @@
             border: 1px solid rgba(31, 31, 31, 0.08);
             transition: var(--transition);
         }
-
         .feature-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 212, 170, 0.1);
-            border-color: rgba(0, 212, 170, 0.3);
+            box-shadow: 0 12px 40px rgba(232, 107, 63, 0.1);
+            border-color: rgba(232, 107, 63, 0.3);
         }
 
-        .feature-icon {
-            font-size: 36px;
-            margin-bottom: var(--spacing-sm);
-        }
+        .feature-icon { font-size: 36px; margin-bottom: var(--spacing-sm); }
+        .feature-title { font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--spacing-xs); }
+        .feature-description { color: var(--text-secondary); font-size: 16px; line-height: 1.6; }
 
-        .feature-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-xs);
-        }
+        .skills-section { padding: var(--spacing-xxl) 0; background-color: #FFF5F0; }
 
-        .feature-description {
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .products-section {
-            padding: var(--spacing-xxl) 0;
-            background-color: var(--white);
-        }
-
-        .products-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--spacing-md);
             margin-top: var(--spacing-lg);
             max-width: 1000px;
@@ -198,253 +163,119 @@
             margin-right: auto;
         }
 
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .product-card {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        .skill-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: var(--radius-md);
             padding: var(--spacing-md);
-            border: 1px solid rgba(0, 212, 170, 0.2);
+            border: 1px solid rgba(232, 107, 63, 0.2);
             transition: var(--transition);
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(232, 107, 63, 0.25);
+            border-color: rgba(232, 107, 63, 0.4);
+        }
+
+        .skill-name { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+        .skill-command { color: #E86B3F; font-size: 13px; font-family: 'Courier New', monospace; margin-bottom: var(--spacing-xs); }
+        .skill-description { color: rgba(255, 255, 255, 0.6); font-size: 14px; line-height: 1.5; }
+
+        .screenshots-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) { .screenshots-grid { grid-template-columns: 1fr; } }
+
+        .screenshot-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            position: relative;
+        }
+
+        .screenshot-img-wrapper {
+            width: 100%;
+            height: 220px;
             overflow: hidden;
         }
 
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
-            opacity: 0;
-            transition: var(--transition);
+        .screenshot-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
         }
 
-        .product-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(0, 212, 170, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 212, 170, 0.25);
-            border-color: rgba(0, 212, 170, 0.4);
-        }
-
-        .product-icon {
-            width: 64px;
-            height: 64px;
-            flex-shrink: 0;
-            filter: drop-shadow(0 2px 8px rgba(0, 212, 170, 0.3));
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-card-content {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-name {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 4px;
-        }
-
-        .product-tagline {
-            color: #00D4AA;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: var(--spacing-xs);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .product-description {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .product-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            color: #00D4AA;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-link {
-            gap: 8px;
-            color: #00e6c3;
-        }
-
-        @media (max-width: 768px) {
-            .product-card {
-                flex-direction: column;
-                text-align: center;
-                padding: var(--spacing-md);
-            }
-
-            .product-icon {
-                width: 56px;
-                height: 56px;
-            }
-
-            .product-name {
-                font-size: 20px;
-            }
-
-            .product-description {
-                font-size: 13px;
-            }
+        .screenshot-caption {
+            padding: 10px 14px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: #f8f6f4;
+            text-align: center;
         }
 
         .download-section {
             padding: var(--spacing-xxl) 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--profilers-dark) 0%, #312e81 100%);
+            background: linear-gradient(135deg, #2F2218 0%, #4a3020 100%);
             color: var(--white);
         }
-
-        .download-section .section-title {
-            color: var(--white);
-        }
-
-        .download-info {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-top: var(--spacing-md);
-        }
+        .download-section .section-title { color: var(--white); }
+        .download-info { color: rgba(255, 255, 255, 0.7); font-size: 14px; margin-top: var(--spacing-md); }
 
         .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: var(--spacing-md);
-            transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #6b5344; text-decoration: none; font-size: 14px;
+            margin-bottom: var(--spacing-md); transition: var(--transition);
         }
-
-        .back-link:hover {
-            color: var(--white);
-        }
+        .back-link:hover { color: var(--profilers-accent); }
 
         .profilers-header {
-            background-color: rgba(26, 26, 46, 0.98);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 245, 240, 0.95);
+            border-bottom: 1px solid rgba(232, 107, 63, 0.15);
+            backdrop-filter: blur(8px);
         }
+        .profilers-header .nav-link { color: #6b5344; }
+        .profilers-header .nav-link:hover { color: var(--profilers-accent); background-color: rgba(232, 107, 63, 0.08); }
+        .profilers-header .logo-img { filter: none; }
+        .profilers-footer { background-color: #2F2218; }
 
-        .profilers-header .nav-link {
-            color: rgba(255, 255, 255, 0.8);
+        body > main > .breadcrumbs {
+            background-color: rgba(255, 238, 228, 0.95);
+            border-bottom: 1px solid rgba(232, 107, 63, 0.15);
+            color: #6b5344;
         }
+        body > main > .breadcrumbs a { color: #E86B3F; }
+        body > main > .breadcrumbs a:hover { color: #C85A34; }
+        body > main > .breadcrumbs span { color: #c0a898; }
 
-        .profilers-header .nav-link:hover {
-            color: var(--profilers-green);
-            background-color: rgba(0, 212, 170, 0.1);
-        }
-
-        .profilers-header .logo-img {
-            filter: brightness(0) invert(1);
-        }
-
-        .profilers-footer {
-            background-color: var(--profilers-bg);
-        }
-
-        .integration-text {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .integration-heading {
-            font-size: 28px;
-            margin-bottom: var(--spacing-md);
-            text-align: center;
-            color: var(--text-primary);
-        }
 
         @media (max-width: 768px) {
-            .cta-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profilers-cta-secondary {
-                margin-left: 0;
-            }
-
-            .profilers-hero .hero-title {
-                font-size: 38px;
-            }
-
-            .profilers-logo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .integration-heading {
-                font-size: 24px;
-            }
-
-            .integration-text {
-                font-size: 16px;
-            }
-
-            .profilers-header .container {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .profilers-header .nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: var(--spacing-xs);
-            }
-
-            .profilers-header .nav-link {
-                font-size: 14px;
-                padding: 6px 12px;
-            }
+            .cta-group { flex-direction: column; align-items: center; }
+            .profilers-cta-secondary { margin-left: 0; }
+            .profilers-hero .hero-title { font-size: 38px; }
+            .profilers-logo { width: 80px; height: 80px; }
+            .features-grid, .skills-grid { grid-template-columns: 1fr; }
+            .profilers-header .container { flex-direction: column; gap: var(--spacing-sm); }
+            .profilers-header .nav { flex-wrap: wrap; justify-content: center; gap: var(--spacing-xs); }
+            .profilers-header .nav-link { font-size: 14px; padding: 6px 12px; }
         }
     </style>
 </head>
@@ -457,9 +288,9 @@
                 </a>
             </div>
             <nav class="nav">
+                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#features" class="nav-link">Features</a>
-                <a href="#products" class="nav-link">Agents</a>
-                <a href="#integration" class="nav-link">API & Integration</a>
+                <a href="#install" class="nav-link">Install</a>
                 <a href="../index.html" class="nav-link">PEACH STUDIO</a>
             </nav>
         </div>
@@ -472,152 +303,151 @@
                 <span>/</span>
                 <a href="../index.html#products">Products</a>
                 <span>/</span>
-                <span>AI Profilers</span>
+                <span>Business Profiler</span>
             </div>
         </div>
 
         <section class="profilers-hero">
             <div class="container">
                 <a href="../index.html" class="back-link">&larr; Back to PEACH STUDIO</a>
-                <img src="threat-profiler-icon.svg" alt="AI Profilers" class="profilers-logo" style="filter: drop-shadow(0 8px 24px rgba(239, 68, 68, 0.4));" />
-                <span class="version-badge">AI-Powered</span>
-                <h1 class="hero-title">AI Profilers</h1>
-                <p class="hero-subtitle">Generate target-specific threat risk profiles and sales intelligence in minutes with AI-driven automation on Apify.</p>
+                <img src="threat-profiler-icon.svg" alt="Business Profiler" class="profilers-logo" />
+                <span class="version-badge">Claude Code Plugin</span>
+                <h1 class="hero-title">Business (cyber)Profiler</h1>
+                <p class="hero-subtitle">Threat intelligence, attack surface assessment, and strategic cyber sales targeting for Claude Code. 7 skills, 16 scripts, PDF reports. Free and open source.</p>
                 <div class="cta-group">
-                    <a href="https://apify.com/peachstudio" target="_blank" class="cta-button profilers-cta">View on Apify Store</a>
-                    <a href="#products" class="cta-button profilers-cta-secondary">Explore Agents</a>
+                    <a href="https://github.com/vitorallo/business-profiler" target="_blank" class="cta-button profilers-cta">View on GitHub</a>
+                    <a href="#skills" class="cta-button profilers-cta-secondary">See the skills</a>
                 </div>
+                <p style="color:#6b5344;font-size:13px;margin-top:12px;opacity:0.6;">documentation included</p>
             </div>
         </section>
 
-        <section class="screenshot-section">
+        <section class="install-section">
             <div class="container">
-                <div class="screenshot-container">
-                    <img src="apify-store.jpg" alt="PEACH STUDIO on Apify Store">
+                <div class="install-box">
+                    <code>
+                        <span class="comment"># Add the PEACH STUDIO marketplace</span><br>
+                        <span class="command">/plugin marketplace add vitorallo/peach-studio-marketplace</span><br><br>
+                        <span class="comment"># Install Business Profiler</span><br>
+                        <span class="command">/plugin install business-profiler@peach-studio</span>
+                    </code>
                 </div>
             </div>
         </section>
 
         <section id="features" class="features-section">
             <div class="container">
-                <h2 class="section-title">Features</h2>
+                <h2 class="section-title">What it does</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <h3 class="feature-title">AI-Powered Analysis</h3>
-                        <p class="feature-description">Leverage advanced AI to analyze threat actors, financial data, and LinkedIn profiles automatically.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3 class="feature-title">Minutes, Not Hours</h3>
-                        <p class="feature-description">Generate comprehensive intelligence reports in minutes that would take hours to compile manually.</p>
-                    </div>
-                    <div class="feature-card">
                         <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Threat-Informed Defense</h3>
-                        <p class="feature-description">Target-specific risk and exposure analysis mapped to MITRE ATT&CK framework for intelligence-driven security decisions.</p>
+                        <h3 class="feature-title">Threat profiling</h3>
+                        <p class="feature-description">Target-specific risk and exposure analysis mapped to MITRE ATT&CK. Sector-specific threat actors, TTPs, and breach history.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔗</div>
-                        <h3 class="feature-title">Apify Platform</h3>
-                        <p class="feature-description">Run on Apify's cloud infrastructure with scheduling, webhooks, and API access.</p>
+                        <div class="feature-icon">🌐</div>
+                        <h3 class="feature-title">Attack surface recon</h3>
+                        <p class="feature-description">Subdomains, cloud detection, email security audit, SSL/TLS, tech stack fingerprinting, WHOIS. 8 scripts running in parallel.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3 class="feature-title">Structured Data</h3>
-                        <p class="feature-description">Export results in JSON, CSV, or integrate directly with your security or sales tools.</p>
+                        <div class="feature-icon">💰</div>
+                        <h3 class="feature-title">Sales targeting</h3>
+                        <p class="feature-description">Turn threat data into account strategy. 38-service catalog, financial analysis, regulatory pressure, contact intelligence, engagement plans.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <h3 class="feature-title">Automated Workflows</h3>
-                        <p class="feature-description">Schedule regular profiling runs and integrate with your existing automation pipelines.</p>
+                        <div class="feature-icon">📋</div>
+                        <h3 class="feature-title">Regulatory analysis</h3>
+                        <p class="feature-description">NIS2, DORA, GDPR, CRA, HIPAA, PCI-DSS, SOC2, CMMC. Deadlines, penalties, and compliance gap assessment per sector and country.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📄</div>
+                        <h3 class="feature-title">PDF reports</h3>
+                        <p class="feature-description">Markdown and PDF output with Mermaid diagrams for org charts and attack surface maps. Styled with the Peach Studio theme.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔓</div>
+                        <h3 class="feature-title">Free data sources</h3>
+                        <p class="feature-description">No API keys needed. Uses crt.sh, MITRE ATT&CK STIX, XposedOrNot, CISA KEV, Wikidata, RDAP, and Claude's WebSearch.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="products" class="products-section">
+        <section id="skills" class="skills-section">
             <div class="container">
-                <h2 class="section-title">Our Agents</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <img src="threat-profiler-icon.svg" alt="Threat Profiler" class="product-icon">
-                        <div class="product-card-content">
-                            <h3 class="product-name">Threat Profiler</h3>
-                            <p class="product-tagline">peachstudio/threat-profiler</p>
-                            <p class="product-description">Generate target-specific threat risk and exposure reports in minutes. Intelligence-driven analysis with MITRE ATT&CK mappings for threat-informed defense.</p>
-                            <a href="https://apify.com/peachstudio/threat-profiler" target="_blank" class="product-link">View on Apify →</a>
+                <h2 class="section-title">7 Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3 class="skill-name">Full Profile</h3>
+                        <p class="skill-command">/business-profiler:full-profile</p>
+                        <p class="skill-description">The complete pipeline. Recon, business intel, threat actors, regulatory context, OT/ICS assessment, 15-20 page PDF report.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">Threat Profile</h3>
+                        <p class="skill-command">/business-profiler:threat-profile</p>
+                        <p class="skill-description">Threat-focused. Lightweight recon with deep threat actor analysis, breach intel, incident research, and regulatory context.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">Attack Surface</h3>
+                        <p class="skill-command">/business-profiler:attack-surface</p>
+                        <p class="skill-description">Infrastructure recon only. Subdomains, cloud providers, email security, SSL/TLS, tech stack, no threat actor analysis.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">Threat Actors</h3>
+                        <p class="skill-command">/business-profiler:threat-actors</p>
+                        <p class="skill-description">MITRE ATT&CK lookup by sector, actor name, or country. Returns actor profiles with TTPs and targeting relevance.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">OT/ICS Assessment</h3>
+                        <p class="skill-command">/business-profiler:ot-ics-assessment</p>
+                        <p class="skill-description">Industrial control systems focus. ICS subdomain patterns, OT threat actors, Purdue model mapping, ICS malware intel.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">Incident Lookup</h3>
+                        <p class="skill-command">/business-profiler:incident-lookup</p>
+                        <p class="skill-description">WebSearch-based breach and incident research. Timeline of incidents with dates, actors, impact, and source URLs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-name">Sales Targeting</h3>
+                        <p class="skill-command">/business-profiler:sales-targeting</p>
+                        <p class="skill-description">6-part account strategy report. Financial analysis, 38-service catalog with pricing, contact intelligence, engagement sequence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshots-section">
+            <div class="container">
+                <h2 class="section-title">In action</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-item">
+                        <div class="screenshot-img-wrapper">
+                            <img src="screenshot-browse-plugins.jpg" alt="Business Profiler in Claude Desktop plugin browser" loading="lazy">
                         </div>
+                        <p class="screenshot-caption">Browse and install from the marketplace</p>
                     </div>
-                    <div class="product-card">
-                        <img src="client-profiler-icon.svg" alt="Client Profiler" class="product-icon">
-                        <div class="product-card-content">
-                            <h3 class="product-name">Client Profiler</h3>
-                            <p class="product-tagline">peachstudio/client-profiler</p>
-                            <p class="product-description">AI Sales Intelligence for Cybersecurity teams. Combines threat profiling, financial analysis, and LinkedIn contacts in one comprehensive report for targeted sales outreach.</p>
-                            <a href="https://apify.com/peachstudio/client-profiler" target="_blank" class="product-link">View on Apify →</a>
+                    <div class="screenshot-item">
+                        <div class="screenshot-img-wrapper">
+                            <img src="screenshot-desktop-skills.jpg" alt="Business Profiler skills in Claude Desktop" loading="lazy">
                         </div>
+                        <p class="screenshot-caption">7 skills in Claude Desktop</p>
+                    </div>
+                    <div class="screenshot-item">
+                        <div class="screenshot-img-wrapper">
+                            <img src="screenshot-cli-install.jpg" alt="Business Profiler installed in Claude Code CLI" loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">Install via Claude Code CLI</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="integration" class="features-section">
+        <section id="install" class="download-section">
             <div class="container">
-                <h2 class="section-title">API-First Architecture</h2>
-                <p class="hero-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-lg);">
-                    All profilers are available via REST API. Use them standalone on Apify or integrate directly into your existing tools and workflows.
-                </p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔌</div>
-                        <h3 class="feature-title">EASM Integration</h3>
-                        <p class="feature-description">Enrich your External Attack Surface Management platform with automated threat intelligence. Pull threat profiles directly into your EASM dashboard via API.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📇</div>
-                        <h3 class="feature-title">CRM Enrichment</h3>
-                        <p class="feature-description">Automatically enrich client records in your CRM with threat profiles, financial data, and key contacts. Perfect for targeted security sales outreach.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛠️</div>
-                        <h3 class="feature-title">Custom Workflows</h3>
-                        <p class="feature-description">Build custom automation workflows using webhooks, scheduled runs, and API integrations. Extend the profilers with your own business logic.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Standalone Usage</h3>
-                        <p class="feature-description">Run directly on Apify without any integration. Perfect for ad-hoc research, threat hunting, or competitive intelligence gathering.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔐</div>
-                        <h3 class="feature-title">SOC Automation</h3>
-                        <p class="feature-description">Integrate threat profiles into your Security Operations Center workflows. Automatically enrich alerts with actor intelligence and TTPs.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3 class="feature-title">BI & Analytics</h3>
-                        <p class="feature-description">Export structured data to your BI tools. Build custom dashboards and reports combining threat intelligence with your own data sources.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: var(--spacing-xl);">
-                    <h3 class="integration-heading">The Power of API Access</h3>
-                    <p class="integration-text">
-                        Unlike traditional threat intelligence platforms that lock you into their ecosystem, our profilers are available as composable APIs.
-                        This means you can integrate them into any tool you already use—your EASM platform, CRM, ticketing system, or custom dashboards.
-                        Run them standalone on Apify for quick research, or build sophisticated automation pipelines that continuously update your security
-                        and sales intelligence. You own the data, you control the workflow.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="apify" class="download-section">
-            <div class="container">
-                <h2 class="section-title">Available on Apify</h2>
-                <p class="hero-subtitle">Run on-demand or schedule automated profiling</p>
-                <a href="https://apify.com/peachstudio" target="_blank" class="cta-button profilers-cta">Visit PEACH STUDIO on Apify</a>
-                <p class="download-info">Flexible pricing with free tier available</p>
+                <h2 class="section-title">Get started</h2>
+                <p class="hero-subtitle">Works in Claude Code CLI, Claude Desktop, and VS Code</p>
+                <a href="https://github.com/vitorallo/business-profiler" target="_blank" class="cta-button profilers-cta">GitHub Repository</a>
+                <p class="download-info">MIT License. Free and open source.</p>
             </div>
         </section>
     </main>
@@ -625,28 +455,30 @@
     <footer class="footer profilers-footer">
         <div class="container">
             <p class="footer-text">&copy; 2025 PEACH STUDIO. All rights reserved.</p>
-            <p class="footer-address">AI-powered automation for cybersecurity and sales intelligence</p>
+            <p class="footer-address">AI-powered tools for cybersecurity intelligence and sales targeting</p>
         </div>
     </footer>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "AI Profilers by PEACH STUDIO",
+        "name": "Business Profiler",
         "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cross-platform",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "AI-powered threat intelligence and sales profiling agents on Apify platform.",
+        "description": "Claude Code plugin for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting. 7 skills, 16 scripts, PDF reports.",
         "author": {
             "@type": "Organization",
             "name": "PEACH STUDIO",
             "url": "https://peachstudio.be"
-        }
+        },
+        "downloadUrl": "https://github.com/vitorallo/business-profiler",
+        "license": "https://opensource.org/licenses/MIT"
     }
     </script>
 
@@ -655,24 +487,9 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://peachstudio.be/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Products",
-                "item": "https://peachstudio.be/#products"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "AI Profilers",
-                "item": "https://peachstudio.be/profilers/"
-            }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://peachstudio.be/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://peachstudio.be/#products" },
+            { "@type": "ListItem", "position": 3, "name": "Business Profiler", "item": "https://peachstudio.be/profilers/" }
         ]
     }
     </script>

@@ -127,11 +127,11 @@
                     </a>
                     <a href="profilers/" class="product-card-link">
                         <div class="product-card">
-                            <img src="profilers/client-profiler-icon.svg" alt="AI Profilers" class="product-icon">
+                            <img src="profilers/threat-profiler-icon.svg" alt="Business Profiler" class="product-icon">
                             <div class="product-info">
-                                <h3 class="product-title">AI Profilers</h3>
-                                <p class="product-tagline">Threat & Sales Intelligence Agents</p>
-                                <p class="product-description">Generate target-specific threat risk profiles and sales intelligence in minutes. Intelligence-driven automation for threat-informed defense and sales outreach.</p>
+                                <h3 class="product-title">Business Profiler</h3>
+                                <p class="product-tagline">Claude Code Plugin</p>
+                                <p class="product-description">Threat intelligence, attack surface assessment, and sales targeting for Claude Code. 7 skills, 16 scripts, PDF reports. Free and open source.</p>
                                 <span class="product-cta">Learn More &rarr;</span>
                             </div>
                         </div>
@@ -167,6 +167,7 @@
                         <p class="insight-description">Connect and follow updates on LinkedIn</p>
                         <span class="insight-link">Connect on LinkedIn →</span>
                     </a>
+                    <!-- Keynote card hidden for now
                     <div class="insight-card keynote-card">
                         <div class="insight-icon">
                             <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
@@ -177,6 +178,15 @@
                         <p class="insight-description">Book speaking engagements on AI and Cybersecurity</p>
                         <a href="#contact" class="insight-link">Get in Touch →</a>
                     </div>
+                    -->
+                    <a href="https://github.com/vitorallo/peach-studio-marketplace" target="_blank" rel="noopener noreferrer" class="insight-card">
+                        <div class="insight-icon">
+                            <img src="images/claude-code-icon.svg" alt="Claude Code" width="48" height="48">
+                        </div>
+                        <h3 class="insight-title">Claude Code Marketplace</h3>
+                        <p class="insight-description">Install our plugins for Claude Code and Claude Desktop</p>
+                        <span class="insight-link">View on GitHub →</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -222,8 +232,8 @@
                         <p class="faq-answer">MacFrame is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use.</p>
                     </div>
                     <div class="faq-item">
-                        <h3 class="faq-question">What are AI Profilers?</h3>
-                        <p class="faq-answer">AI Profilers are intelligent automation agents available on Apify that generate threat intelligence and sales profiles. They include the Threat Profiler (for cybersecurity risk analysis with MITRE ATT&CK mapping) and Client Profiler (for sales intelligence combining threat profiling, financial analysis, and LinkedIn data).</p>
+                        <h3 class="faq-question">What is Business Profiler?</h3>
+                        <p class="faq-answer">Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. The sales-targeting skill turns that data into account strategy with a 38-service catalog and engagement plans. Available on <a href="https://github.com/vitorallo/business-profiler">GitHub</a>.</p>
                     </div>
                     <div class="faq-item">
                         <h3 class="faq-question">Do you offer consulting services?</h3>
@@ -403,21 +413,20 @@
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": "AI Profilers",
-        "description": "AI-powered threat intelligence and sales profiling agents. Generate target-specific threat risk profiles and sales intelligence in minutes.",
+        "name": "Business Profiler",
+        "description": "Claude Code plugin for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting. 7 skills, 16 scripts, PDF reports.",
         "url": "https://peachstudio.be/profilers/",
-        "image": "https://peachstudio.be/profilers/apify-store.jpg",
         "brand": {
             "@type": "Brand",
             "name": "PEACH STUDIO"
         },
         "offers": {
-            "@type": "AggregateOffer",
-            "url": "https://apify.com/peachstudio",
+            "@type": "Offer",
+            "url": "https://github.com/vitorallo/business-profiler",
             "priceCurrency": "USD",
-            "lowPrice": "0",
+            "price": "0",
             "availability": "https://schema.org/InStock",
-            "description": "Flexible pricing with free tier available"
+            "description": "Free and open source (MIT License)"
         },
         "category": "Business Intelligence Software",
         "audience": {
@@ -507,10 +516,10 @@
             },
             {
                 "@type": "Question",
-                "name": "What are AI Profilers?",
+                "name": "What is Business Profiler?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "AI Profilers are intelligent automation agents available on Apify that generate threat intelligence and sales profiles. They include the Threat Profiler (for cybersecurity risk analysis with MITRE ATT&CK mapping) and Client Profiler (for sales intelligence combining threat profiling, financial analysis, and LinkedIn data)."
+                    "text": "Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. The sales-targeting skill turns that data into account strategy with a 38-service catalog and engagement plans."
                 }
             },
             {
