@@ -2,31 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://peachstudio.be/</loc>
-        <lastmod>2025-12-23</lastmod>
+        <lastmod>2026-03-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://peachstudio.be/#focus</loc>
-        <lastmod>2025-12-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://peachstudio.be/#insights</loc>
-        <lastmod>2025-12-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://peachstudio.be/#about</loc>
-        <lastmod>2025-12-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://peachstudio.be/#contact</loc>
-        <lastmod>2025-12-23</lastmod>
+        <loc>https://peachstudio.be/profilers/</loc>
+        <lastmod>2026-03-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -37,20 +19,14 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://peachstudio.be/profilers/</loc>
-        <lastmod>2025-02-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://peachstudio.be/cv/</loc>
-        <lastmod>2025-02-06</lastmod>
+        <lastmod>2026-03-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://peachstudio.be/privacy.html</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-03-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
