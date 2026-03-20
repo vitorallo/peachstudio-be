@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /abstracts/
 
 # Sitemap location
 Sitemap: https://peachstudio.be/sitemap.xml
