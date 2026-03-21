@@ -182,6 +182,38 @@
         .skill-command { color: #E86B3F; font-size: 13px; font-family: 'Courier New', monospace; margin-bottom: var(--spacing-xs); }
         .skill-description { color: rgba(255, 255, 255, 0.6); font-size: 14px; line-height: 1.5; }
 
+        .samples-section { padding: var(--spacing-xxl) 0; background-color: var(--white); }
+
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 640px) { .samples-grid { grid-template-columns: 1fr; } }
+
+        .sample-card {
+            display: block;
+            text-decoration: none;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFEEE4 100%);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(232, 107, 63, 0.15);
+            transition: var(--transition);
+        }
+        .sample-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(232, 107, 63, 0.15);
+            border-color: rgba(232, 107, 63, 0.4);
+        }
+
+        .sample-icon { font-size: 40px; margin-bottom: var(--spacing-sm); }
+        .sample-title { font-size: 22px; font-weight: 700; color: var(--profilers-dark); margin-bottom: var(--spacing-xs); }
+        .sample-description { color: #6b5344; font-size: 15px; line-height: 1.6; margin-bottom: var(--spacing-sm); }
+        .sample-link { color: var(--profilers-accent); font-weight: 600; font-size: 15px; }
+
         .screenshots-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
 
         .screenshots-grid {
@@ -414,6 +446,27 @@
                         <p class="skill-command">/business-profiler:sales-targeting</p>
                         <p class="skill-description">6-part account strategy report. Financial analysis, 38-service catalog with pricing, contact intelligence, engagement sequence.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="samples-section">
+            <div class="container">
+                <h2 class="section-title">Sample reports</h2>
+                <p class="section-intro" style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Fictional mockup reports for "Nexagen" showing what the plugin generates.</p>
+                <div class="samples-grid">
+                    <a href="https://github.com/vitorallo/business-profiler/blob/main/docs/sample-reports/threat_profile_nexagen.pdf" target="_blank" rel="noopener noreferrer" class="sample-card">
+                        <div class="sample-icon">🛡️</div>
+                        <h3 class="sample-title">Threat Profile</h3>
+                        <p class="sample-description">Full threat intelligence report with MITRE ATT&CK mapping, breach history, threat actors, regulatory exposure, and risk scoring.</p>
+                        <span class="sample-link">View PDF &rarr;</span>
+                    </a>
+                    <a href="https://github.com/vitorallo/business-profiler/blob/main/docs/sample-reports/strategic_targeting_nexagen.pdf" target="_blank" rel="noopener noreferrer" class="sample-card">
+                        <div class="sample-icon">📊</div>
+                        <h3 class="sample-title">Sales Targeting</h3>
+                        <p class="sample-description">Strategic account report with financial analysis, 38-service catalog, regulatory pressure, contact intelligence, and engagement plans.</p>
+                        <span class="sample-link">View PDF &rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
