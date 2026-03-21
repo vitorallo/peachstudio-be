@@ -8,12 +8,48 @@ PEACH STUDIO is a creative AI studio founded by Vito Rallo, a cybersecurity expe
 
 ## Products
 
-- [Macframe](https://peachstudio.be/macframe/): IBM Mainframe emulator for macOS. Run MVS 3.8J on your Mac with a single click. Native Apple Silicon support. Free for personal and educational use.
-- [Business Profiler](https://peachstudio.be/profilers/): Claude Code plugin for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting. 7 skills, 16 scripts, PDF reports. Free and open source (MIT License).
+### Macframe
+- URL: https://peachstudio.be/macframe/
+- Description: IBM Mainframe emulator for macOS. Run MVS 3.8J on your Mac with a single click.
+- Version: 1.1
+- Requirements: macOS 13.0 Ventura or later, Apple Silicon (M1/M2/M3), 4 GB RAM, 500 MB disk space
+- Features: One-click MVS 3.8J setup, native 3270 terminal, DASD browser, Apple Silicon native
+- Built with: Hercules (SDL), MVS 3.8J TK5, x3270/c3270, SwiftTerm
+- License: Free for personal and educational use
+- Download: https://github.com/vitorallo/macframe/releases
+
+### Business Profiler
+- URL: https://peachstudio.be/profilers/
+- Description: Claude Code plugin for cybersecurity threat intelligence, attack surface assessment, and strategic sales targeting.
+- Skills: Full Profile, Threat Profile, Attack Surface, Threat Actors, OT/ICS Assessment, Incident Lookup, Sales Targeting
+- Features: 7 skills, 16 scripts, PDF reports, no API keys required, free data sources only
+- License: MIT (free and open source)
+- Source: https://github.com/vitorallo/business-profiler
 
 ## Founder
 
-Vito Rallo - Cybersecurity expert, AI Security Researcher, and keynote speaker. Former Red Team head at Kroll, Director at PwC, Senior Engineer at IBM. 25+ years in the industry.
+Vito Rallo - Cybersecurity expert, AI Security Researcher, and keynote speaker with 25+ years in the industry. Former Global Head of Red Team at Kroll, Director at PwC, Senior Engineer at IBM X-Force. Specializes in Red Teaming, AI Security, Threat Intelligence, OT/ICS Security, and Incident Response. Currently focused on AI Agentic Security and building innovative security tools.
+
+- LinkedIn: https://www.linkedin.com/in/vitorallo/
+- Medium: https://medium.com/@vito.rallo
+- GitHub: https://github.com/vitorallo
+
+## FAQ
+
+Q: What does PEACH STUDIO do?
+A: PEACH STUDIO is a creative AI studio that builds innovative products powered by artificial intelligence. We specialize in AI development, autonomous agents, workflow automation, and provide expert keynotes on AI and cybersecurity topics. We create products, not services.
+
+Q: Where is PEACH STUDIO located?
+A: Everberg, Belgium (Molenstraat 64, 3078 Everberg). We operate primarily in the BeNeLux region and across Europe.
+
+Q: What is Macframe?
+A: Macframe is an IBM Mainframe emulator for macOS that runs MVS 3.8J with a single click. It features native Apple Silicon support, a built-in 3270 terminal, and DASD browser. Free for personal and educational use.
+
+Q: What is Business Profiler?
+A: Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. Available as open source on GitHub.
+
+Q: Do you offer consulting services?
+A: We focus on building products rather than traditional consulting. We do provide expert keynotes and speaking engagements on AI and cybersecurity topics.
 
 ## Contact
 
