@@ -7,7 +7,6 @@
     <!-- Performance & Resource Hints -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="logo.svg" as="image">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://www.linkedin.com">
     <link rel="dns-prefetch" href="https://medium.com">
 
@@ -15,7 +14,7 @@
     <title>PEACH STUDIO | Creative AI & Development Studio in Belgium</title>
     <meta name="title" content="PEACH STUDIO | Creative AI & Development Studio in Belgium">
     <meta name="description" content="PEACH STUDIO builds innovative AI products, autonomous agents, and stunning digital experiences. Expert keynotes on AI and cybersecurity. Based in Belgium.">
-    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, game development, 3D art, video production, AI keynotes, cybersecurity, Belgium, Everberg">
+    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, game development, 3D art, video production, AI keynotes, cybersecurity, security code review, edge AI, local LLM, Apple Silicon, Belgium, Everberg">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://peachstudio.be/">
@@ -133,6 +132,17 @@
                                 <h3 class="product-title">Business Profiler</h3>
                                 <p class="product-tagline">Claude Code Plugin</p>
                                 <p class="product-description">Threat intelligence, attack surface assessment, and sales targeting for Claude Code. 7 skills, 16 scripts, PDF reports. Free and open source.</p>
+                                <span class="product-cta">Learn More &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer" class="product-card-link">
+                        <div class="product-card">
+                            <img src="images/foil-icon.png" alt="Foil" class="product-icon" width="64" height="64" loading="lazy">
+                            <div class="product-info">
+                                <h3 class="product-title">Foil</h3>
+                                <p class="product-tagline">Local Security Code Review</p>
+                                <p class="product-description">AI security code review for Apple Silicon. On-device LLMs find vulnerabilities and propose fixes. Nothing leaves your machine.</p>
                                 <span class="product-cta">Learn More &rarr;</span>
                             </div>
                         </div>
@@ -405,6 +415,51 @@
         "memoryRequirements": "4 GB RAM",
         "storageRequirements": "500 MB",
         "downloadUrl": "https://github.com/vitorallo/macframe/releases"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Foil",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS 13.0+ (Apple Silicon)",
+        "description": "Local-first, edge-AI security code review tool for Apple Silicon. Function-level vulnerability analysis with tree-sitter AST parsing and on-device LLMs — no cloud APIs, no data leaks.",
+        "url": "https://foil.peachstudio.be",
+        "author": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Community",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "description": "Free tier with full scanner, up to 3 projects"
+            },
+            {
+                "@type": "Offer",
+                "name": "Developer",
+                "price": "19",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "description": "Unlimited projects, Deep Dive analysis, export, custom rules, API access"
+            }
+        ],
+        "softwareRequirements": "macOS 13.0 Ventura or later, Apple Silicon (M1/M2/M3/M4)",
+        "featureList": [
+            "On-device LLM analysis (Qwen2.5-Coder)",
+            "Tree-sitter AST parsing",
+            "162 security rules (OWASP, injection, auth, IDOR)",
+            "Multi-language: Python, JavaScript, TypeScript, Go, Java, PHP, Ruby, Rust, C/C++",
+            "Deep Dive: reachability, impact, validation, remediation",
+            "Knowledge graph with code map and call edges",
+            "Local-first — code never leaves the machine"
+        ]
     }
     </script>
 
