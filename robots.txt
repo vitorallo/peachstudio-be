@@ -1,12 +1,28 @@
 # Robots.txt for PEACH STUDIO
-# Allow all search engines
 
+# AI crawlers — explicitly allowed. PEACH STUDIO welcomes citation
+# by AI search and assistants (see llms.txt for preferred context).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# All other crawlers
 User-agent: *
 Allow: /
 Disallow: /abstracts/
 
-# Sitemap location
 Sitemap: https://peachstudio.be/sitemap.xml
-
-# Crawl-delay (optional, helps prevent server overload)
-Crawl-delay: 1

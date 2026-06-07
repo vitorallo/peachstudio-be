@@ -13,8 +13,8 @@
     <!-- Primary Meta Tags -->
     <title>PEACH STUDIO | Creative AI & Development Studio in Belgium</title>
     <meta name="title" content="PEACH STUDIO | Creative AI & Development Studio in Belgium">
-    <meta name="description" content="PEACH STUDIO builds innovative AI products, autonomous agents, and stunning digital experiences. Expert keynotes on AI and cybersecurity. Based in Belgium.">
-    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, game development, 3D art, video production, AI keynotes, cybersecurity, security code review, edge AI, local LLM, Apple Silicon, Belgium, Everberg">
+    <meta name="description" content="PEACH STUDIO builds innovative AI products, autonomous agents, and stunning digital experiences. Expert keynotes on AI and cybersecurity, and a hands-on BruCON 2026 training on building offensive tools with Claude Code. Based in Belgium.">
+    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, game development, 3D art, video production, AI keynotes, cybersecurity, security code review, edge AI, local LLM, Apple Silicon, Belgium, Everberg, BruCON 2026, offensive security training, Claude Code training, spec-driven development">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://peachstudio.be/">
@@ -55,6 +55,7 @@
             <nav class="nav">
                 <a href="#focus" class="nav-link">What We Do</a>
                 <a href="#products" class="nav-link">Products</a>
+                <a href="#training" class="nav-link">Training</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -68,6 +69,30 @@
                 <h1 class="hero-title">Building the Future with AI</h1>
                 <p class="hero-subtitle">We build innovative AI solutions and products, crafting stunning digital and media experiences that push boundaries and challenge what we know.</p>
                 <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="training" class="training-banner">
+            <div class="container">
+                <a href="training/" class="training-banner-link">
+                    <div class="training-banner-card">
+                        <div class="training-banner-body">
+                            <span class="training-banner-badge"><span class="dot"></span> New &middot; BruCON 2026</span>
+                            <h2 class="training-banner-title">Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code</h2>
+                            <p class="training-banner-text">Our hands-on 3-day training lands at <strong>BruCON 2026</strong> in Mechelen, Belgium. The class votes on a real offensive tool on day one, specs it with Claude, and ships it by day three &mdash; with the patterns behind FOIL.</p>
+                            <div class="training-banner-meta">
+                                <span>📅 Sept 21&ndash;23, 2026</span>
+                                <span>📍 Lamot, Mechelen</span>
+                                <span>👤 Vito Rallo</span>
+                            </div>
+                            <span class="training-banner-cta">View the training &rarr;</span>
+                        </div>
+                        <div class="training-banner-aside">
+                            <img src="training/icon.svg" alt="Building Offensive Tools with Claude Code" width="120" height="120" loading="lazy">
+                            <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="training-banner-brucon" onclick="event.stopPropagation();">Register at BruCON &rarr;</a>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -276,6 +301,10 @@
                     <div class="faq-item">
                         <h3 class="faq-question">What is Business Profiler?</h3>
                         <p class="faq-answer">Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. The sales-targeting skill turns that data into account strategy with a 38-service catalog and engagement plans. Available on <a href="https://github.com/vitorallo/business-profiler">GitHub</a>.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do you run training?</h3>
+                        <p class="faq-answer">Yes. At <a href="https://www.brucon.org/training-details/building-offensive-tools-ai">BruCON 2026</a> (Mechelen, Belgium, Sept 21&ndash;23, 2026) Vito Rallo teaches "Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code", a 3-day hands-on course where the class votes on a real offensive tool, specs it with Claude Code, and ships it by day three. <a href="training/">See the full training page</a>.</p>
                     </div>
                     <div class="faq-item">
                         <h3 class="faq-question">Do you offer consulting services?</h3>
@@ -521,6 +550,50 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Vibe Off, Spec On — Building Real Offensive Tools with Claude Code",
+        "description": "A 3-day hands-on BruCON 2026 training. The class votes on a real offensive tool, specs it with Claude Code, and ships a working application by day three. Covers spec-driven development, custom skills, subagents, MCP servers, eval harnesses, packaging, and the techniques behind FOIL.",
+        "url": "https://peachstudio.be/training/",
+        "inLanguage": "en",
+        "provider": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        },
+        "instructor": {
+            "@type": "Person",
+            "@id": "https://peachstudio.be/#vito-rallo",
+            "name": "Vito Rallo"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "name": "BruCON 2026 Training",
+            "startDate": "2026-09-21",
+            "endDate": "2026-09-23",
+            "courseWorkload": "P3D",
+            "location": {
+                "@type": "Place",
+                "name": "Lamot Congress Center",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mechelen",
+                    "addressCountry": "BE"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": "https://www.brucon.org/training-details/building-offensive-tools-ai",
+                "availability": "https://schema.org/InStock",
+                "category": "Training"
+            }
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "Person",
         "@id": "https://peachstudio.be/#vito-rallo",
         "name": "Vito Rallo",
@@ -602,6 +675,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. The sales-targeting skill turns that data into account strategy with a 38-service catalog and engagement plans."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you run training?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. At BruCON 2026 (Mechelen, Belgium, September 21-23, 2026) Vito Rallo teaches 'Vibe Off, Spec On — Building Real Offensive Tools with Claude Code', a 3-day hands-on course where the class votes on a real offensive tool, specs it with Claude Code, and ships it by day three. See https://peachstudio.be/training/."
                 }
             },
             {

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Performance & Resource Hints -->
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="preload" href="icon.svg" as="image">
+    <link rel="dns-prefetch" href="https://www.brucon.org">
+
+    <!-- Primary Meta Tags -->
+    <title>Building Offensive Tools with AI | BruCON 2026 Training | PEACH STUDIO</title>
+    <meta name="title" content="Vibe Off, Spec On — Building Real Offensive Tools with Claude Code | BruCON 2026">
+    <meta name="description" content="3-day hands-on BruCON 2026 training by Vito Rallo. Build a real offensive security tool with Claude Code — spec-driven development, custom skills, subagents, MCP, eval harnesses, and the techniques behind FOIL. Mechelen, Belgium, Sept 21–23, 2026.">
+    <meta name="keywords" content="BruCON 2026, offensive security training, Claude Code, AI security tools, spec-driven development, agentic AI, custom skills, subagents, MCP servers, FOIL, security R&D, Vito Rallo, red team, offensive tooling, AI pentesting">
+    <meta name="author" content="PEACH STUDIO">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://peachstudio.be/training/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peachstudio.be/training/">
+    <meta property="og:title" content="Building Real Offensive Tools with Claude Code | BruCON 2026 Training">
+    <meta property="og:description" content="3-day hands-on training by Vito Rallo at BruCON 2026. Vote on a real tool, spec it with Claude, ship it by day three. Mechelen, Belgium, Sept 21–23, 2026.">
+    <meta property="og:image" content="https://peachstudio.be/images/og-image.png">
+    <meta property="og:site_name" content="PEACH STUDIO">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peachstudio.be/training/">
+    <meta property="twitter:title" content="Building Real Offensive Tools with Claude Code | BruCON 2026">
+    <meta property="twitter:description" content="3-day hands-on training by Vito Rallo at BruCON 2026. Spec-driven offensive tooling with Claude Code. Mechelen, Belgium, Sept 21–23, 2026.">
+    <meta property="twitter:image" content="https://peachstudio.be/images/og-image.png">
+
+    <!-- Additional Meta -->
+    <meta name="theme-color" content="#FF6B35">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="alternate icon" href="../favicon.svg">
+    <link rel="apple-touch-icon" href="../favicon.svg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --training-accent: #E55A2B;
+            --training-accent-light: #FF8A5B;
+            --training-dark: #2F2218;
+            --training-bg: #FFF5F0;
+        }
+
+        .training-header {
+            background-color: rgba(255, 245, 240, 0.95);
+            border-bottom: 1px solid rgba(229, 90, 43, 0.15);
+            backdrop-filter: blur(8px);
+        }
+        .training-header .nav-link { color: #6b5344; }
+        .training-header .nav-link:hover { color: var(--training-accent); background-color: rgba(229, 90, 43, 0.08); }
+
+        .training-hero {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            text-align: center;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFE3D6 100%);
+            color: var(--training-dark);
+        }
+
+        .training-logo {
+            width: 104px;
+            height: 104px;
+            margin-bottom: var(--spacing-md);
+            filter: drop-shadow(0 8px 24px rgba(229, 90, 43, 0.35));
+        }
+
+        .training-hero .hero-title { color: var(--training-dark); font-size: clamp(36px, 6vw, 60px); max-width: 900px; margin-left: auto; margin-right: auto; }
+        .training-hero .hero-subtitle { color: #6b5344; max-width: 720px; }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--training-dark);
+            color: #FFD9C7;
+            padding: 7px 18px;
+            border-radius: 22px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: var(--spacing-md);
+        }
+        .event-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--training-accent-light); }
+
+        .training-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0 var(--spacing-lg);
+            color: var(--training-dark);
+        }
+        .training-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 130px;
+        }
+        .training-meta-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #a8917f; font-weight: 600; }
+        .training-meta-value { font-size: 17px; font-weight: 700; color: var(--training-dark); margin-top: 2px; }
+
+        .training-cta {
+            background-color: var(--training-accent);
+            box-shadow: 0 4px 20px rgba(229, 90, 43, 0.4);
+        }
+        .training-cta:hover { background-color: #C44A20; box-shadow: 0 6px 28px rgba(229, 90, 43, 0.5); }
+
+        .training-cta-secondary {
+            background-color: transparent;
+            border: 2px solid rgba(229, 90, 43, 0.4);
+            color: var(--training-accent);
+            box-shadow: none;
+            margin-left: var(--spacing-sm);
+        }
+        .training-cta-secondary:hover { background-color: rgba(229, 90, 43, 0.08); border-color: var(--training-accent); box-shadow: none; }
+
+        .cta-group { display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #6b5344; text-decoration: none; font-size: 14px;
+            margin-bottom: var(--spacing-md); transition: var(--transition);
+        }
+        .back-link:hover { color: var(--training-accent); }
+
+        /* Overview */
+        .overview-section { padding: var(--spacing-xl) 0; background: linear-gradient(180deg, #FFE3D6 0%, var(--background) 100%); }
+        .overview-text {
+            max-width: 760px; margin: 0 auto; text-align: center;
+            font-size: 19px; line-height: 1.75; color: var(--text-primary);
+        }
+        .overview-text strong { color: var(--training-accent); }
+
+        /* Learn / objectives */
+        .learn-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        @media (max-width: 640px) { .learn-grid { grid-template-columns: 1fr; } }
+        .learn-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(31, 31, 31, 0.08);
+            transition: var(--transition);
+        }
+        .learn-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(229, 90, 43, 0.1); border-color: rgba(229, 90, 43, 0.3); }
+        .learn-icon { font-size: 34px; margin-bottom: var(--spacing-sm); }
+        .learn-title { font-size: 19px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--spacing-xs); }
+        .learn-description { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
+
+        /* Curriculum */
+        .curriculum-section { padding: var(--spacing-xxl) 0; background-color: #FFF5F0; }
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 900px) { .days-grid { grid-template-columns: 1fr; max-width: 560px; } }
+        .day-card {
+            background: linear-gradient(160deg, #2F2218 0%, #3d2c1d 100%);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(229, 90, 43, 0.2);
+            transition: var(--transition);
+        }
+        .day-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(229, 90, 43, 0.25); border-color: rgba(229, 90, 43, 0.45); }
+        .day-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--training-accent-light); font-weight: 700; }
+        .day-title { font-size: 21px; font-weight: 700; color: var(--white); margin: 6px 0 var(--spacing-md); line-height: 1.3; }
+        .session-list { list-style: none; padding: 0; margin: 0; }
+        .session-list li {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 14px;
+            line-height: 1.55;
+            padding: 10px 0 10px 22px;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .session-list li:first-child { border-top: none; }
+        .session-list li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 16px;
+            width: 8px; height: 8px;
+            border-radius: 2px;
+            background: var(--training-accent);
+        }
+        .session-list li strong { color: #fff; font-weight: 600; }
+
+        /* Details: prerequisites + bring + audience */
+        .details-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .detail-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(31, 31, 31, 0.08);
+        }
+        .detail-card h3 {
+            font-size: 18px; font-weight: 700; color: var(--training-dark);
+            margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--training-accent);
+        }
+        .detail-list { list-style: none; padding: 0; margin: 0; }
+        .detail-list li {
+            color: var(--text-secondary); font-size: 15px; line-height: 1.55;
+            padding: 7px 0 7px 26px; position: relative;
+        }
+        .detail-list li::before {
+            content: "→"; position: absolute; left: 0; top: 7px;
+            color: var(--training-accent); font-weight: 700;
+        }
+
+        /* FOIL highlight */
+        .foil-section { padding: var(--spacing-xl) 0; background: linear-gradient(135deg, #FFF5F0 0%, #FFE3D6 100%); }
+        .foil-box {
+            max-width: 820px; margin: 0 auto; text-align: center;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            border: 1px solid rgba(229, 90, 43, 0.2);
+            box-shadow: 0 8px 32px rgba(229, 90, 43, 0.1);
+        }
+        .foil-box h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 700; color: var(--training-dark); margin-bottom: var(--spacing-md); }
+        .foil-box p { color: var(--text-secondary); font-size: 17px; line-height: 1.7; max-width: 640px; margin: 0 auto var(--spacing-md); }
+        .foil-box .cta-button { margin-top: var(--spacing-xs); }
+
+        /* Final CTA */
+        .register-section {
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+            background: linear-gradient(135deg, #2F2218 0%, #4a3020 100%);
+            color: var(--white);
+        }
+        .register-section .section-title { color: var(--white); }
+        .register-section .hero-subtitle { color: rgba(255, 255, 255, 0.75); }
+        .register-info { color: rgba(255, 255, 255, 0.6); font-size: 14px; margin-top: var(--spacing-md); }
+
+        .training-footer { background-color: #2F2218; }
+
+        body > main > .breadcrumbs {
+            background-color: rgba(255, 227, 214, 0.95);
+            border-bottom: 1px solid rgba(229, 90, 43, 0.15);
+            color: #6b5344;
+        }
+        body > main > .breadcrumbs a { color: var(--training-accent); }
+        body > main > .breadcrumbs a:hover { color: #C44A20; }
+        body > main > .breadcrumbs span { color: #c0a898; }
+
+        @media (max-width: 768px) {
+            .cta-group { flex-direction: column; align-items: center; }
+            .training-cta-secondary { margin-left: 0; }
+            .training-hero .hero-title { font-size: 32px; }
+            .training-logo { width: 80px; height: 80px; }
+            .training-header .container { flex-direction: column; gap: var(--spacing-sm); }
+            .training-header .nav { flex-wrap: wrap; justify-content: center; gap: var(--spacing-xs); }
+            .training-header .nav-link { font-size: 14px; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header training-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="../logo.svg" alt="PEACH STUDIO" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#curriculum" class="nav-link">Curriculum</a>
+                <a href="#details" class="nav-link">Details</a>
+                <a href="/" class="nav-link">PEACH STUDIO</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/#training">Training</a>
+                <span>/</span>
+                <span>Building Offensive Tools with AI</span>
+            </div>
+        </div>
+
+        <section class="training-hero">
+            <div class="container">
+                <a href="/" class="back-link">&larr; Back to PEACH STUDIO</a>
+                <img src="icon.svg" alt="Building Offensive Tools with Claude Code" class="training-logo" />
+                <div class="event-badge"><span class="dot"></span> BruCON 2026 &middot; Mechelen, Belgium</div>
+                <h1 class="hero-title">Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code</h1>
+                <p class="hero-subtitle">A 3-day hands-on training. No canned labs: the class votes on a real offensive tool on day one, specs it with Claude, and ships a working application by day three.</p>
+
+                <div class="training-meta">
+                    <div class="training-meta-item">
+                        <span class="training-meta-label">Dates</span>
+                        <span class="training-meta-value">Sept 21&ndash;23, 2026</span>
+                    </div>
+                    <div class="training-meta-item">
+                        <span class="training-meta-label">Format</span>
+                        <span class="training-meta-value">3 days, in-person</span>
+                    </div>
+                    <div class="training-meta-item">
+                        <span class="training-meta-label">Trainer</span>
+                        <span class="training-meta-value">Vito Rallo</span>
+                    </div>
+                    <div class="training-meta-item">
+                        <span class="training-meta-label">Venue</span>
+                        <span class="training-meta-value">Lamot, Mechelen</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="cta-button training-cta">Register at BruCON</a>
+                    <a href="#curriculum" class="cta-button training-cta-secondary">See the curriculum</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="overview-section">
+            <div class="container">
+                <p class="overview-text">
+                    Most AI security courses hand you a finished lab and walk you through it. This one doesn't. On the first morning the room <strong>votes on a real tool to build</strong> &mdash; then we draft the spec with Claude, write the code, test it, and deploy it together. Nobody, including the trainer, knows exactly what we'll ship until we ship it. You leave with battle-tested patterns for using Claude Code in security R&D, and a working tool you helped build from scratch.
+                </p>
+            </div>
+        </section>
+
+        <section id="learn" class="learn-section">
+            <div class="container">
+                <h2 class="section-title">What you'll walk away with</h2>
+                <p class="section-intro">Two years of accumulated R&amp;D on driving Claude Code for serious offensive work &mdash; distilled into three days.</p>
+                <div class="learn-grid">
+                    <div class="learn-card">
+                        <div class="learn-icon">🧭</div>
+                        <h3 class="learn-title">Spec-driven development</h3>
+                        <p class="learn-description">Stop "vibe-coding" security tools. Use OpenSpec to drive Claude with intent, so output is reviewable, reproducible, and safe to ship.</p>
+                    </div>
+                    <div class="learn-card">
+                        <div class="learn-icon">🧩</div>
+                        <h3 class="learn-title">Custom skills &amp; subagents</h3>
+                        <p class="learn-description">Author your own skills, build subagents, wire up hooks, and distribute plugins across the Claude Code ecosystem.</p>
+                    </div>
+                    <div class="learn-card">
+                        <div class="learn-icon">🔌</div>
+                        <h3 class="learn-title">MCP for production</h3>
+                        <p class="learn-description">Integrate MCP servers into real workflows &mdash; connecting Claude to the tools, data, and infrastructure your tooling depends on.</p>
+                    </div>
+                    <div class="learn-card">
+                        <div class="learn-icon">🧪</div>
+                        <h3 class="learn-title">Testing the non-deterministic</h3>
+                        <p class="learn-description">Eval harnesses, golden testing, and Playwright-driven TDD for systems that don't behave the same way twice.</p>
+                    </div>
+                    <div class="learn-card">
+                        <div class="learn-icon">📦</div>
+                        <h3 class="learn-title">Ship &amp; distribute</h3>
+                        <p class="learn-description">Packaging across platforms and package managers, containerization, and sandbox architectures for security tools.</p>
+                    </div>
+                    <div class="learn-card">
+                        <div class="learn-icon">🔍</div>
+                        <h3 class="learn-title">The FOIL playbook</h3>
+                        <p class="learn-description">The exact techniques behind FOIL &mdash; the scanner that surfaced a 22-year-old zero-day &mdash; plus local-LLM and hybrid deployment options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum" class="curriculum-section">
+            <div class="container">
+                <h2 class="section-title">Three days, eight sessions</h2>
+                <p class="section-intro">From an empty repo to a packaged, hardened tool &mdash; everything runs on your own machine.</p>
+                <div class="days-grid">
+                    <div class="day-card">
+                        <span class="day-label">Day 1</span>
+                        <h3 class="day-title">Tool, environment &amp; project kickoff</h3>
+                        <ul class="session-list">
+                            <li><strong>Claude Code 101 for offensive engineers</strong> &mdash; anatomy, settings, and an honest read on what it can and can't do.</li>
+                            <li><strong>The Anthropic toolkit deep-dive</strong> &mdash; custom skills, subagents, hooks, MCP servers, and ecosystem plugins.</li>
+                            <li><strong>Spec-driven development</strong> &mdash; OpenSpec methodology instead of improvising. The class picks the tool we build.</li>
+                        </ul>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-label">Day 2</span>
+                        <h3 class="day-title">Implementation &amp; testing</h3>
+                        <ul class="session-list">
+                            <li><strong>Test-driven development</strong> &mdash; evaluation harnesses and golden testing with Playwright for non-deterministic systems.</li>
+                            <li><strong>Deployment patterns</strong> &mdash; shipping security tools, containerization, and sandbox architectures.</li>
+                        </ul>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-label">Day 3</span>
+                        <h3 class="day-title">Distribution &amp; hardening</h3>
+                        <ul class="session-list">
+                            <li><strong>Packaging</strong> &mdash; multi-platform distribution across package managers.</li>
+                            <li><strong>Local LLM &amp; hybrid infra</strong> &mdash; on-device deployment alternatives and hybrid approaches.</li>
+                            <li><strong>Code review &amp; vuln assessment</strong> &mdash; review workflows and the FOIL methodology, end to end.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="details-section">
+            <div class="container">
+                <h2 class="section-title">Before you arrive</h2>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h3>Prerequisites</h3>
+                        <ul class="detail-list">
+                            <li>Comfortable with shell, git, and either Python or TypeScript</li>
+                            <li>Working knowledge of offensive security fundamentals</li>
+                            <li>No hacking credentials required &mdash; just real motivation to ship</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3>What to bring</h3>
+                        <ul class="detail-list">
+                            <li>A laptop with Docker pre-installed</li>
+                            <li>An active Claude Code account (Pro/Max) or API credits with adequate budget</li>
+                            <li>A budget guide is sent two weeks ahead so nobody runs out of credit</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Who should attend</h3>
+                        <ul class="detail-list">
+                            <li>Developers, security researchers, and tool authors</li>
+                            <li>Anyone who wants to stop watching demos and start shipping</li>
+                            <li>All exercises run on your machine &mdash; no shared lab, all open-source / free-tier software</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="foil-section">
+            <div class="container">
+                <div class="foil-box">
+                    <h2>Taught by the maker of FOIL</h2>
+                    <p>The curriculum is grounded in real work, not slideware. Vito Rallo &mdash; founder of PEACH STUDIO, cybersecurity consultant partner at Kyndryl, and former Global Head of Red Team at Kroll &mdash; built FOIL, the local-first security scanner that surfaced a 22-year-old zero-day. You'll learn the same patterns he used to build it.</p>
+                    <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer" class="cta-button training-cta">Explore FOIL</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="register-section">
+            <div class="container">
+                <h2 class="section-title">Join us at BruCON 2026</h2>
+                <p class="hero-subtitle">Three days in Mechelen, Belgium &mdash; Sept 21&ndash;23, 2026. Seats are limited and hands-on.</p>
+                <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="cta-button training-cta">Register at BruCON</a>
+                <p class="register-info">Questions about the training? <a href="mailto:info@peachstudio.be" style="color:#FFB892;">info@peachstudio.be</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer training-footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2025-2026 PEACH STUDIO. All rights reserved.</p>
+            <p class="footer-address">Hands-on AI &amp; offensive security training &mdash; Everberg, Belgium</p>
+        </div>
+    </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Vibe Off, Spec On — Building Real Offensive Tools with Claude Code",
+        "description": "A 3-day hands-on BruCON 2026 training. The class votes on a real offensive tool, specs it with Claude Code, and ships a working application by day three. Covers spec-driven development with OpenSpec, custom skills, subagents, hooks, MCP servers, eval harnesses, packaging, local LLMs, and the techniques behind FOIL.",
+        "url": "https://peachstudio.be/training/",
+        "courseCode": "BruCON-2026",
+        "inLanguage": "en",
+        "teaches": [
+            "Claude Code development patterns for security R&D",
+            "Spec-driven development with OpenSpec",
+            "Custom skills, subagents, hooks, and plugin distribution",
+            "MCP server integration",
+            "Evaluation and golden testing for non-deterministic systems",
+            "Packaging, containerization, and sandbox architectures for security tools",
+            "Local LLM and hybrid deployment"
+        ],
+        "coursePrerequisites": "Proficiency with shell, git, and either Python or TypeScript; working knowledge of offensive security fundamentals; a laptop with Docker; an active Claude Code account or API credits.",
+        "provider": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        },
+        "instructor": {
+            "@type": "Person",
+            "name": "Vito Rallo",
+            "url": "https://peachstudio.be/cv/"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "name": "BruCON 2026 Training",
+            "startDate": "2026-09-21",
+            "endDate": "2026-09-23",
+            "courseWorkload": "P3D",
+            "location": {
+                "@type": "Place",
+                "name": "Lamot Congress Center",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mechelen",
+                    "addressCountry": "BE"
+                }
+            },
+            "instructor": {
+                "@type": "Person",
+                "name": "Vito Rallo"
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": "https://www.brucon.org/training-details/building-offensive-tools-ai",
+                "availability": "https://schema.org/InStock",
+                "category": "Training"
+            }
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://peachstudio.be/" },
+            { "@type": "ListItem", "position": 2, "name": "Training", "item": "https://peachstudio.be/training/" },
+            { "@type": "ListItem", "position": 3, "name": "Building Offensive Tools with AI", "item": "https://peachstudio.be/training/" }
+        ]
+    }
+    </script>
+</body>
+</html>

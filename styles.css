@@ -304,6 +304,152 @@ body {
     }
 }
 
+/* Training Banner (homepage feature) */
+.training-banner {
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    background: var(--background);
+}
+
+.training-banner-link {
+    text-decoration: none;
+    display: block;
+}
+
+.training-banner-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    background: linear-gradient(135deg, #2F2218 0%, #4a2f1c 55%, #7a3d1f 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border: 1px solid rgba(229, 90, 43, 0.35);
+    box-shadow: 0 12px 40px rgba(47, 34, 24, 0.25);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.training-banner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 56px rgba(47, 34, 24, 0.35);
+    border-color: rgba(255, 138, 91, 0.6);
+}
+
+.training-banner-body { flex: 1; }
+
+.training-banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 138, 91, 0.18);
+    color: #FFB892;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.training-banner-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #FF8A5B;
+    box-shadow: 0 0 0 0 rgba(255, 138, 91, 0.6);
+    animation: trainingPulse 2.2s infinite;
+}
+
+@keyframes trainingPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 138, 91, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(255, 138, 91, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 138, 91, 0); }
+}
+
+.training-banner-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.training-banner-text {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 620px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.training-banner-text strong { color: #FFB892; font-weight: 600; }
+
+.training-banner-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.training-banner-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #FF8A5B;
+    font-weight: 700;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.training-banner-card:hover .training-banner-cta { gap: 12px; }
+
+.training-banner-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.training-banner-aside img {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 8px 24px rgba(255, 138, 91, 0.4));
+}
+
+.training-banner-brucon {
+    display: inline-block;
+    background: #FF8A5B;
+    color: #2F2218;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.training-banner-brucon:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 860px) {
+    .training-banner-card {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+    .training-banner-text { margin-left: auto; margin-right: auto; }
+    .training-banner-meta { justify-content: center; }
+    .training-banner-aside { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .training-banner-aside img { width: 80px; height: 80px; }
+}
+
 /* Products Section */
 .products-section {
     padding: var(--spacing-lg) 0 var(--spacing-xl);

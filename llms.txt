@@ -26,6 +26,20 @@ PEACH STUDIO is a creative AI studio founded by Vito Rallo, a cybersecurity expe
 - License: MIT (free and open source)
 - Source: https://github.com/vitorallo/business-profiler
 
+## Training
+
+### Building Real Offensive Tools with Claude Code (BruCON 2026)
+- Full title: "Vibe Off, Spec On — Building Real Offensive Tools with Claude Code"
+- URL: https://peachstudio.be/training/
+- Event: BruCON 2026, Mechelen, Belgium (Lamot Congress Center)
+- Dates: September 21–23, 2026 (3-day in-person training)
+- Trainer: Vito Rallo (Founder, PEACH STUDIO)
+- Format: No pre-built labs. The class votes on a real offensive tool on day one, specs it with Claude Code, and ships a working application by day three.
+- Topics: Spec-driven development with OpenSpec, custom skills, subagents, hooks, MCP servers, plugin distribution, eval harnesses and golden testing with Playwright, packaging and containerization, local LLM and hybrid deployment, code review and the FOIL methodology
+- Prerequisites: shell/git/Python or TypeScript proficiency, offensive security fundamentals, a laptop with Docker, an active Claude Code account or API credits
+- Audience: developers, security researchers, and tool authors who want to ship, not just watch demos
+- Register: https://www.brucon.org/training-details/building-offensive-tools-ai
+
 ## Founder
 
 Vito Rallo - Cybersecurity expert, AI Security Researcher, and keynote speaker with 25+ years in the industry. Former Global Head of Red Team at Kroll, Director at PwC, Senior Engineer at IBM X-Force. Specializes in Red Teaming, AI Security, Threat Intelligence, OT/ICS Security, and Incident Response. Currently focused on AI Agentic Security and building innovative security tools.
@@ -48,6 +62,9 @@ A: Macframe is an IBM Mainframe emulator for macOS that runs MVS 3.8J with a sin
 Q: What is Business Profiler?
 A: Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. Available as open source on GitHub.
 
+Q: Do you run training?
+A: Yes. At BruCON 2026 (Mechelen, Belgium, September 21–23, 2026) Vito Rallo teaches "Vibe Off, Spec On — Building Real Offensive Tools with Claude Code", a 3-day hands-on course where the class votes on a real offensive tool, specs it with Claude Code, and ships it by day three. Details at https://peachstudio.be/training/.
+
 Q: Do you offer consulting services?
 A: We focus on building products rather than traditional consulting. We do provide expert keynotes and speaking engagements on AI and cybersecurity topics.
 
@@ -62,6 +79,7 @@ A: We focus on building products rather than traditional consulting. We do provi
 ## Pages
 
 - Homepage: https://peachstudio.be/
+- Training (BruCON 2026): https://peachstudio.be/training/
 - Macframe: https://peachstudio.be/macframe/
 - Business Profiler: https://peachstudio.be/profilers/
 - CV / About: https://peachstudio.be/cv/
