@@ -1,18 +1,18 @@
 :root {
-  --color-gray-light-1: #f8f8f8;
-  --color-gray-light-2: #e9e9e9;
-  --color-gray-light-3: #dedede;
-  --color-gray-dark-1: #2d3748;
-  --color-gray-dark-2: #4a5568;
-  --color-gray-dark-3: #718096;
-  --profile-theme: #3b82f6;
-  --profile-theme-dark: #2563eb;
-  --text-dark: #1e293b;
+  --color-gray-light-1: #F3F0E9;
+  --color-gray-light-2: #ECE7DC;
+  --color-gray-light-3: #DED7C9;
+  --color-gray-dark-1: #2E2820;
+  --color-gray-dark-2: #57514A;
+  --color-gray-dark-3: #8A847B;
+  --profile-theme: #C2603A;
+  --profile-theme-dark: #A84E2C;
+  --text-dark: #211D18;
 }
 
 html {
   font-size: 85%; /* Scaled down for 2-page fit */
-  font-family: 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Hanken Grotesk', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -29,7 +29,7 @@ body {
 .wrapper {
   margin: 0 auto;
   max-width: 210mm; /* A4 width */
-  background-color: white;
+  background-color: #FBFAF6;
   display: flex;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
 }
@@ -70,8 +70,9 @@ body {
 }
 
 .bio .name {
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   color: white;
   margin: 0.8rem 0 0.3rem 0;
@@ -93,8 +94,9 @@ body {
 }
 
 .intro-section .title {
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.8rem;
@@ -155,7 +157,7 @@ body {
 /* MAIN CONTENT */
 .detail {
   flex: 1 0 0;
-  background-color: white;
+  background-color: #FBFAF6;
   padding: 1.5rem 1.5rem 1rem 1.5rem;
 }
 
@@ -172,8 +174,9 @@ body {
 }
 
 .detail-title span {
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-dark);
   letter-spacing: 0.3px;
 }
@@ -218,8 +221,9 @@ body {
 }
 
 .timeline-block h3 {
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0 0 0.2rem 0;
   color: var(--text-dark);
 }
@@ -274,8 +278,9 @@ body {
 }
 
 .edu-block h4 {
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 0 0.2rem 0;
   color: var(--text-dark);
 }

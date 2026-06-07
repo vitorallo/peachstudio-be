@@ -7,6 +7,8 @@
     <!-- Performance & Resource Hints -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="logo.svg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.linkedin.com">
     <link rel="dns-prefetch" href="https://medium.com">
 
@@ -14,7 +16,7 @@
     <title>PEACH STUDIO | Creative AI & Development Studio in Belgium</title>
     <meta name="title" content="PEACH STUDIO | Creative AI & Development Studio in Belgium">
     <meta name="description" content="PEACH STUDIO builds innovative AI products, autonomous agents, and stunning digital experiences. Expert keynotes on AI and cybersecurity, and a hands-on BruCON 2026 training on building offensive tools with Claude Code. Based in Belgium.">
-    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, game development, 3D art, video production, AI keynotes, cybersecurity, security code review, edge AI, local LLM, Apple Silicon, Belgium, Everberg, BruCON 2026, offensive security training, Claude Code training, spec-driven development">
+    <meta name="keywords" content="AI development, agentic AI, artificial intelligence, workflow automation, AI keynotes, cybersecurity, security code review, edge AI, local LLM, Apple Silicon, Belgium, Everberg, BruCON 2026, offensive security training, Claude Code training, spec-driven development">
     <meta name="author" content="PEACH STUDIO">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://peachstudio.be/">
@@ -36,306 +38,407 @@
     <meta property="twitter:image" content="https://peachstudio.be/images/og-image.png">
 
     <!-- Additional Meta -->
-    <meta name="theme-color" content="#FF6B35">
-    <meta name="msapplication-TileColor" content="#FF6B35">
+    <meta name="theme-color" content="#C2603A">
+    <meta name="msapplication-TileColor" content="#C2603A">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="logo.svg" alt="PEACH STUDIO" class="logo-img">
-            </div>
-            <nav class="nav">
-                <a href="#focus" class="nav-link">What We Do</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#training" class="nav-link">Training</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contact" class="nav-link">Contact</a>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="#top" class="brand" aria-label="PEACH STUDIO home">
+                <img src="logo.svg" alt="PEACH STUDIO">
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#focus">What We Do</a>
+                <a href="#products">Products</a>
+                <a href="#training">Training</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="nav-cta">Get in Touch</a>
             </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">Building the Future with AI</h1>
-                <p class="hero-subtitle">We build innovative AI solutions and products, crafting stunning digital and media experiences that push boundaries and challenge what we know.</p>
-                <a href="#contact" class="cta-button">Get in Touch</a>
-            </div>
-        </section>
-
-        <section id="training" class="training-banner">
-            <div class="container">
-                <a href="training/" class="training-banner-link">
-                    <div class="training-banner-card">
-                        <div class="training-banner-body">
-                            <span class="training-banner-badge"><span class="dot"></span> New &middot; BruCON 2026</span>
-                            <h2 class="training-banner-title">Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code</h2>
-                            <p class="training-banner-text">Our hands-on 3-day training lands at <strong>BruCON 2026</strong> in Mechelen, Belgium. The class votes on a real offensive tool on day one, specs it with Claude, and ships it by day three &mdash; with the patterns behind FOIL.</p>
-                            <div class="training-banner-meta">
-                                <span>📅 Sept 21&ndash;23, 2026</span>
-                                <span>📍 Lamot, Mechelen</span>
-                                <span>👤 Vito Rallo</span>
-                            </div>
-                            <span class="training-banner-cta">View the training &rarr;</span>
+    <main id="top">
+        <!-- ============ HERO ============ -->
+        <section class="hero" data-hero="window">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow hero-kicker">CREATIVE AI, DEV &amp; SECURITY STUDIO</p>
+                    <h1>We build the<br>future with <em>AI</em><br>at its core.</h1>
+                    <p class="hero-sub">Autonomous agents, edge-AI security tools, and digital experiences that push the boundary of what software can do &mdash; shipped as real products.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn--clay">Get in Touch <span class="arrow">&rarr;</span></a>
+                        <a href="#products" class="btn btn--ghost">See what we ship</a>
+                    </div>
+                    <div class="hero-trust">
+                        <span>25+ years in security</span>
+                        <span>ANTHROPIC CLAUDE</span>
+                        <span>Open source first</span>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hv hv-window">
+                        <div class="win win-back">
+                            <div class="win-bar"><i></i><i></i><i></i></div>
+                            <div class="win-shot"><img src="assets/shots/macframe.jpeg" alt="" loading="lazy"></div>
                         </div>
-                        <div class="training-banner-aside">
-                            <img src="training/icon.svg" alt="Building Offensive Tools with Claude Code" width="120" height="120" loading="lazy">
-                            <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="training-banner-brucon" onclick="event.stopPropagation();">Register at BruCON &rarr;</a>
+                        <div class="win win-front">
+                            <div class="win-bar"><i></i><i></i><i></i><b>foil.peachstudio.be</b></div>
+                            <div class="win-shot"><img src="assets/shots/foil.png" alt="" loading="lazy"></div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
-        <section id="focus" class="work-section">
+        <!-- ============ CAPABILITY STRIP ============ -->
+        <div class="cap-strip" aria-hidden="true">
+            <div class="cap-track">
+                <span>Agentic Development&nbsp;&nbsp;Edge-AI Security&nbsp;&nbsp;Threat Intelligence&nbsp;&nbsp;Workflow Automation&nbsp;&nbsp;Claude Code Plugins&nbsp;&nbsp;Keynotes&nbsp;&nbsp;</span>
+                <span>Agentic Development&nbsp;&nbsp;Edge-AI Security&nbsp;&nbsp;Threat Intelligence&nbsp;&nbsp;Workflow Automation&nbsp;&nbsp;Claude Code Plugins&nbsp;&nbsp;Keynotes&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <!-- ============ WHAT WE DO ============ -->
+        <section id="focus" class="work">
             <div class="container">
-                <h2 class="section-title">What We Do</h2>
-                <p class="section-intro">We combine deep cybersecurity expertise with creative AI development to build products that solve real problems. From autonomous agents and threat intelligence tools to mainframe emulators and interactive experiences, every product we ship is built with AI at its core.</p>
+                <div class="section-head reveal">
+                    <p class="eyebrow">What We Do</p>
+                    <h2 class="section-title">Deep security expertise, <em>fused</em> with creative AI development.</h2>
+                    <p class="section-intro">From autonomous agents and threat-intelligence tooling to mainframe emulators and interactive experiences &mdash; every product we ship is built with AI at its core.</p>
+                </div>
                 <div class="work-grid">
-                    <div class="work-card">
-                        <div class="work-card-image service-ai"></div>
-                        <h3 class="work-card-title">Creative AI & Agentic Development</h3>
-                        <p class="work-card-description">Autonomous agents, agentic workflows, and Claude Code plugins that operate independently and deliver results.</p>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-card-image service-security"></div>
-                        <h3 class="work-card-title">AI & Cybersecurity Keynotes</h3>
-                        <p class="work-card-description">Keynotes on AI security and the threat landscape, backed by 25+ years in Red Teaming and incident response.</p>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-card-image service-automation"></div>
+                    <article class="work-card reveal" data-d="0">
+                        <span class="work-num">01</span>
+                        <div class="work-motif"><img src="images/ai-development.jpg" alt="Creative AI and agentic development" loading="lazy"></div>
+                        <h3 class="work-card-title">Creative AI &amp; Agentic Development</h3>
+                        <p class="work-card-desc">Autonomous agents, agentic workflows, and Claude Code plugins that operate independently and deliver results.</p>
+                    </article>
+                    <article class="work-card reveal" data-d="1">
+                        <span class="work-num">02</span>
+                        <div class="work-motif"><img src="images/keynotes.jpg" alt="AI and cybersecurity keynotes" loading="lazy"></div>
+                        <h3 class="work-card-title">AI &amp; Cybersecurity Keynotes</h3>
+                        <p class="work-card-desc">Keynotes on AI security and the threat landscape, backed by 25+ years in Red Teaming and incident response.</p>
+                    </article>
+                    <article class="work-card reveal" data-d="2">
+                        <span class="work-num">03</span>
+                        <div class="work-motif"><img src="images/automation.jpg" alt="Business workflow automation" loading="lazy"></div>
                         <h3 class="work-card-title">Business Workflow Automation</h3>
-                        <p class="work-card-description">Data pipelines, reporting tools, and MCP servers that automate operations and remove repetitive manual work.</p>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-card-image service-video"></div>
+                        <p class="work-card-desc">Data pipelines, reporting tools, and MCP servers that automate operations and remove repetitive manual work.</p>
+                    </article>
+                    <article class="work-card reveal" data-d="3">
+                        <span class="work-num">04</span>
+                        <div class="work-motif"><img src="images/video-production.jpg" alt="Video production" loading="lazy"></div>
                         <h3 class="work-card-title">Video Production</h3>
-                        <p class="work-card-description">Motion graphics, product demos, and explainer videos produced with AI-powered tools.</p>
-                    </div>
+                        <p class="work-card-desc">Motion graphics, product demos, and explainer videos produced with AI-powered tools.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="products" class="products-section">
+        <!-- ============ TRAINING (BruCON) ============ -->
+        <section id="training" class="training">
             <div class="container">
-                <h2 class="section-title">Built with AI</h2>
-                <p class="section-intro">The products we ship &mdash; AI tools, security scanners, and developer apps, most of them free and open source.</p>
+                <article class="training-card reveal">
+                    <div class="training-body">
+                        <span class="badge"><span class="dot"></span> New &middot; BruCON 2026</span>
+                        <h2 class="training-title">Vibe Off, Spec On &mdash; Building Real <em>Offensive Tools</em> with Claude Code</h2>
+                        <p class="training-text">Our hands-on 3-day training lands at <strong>BruCON 2026</strong> in Mechelen, Belgium. The class votes on a real offensive tool on day one, specs it with Claude, and ships it by day three &mdash; with the patterns behind FOIL.</p>
+                        <div class="training-meta">
+                            <span>Sept 21&ndash;23, 2026</span>
+                            <span>Lamot, Mechelen</span>
+                            <span>Vito Rallo</span>
+                        </div>
+                        <div class="training-actions">
+                            <a href="training/" class="btn btn--primary">View the training <span class="arrow">&rarr;</span></a>
+                            <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="tlink">Register at BruCON <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="training-aside">
+                        <div class="training-aside-art">
+                            <span class="ring"></span>
+                            <span class="ring inner"></span>
+                            <img src="assets/icons/training.svg" alt="Building Offensive Tools with Claude Code" width="120" height="120" loading="lazy">
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ PRODUCTS ============ -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Built with AI</p>
+                    <h2 class="section-title">The products we ship.</h2>
+                    <p class="section-intro">AI tools, security scanners, and developer apps &mdash; most of them free and open source.</p>
+                </div>
+
                 <div class="product-featured">
-                    <a href="macframe/" class="product-card-link">
-                        <div class="product-card">
-                            <img src="macframe/icon.svg" alt="Macframe" class="product-icon" width="64" height="64" loading="lazy">
-                            <div class="product-info">
-                                <h3 class="product-title">Macframe</h3>
-                                <p class="product-tagline">IBM Mainframe emulator for macOS</p>
-                                <p class="product-description">Run MVS 3.8J on your Mac with a single click. Native Apple Silicon support. Free for personal and educational use.</p>
-                                <span class="product-cta">Learn More &rarr;</span>
-                            </div>
+                    <a href="macframe/" class="feature reveal">
+                        <div class="feature-body">
+                            <img src="assets/icons/macframe.svg" alt="Macframe" class="feature-icon" width="56" height="56" loading="lazy">
+                            <p class="product-tag">macOS &middot; Apple Silicon</p>
+                            <h3 class="product-title">Macframe</h3>
+                            <p class="product-desc">Run IBM MVS 3.8J on your Mac with a single click. Native Apple Silicon, built-in 3270 terminal and DASD browser. Free for personal and educational use.</p>
+                            <span class="tlink">Learn more <span class="arrow">&rarr;</span></span>
+                        </div>
+                        <div class="feature-shot">
+                            <img src="assets/shots/macframe.jpeg" alt="Macframe running IBM MVS 3.8J with a 3270 terminal and live console" loading="lazy">
                         </div>
                     </a>
-                    <a href="profilers/" class="product-card-link">
-                        <div class="product-card">
-                            <img src="profilers/threat-profiler-icon.svg" alt="Business Profiler" class="product-icon" width="64" height="64" loading="lazy">
-                            <div class="product-info">
-                                <h3 class="product-title">Business Profiler</h3>
-                                <p class="product-tagline">Claude Code Plugin</p>
-                                <p class="product-description">Threat intelligence, attack surface assessment, and sales targeting for Claude Code. 7 skills, 16 scripts, PDF reports. Free and open source.</p>
-                                <span class="product-cta">Learn More &rarr;</span>
-                            </div>
+                    <a href="profilers/" class="feature reveal">
+                        <div class="feature-body">
+                            <img src="assets/icons/business-profiler.svg" alt="Business Profiler" class="feature-icon" width="56" height="56" loading="lazy">
+                            <p class="product-tag">Claude Code Plugin</p>
+                            <h3 class="product-title">Business Profiler</h3>
+                            <p class="product-desc">Threat intelligence, attack-surface assessment, and sales targeting for Claude Code. 7 skills, 16 scripts, PDF reports. Free and open source.</p>
+                            <span class="tlink">Learn more <span class="arrow">&rarr;</span></span>
+                        </div>
+                        <div class="feature-shot">
+                            <img src="assets/shots/profiler-skills.jpg" alt="Business Profiler plugin skills inside Claude Desktop" loading="lazy">
                         </div>
                     </a>
-                    <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer" class="product-card-link">
-                        <div class="product-card">
-                            <img src="images/foil-icon.png" alt="Foil" class="product-icon" width="64" height="64" loading="lazy">
-                            <div class="product-info">
-                                <h3 class="product-title">Foil</h3>
-                                <p class="product-tagline">Local Security Code Review</p>
-                                <p class="product-description">AI security code review for Apple Silicon. On-device LLMs find vulnerabilities and propose fixes. Nothing leaves your machine.</p>
-                                <span class="product-cta">Learn More &rarr;</span>
-                            </div>
+                    <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer" class="feature reveal">
+                        <div class="feature-body">
+                            <img src="assets/icons/foil-icon.png" alt="Foil" class="feature-icon" width="56" height="56" loading="lazy">
+                            <p class="product-tag">Local Security Code Review</p>
+                            <h3 class="product-title">Foil</h3>
+                            <p class="product-desc">AI security code review for Apple Silicon. On-device LLMs find vulnerabilities and propose fixes. Nothing ever leaves your machine.</p>
+                            <span class="tlink">Learn more <span class="arrow">&rarr;</span></span>
+                        </div>
+                        <div class="feature-shot">
+                            <img src="assets/shots/foil.png" alt="Foil dashboard showing a confirmed SQL injection finding with the vulnerable code highlighted" loading="lazy">
                         </div>
                     </a>
                 </div>
 
-                <h3 class="products-subtitle">More open source on GitHub</h3>
+                <h3 class="products-subhead">More open source on GitHub</h3>
                 <div class="product-more">
-                    <a href="https://github.com/vitorallo/atomic-atlas" target="_blank" rel="noopener noreferrer" class="product-card-link">
-                        <div class="product-card product-card-compact">
-                            <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#E86B3F" stroke-width="1.6" aria-hidden="true" width="48" height="48">
-                                <circle cx="12" cy="12" r="2.4"/>
-                                <ellipse cx="12" cy="12" rx="10" ry="4.4"/>
-                                <ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/>
-                                <ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(120 12 12)"/>
-                            </svg>
-                            <div class="product-info">
-                                <h3 class="product-title">Atomic Atlas</h3>
-                                <p class="product-tagline">Agentic AI Security Testing</p>
-                                <p class="product-description">ATLAS-keyed adversarial atomics for AI agents &mdash; the Atomic Red Team for agentic AI. Technique &times; delivery-vector tests, PyRIT-backed.</p>
-                                <span class="product-cta">View on GitHub &rarr;</span>
-                            </div>
+                    <a href="https://github.com/vitorallo/atomic-atlas" target="_blank" rel="noopener noreferrer" class="card card--row reveal" data-d="0">
+                        <svg class="product-icon svg-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="46" height="46">
+                            <circle cx="12" cy="12" r="2.4"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.4"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(120 12 12)"/>
+                        </svg>
+                        <div class="product-body">
+                            <p class="product-tag">Agentic AI Security Testing</p>
+                            <h3 class="product-title">Atomic Atlas</h3>
+                            <p class="product-desc">ATLAS-keyed adversarial atomics for AI agents &mdash; the Atomic Red Team for agentic AI. Technique &times; delivery-vector tests, PyRIT-backed.</p>
+                            <span class="tlink">View on GitHub <span class="arrow">&rarr;</span></span>
                         </div>
                     </a>
-                    <a href="https://github.com/vitorallo/znextscanner" target="_blank" rel="noopener noreferrer" class="product-card-link">
-                        <div class="product-card product-card-compact">
-                            <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#E86B3F" stroke-width="1.6" aria-hidden="true" width="48" height="48">
-                                <rect x="3" y="4" width="18" height="14" rx="1.5"/>
-                                <path d="M3 9h18"/>
-                                <path d="M6.5 13h5"/>
-                                <circle cx="16.5" cy="13" r="1.1"/>
-                                <path d="M8 21h8"/>
-                            </svg>
-                            <div class="product-info">
-                                <h3 class="product-title">zNextScanner</h3>
-                                <p class="product-tagline">IBM Z Security Scanner</p>
-                                <p class="product-description">Read-only mainframe security and frontier-AI (Mythos) readiness scanner for IBM Z. PolyForm Noncommercial, open source.</p>
-                                <span class="product-cta">View on GitHub &rarr;</span>
-                            </div>
+                    <a href="https://github.com/vitorallo/znextscanner" target="_blank" rel="noopener noreferrer" class="card card--row reveal" data-d="1">
+                        <svg class="product-icon svg-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="46" height="46">
+                            <rect x="3" y="4" width="18" height="14" rx="1.5"/>
+                            <path d="M3 9h18"/>
+                            <path d="M6.5 13h5"/>
+                            <circle cx="16.5" cy="13" r="1.1"/>
+                            <path d="M8 21h8"/>
+                        </svg>
+                        <div class="product-body">
+                            <p class="product-tag">IBM Z Security Scanner</p>
+                            <h3 class="product-title">zNextScanner</h3>
+                            <p class="product-desc">Read-only mainframe security and frontier-AI (Mythos) readiness scanner for IBM Z. PolyForm Noncommercial, open source.</p>
+                            <span class="tlink">View on GitHub <span class="arrow">&rarr;</span></span>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="insights" class="insights-section">
+        <!-- ============ INSIGHTS ============ -->
+        <section id="insights" class="insights">
             <div class="container">
-                <h2 class="section-title">Insights & Thought Leadership</h2>
-                <p class="insights-intro">
-                    Sharing knowledge on AI innovation, cybersecurity, and the future of technology.
-                </p>
+                <div class="section-head reveal">
+                    <p class="eyebrow">Insights &amp; Thought Leadership</p>
+                    <h2 class="section-title">Sharing what we learn.</h2>
+                    <p class="section-intro">Knowledge on AI innovation, cybersecurity, and the future of technology &mdash; in writing, in plugins, and in person.</p>
+                </div>
                 <div class="insights-grid">
-                    <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer" class="insight-card">
-                        <div class="insight-icon">
-                            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
-                                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-                            </svg>
-                        </div>
-                        <h3 class="insight-title">Blog & Articles</h3>
-                        <p class="insight-description">Read in-depth insights and analysis on Medium</p>
-                        <span class="insight-link">Visit Medium →</span>
+                    <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer" class="insight reveal" data-d="0">
+                        <span class="insight-ico">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                        </span>
+                        <h3 class="insight-title">Blog &amp; Articles</h3>
+                        <p class="insight-desc">In-depth insights and analysis on AI and security, published on Medium.</p>
+                        <span class="tlink">Visit Medium <span class="arrow">&rarr;</span></span>
                     </a>
-                    <a href="https://www.linkedin.com/company/peachstudiobv" target="_blank" rel="noopener noreferrer" class="insight-card">
-                        <div class="insight-icon">
-                            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </div>
+                    <a href="https://www.linkedin.com/company/peachstudiobv" target="_blank" rel="noopener noreferrer" class="insight reveal" data-d="1">
+                        <span class="insight-ico">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </span>
                         <h3 class="insight-title">Professional Network</h3>
-                        <p class="insight-description">Connect and follow updates on LinkedIn</p>
-                        <span class="insight-link">Connect on LinkedIn →</span>
+                        <p class="insight-desc">Connect and follow studio updates and announcements on LinkedIn.</p>
+                        <span class="tlink">Connect on LinkedIn <span class="arrow">&rarr;</span></span>
                     </a>
-                    <!-- Keynote card hidden for now
-                    <div class="insight-card keynote-card">
-                        <div class="insight-icon">
-                            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
-                                <path d="M21 16V4H3v12h18m0-14a2 2 0 012 2v12a2 2 0 01-2 2h-7v2h2v2H8v-2h2v-2H3a2 2 0 01-2-2V4c0-1.11.89-2 2-2h18M5 6h9v5H5V6m10 0h4v2h-4V6m4 3v5h-4V9h4M5 12h4v2H5v-2m5 0h4v2h-4v-2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="insight-title">Keynotes & Speaking</h3>
-                        <p class="insight-description">Book speaking engagements on AI and Cybersecurity</p>
-                        <a href="#contact" class="insight-link">Get in Touch →</a>
-                    </div>
-                    -->
-                    <a href="https://github.com/vitorallo/peach-studio-marketplace" target="_blank" rel="noopener noreferrer" class="insight-card">
-                        <div class="insight-icon">
-                            <img src="images/claude-code-icon.svg" alt="Claude Code" width="48" height="48">
-                        </div>
+                    <a href="https://github.com/vitorallo/peach-studio-marketplace" target="_blank" rel="noopener noreferrer" class="insight reveal" data-d="2">
+                        <span class="insight-ico">
+                            <img src="assets/icons/claude-code-icon.svg" alt="Claude Code" width="28" height="28">
+                        </span>
                         <h3 class="insight-title">Claude Code Marketplace</h3>
-                        <p class="insight-description">Install our plugins for Claude Code and Claude Desktop</p>
-                        <span class="insight-link">View on GitHub →</span>
+                        <p class="insight-desc">Install our plugins for Claude Code and Claude Desktop, straight from GitHub.</p>
+                        <span class="tlink">View on GitHub <span class="arrow">&rarr;</span></span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title">About Us</h2>
                 <div class="about-grid">
-                    <div class="about-content">
-                        <p class="about-text">
-                            PEACH STUDIO is a creative AI studio where technology meets artistry.
-                            We build innovative products powered by artificial intelligence and create stunning digital experiences.
-                        </p>
-                        <p class="about-text">
-                            From AI agents and automation tools to games, 3D art, and video content, we bring together diverse expertise
-                            to build the future. We also share our knowledge through keynotes on AI and cybersecurity topics.
-                        </p>
-                        <p class="about-text">
-                            Founded by <strong>Vito Rallo</strong>, a cybersecurity expert with 25+ years of industry experience. Former Global Head of Red Team at Kroll, Director at PwC, and Senior Engineer at IBM X-Force. Now focused on AI security research, agentic development, and building products that bridge cybersecurity and artificial intelligence.
-                        </p>
+                    <div class="about-body reveal">
+                        <p class="eyebrow">About Us</p>
+                        <p class="about-lead">PEACH STUDIO is a creative AI studio where <em>technology meets artistry</em> &mdash; building products powered by artificial intelligence.</p>
+                        <p>From AI agents and automation tools to security scanners and video content, we bring together diverse expertise to build the future &mdash; and share what we learn through keynotes on AI and cybersecurity.</p>
+                        <p>Founded by <strong>Vito Rallo</strong>, a cybersecurity expert with 25+ years of experience. A former Global Head of Red Team, security director, and senior engineer at leading security and technology firms &mdash; now focused on AI security research, agentic development, and products that bridge security and AI.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <div class="stat-num">25+</div>
+                                <div class="stat-label">Years in cybersecurity</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-num">5</div>
+                                <div class="stat-label">Open-source products shipped</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-num">100%</div>
+                                <div class="stat-label">Built with AI at the core</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="founder-section">
-                        <img src="images/vito-rallo.jpg" alt="Vito Rallo - Founder of PEACH STUDIO" class="founder-photo" width="300" height="266" loading="lazy">
-                        <p class="founder-text">
-                            Founded by <a href="https://www.linkedin.com/in/vitorallo/" target="_blank" rel="noopener noreferrer" class="founder-link">Vito Rallo</a>
-                        </p>
+                    <aside class="founder reveal" data-d="1">
+                        <div class="founder-art">
+                            <img src="images/vito-rallo.jpg" alt="Vito Rallo — Founder of PEACH STUDIO" class="founder-photo" width="148" height="148" loading="lazy">
+                        </div>
+                        <div class="founder-name">Vito Rallo</div>
+                        <div class="founder-role">Founder · AI Security Researcher</div>
+                        <div class="founder-links">
+                            <a href="https://www.linkedin.com/in/vitorallo/" target="_blank" rel="noopener noreferrer" aria-label="Vito Rallo on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer" aria-label="Vito Rallo on Medium">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                            </a>
+                            <a href="https://github.com/vitorallo" target="_blank" rel="noopener noreferrer" aria-label="Vito Rallo on GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FAQ ============ -->
+        <section id="faq" class="faq">
+            <div class="container faq-layout">
+                <div class="section-head reveal" style="margin-bottom:0;">
+                    <p class="eyebrow">FAQ</p>
+                    <h2 class="section-title">Questions,<br>answered.</h2>
+                    <p class="section-intro">Everything you might want to know about the studio, the products, and the training.</p>
+                </div>
+                <div class="faq-list reveal" data-d="1">
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">What does PEACH STUDIO do? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">PEACH STUDIO is a creative AI studio that builds innovative products powered by artificial intelligence. We specialize in AI development, autonomous agents, workflow automation, and provide expert keynotes on AI and cybersecurity. We create products, not services.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Where is PEACH STUDIO located? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">We're based in Everberg, Belgium (Molenstraat 64, 3078 Everberg), but we serve clients worldwide — primarily across the BeNeLux region and Europe.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">What is Macframe? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">Macframe is our IBM Mainframe emulator for macOS. It runs MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and a DASD browser. It's free for personal and educational use.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">What is Business Profiler? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&amp;CK, checks regulatory exposure, and generates PDF reports. Available on <a href="https://github.com/vitorallo/business-profiler">GitHub</a>.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Do you run training? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">Yes. At <a href="https://www.brucon.org/training-details/building-offensive-tools-ai">BruCON 2026</a> (Mechelen, Belgium, Sept 21&ndash;23, 2026) Vito Rallo teaches "Vibe Off, Spec On — Building Real Offensive Tools with Claude Code", a 3-day hands-on course where the class votes on a real offensive tool, specs it with Claude Code, and ships it by day three. <a href="training/">See the full training page</a>.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Do you offer consulting services? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">We focus on building products rather than traditional consulting. However, we do provide expert keynotes and speaking engagements on AI and cybersecurity. For product questions or collaboration, please get in touch.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">How can I contact PEACH STUDIO? <span class="faq-icon" aria-hidden="true"></span></button>
+                        <div class="faq-a"><div class="faq-a-inner">You can reach us via email at <a href="mailto:info@peachstudio.be">info@peachstudio.be</a>. We're also active on LinkedIn and Medium, where we share insights on AI innovation and cybersecurity.</div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="faq-section">
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <h3 class="faq-question">What does PEACH STUDIO do?</h3>
-                        <p class="faq-answer">PEACH STUDIO is a creative AI studio that builds innovative products powered by artificial intelligence. We specialize in AI development, autonomous agents, workflow automation, and provide expert keynotes on AI and cybersecurity topics. We create products, not services.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Where is PEACH STUDIO located?</h3>
-                        <p class="faq-answer">We're based in Everberg, Belgium (Molenstraat 64, 3078 Everberg), but we serve clients worldwide. We operate primarily in the BeNeLux region and across Europe.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What is MacFrame?</h3>
-                        <p class="faq-answer">MacFrame is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What is Business Profiler?</h3>
-                        <p class="faq-answer">Business Profiler is a free Claude Code plugin for cybersecurity threat intelligence and sales targeting. It runs recon against a target domain, maps threat actors via MITRE ATT&CK, checks regulatory exposure, and generates PDF reports. The sales-targeting skill turns that data into account strategy with a 38-service catalog and engagement plans. Available on <a href="https://github.com/vitorallo/business-profiler">GitHub</a>.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you run training?</h3>
-                        <p class="faq-answer">Yes. At <a href="https://www.brucon.org/training-details/building-offensive-tools-ai">BruCON 2026</a> (Mechelen, Belgium, Sept 21&ndash;23, 2026) Vito Rallo teaches "Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code", a 3-day hands-on course where the class votes on a real offensive tool, specs it with Claude Code, and ships it by day three. <a href="training/">See the full training page</a>.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do you offer consulting services?</h3>
-                        <p class="faq-answer">We focus on building products rather than offering traditional consulting services. However, we do provide expert keynotes and speaking engagements on AI and cybersecurity topics. For product-related questions or collaboration opportunities, please get in touch.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">How can I contact PEACH STUDIO?</h3>
-                        <p class="faq-answer">You can reach us via email at info@peachstudio.be. We're also active on LinkedIn and Medium where we share insights on AI innovation and cybersecurity.</p>
-                    </div>
+                <div class="contact-card reveal">
+                    <p class="eyebrow" style="justify-content:center;">Let's build together</p>
+                    <h2>Ready to bring<br>your ideas <em>to life?</em></h2>
+                    <p class="contact-sub">Tell us what you're building. We reply to every serious inquiry.</p>
+                    <a href="mailto:info@peachstudio.be" class="btn btn--clay">Get in Touch <span class="arrow">&rarr;</span></a>
+                    <span class="contact-mail">or email <a href="mailto:info@peachstudio.be">info@peachstudio.be</a></span>
                 </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="section-title">Let's Build Together</h2>
-                <p class="contact-intro">Ready to bring your ideas to life?</p>
-                <a href="mailto:info@peachstudio.be" class="cta-button">Get in Touch</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025-2026 PEACH STUDIO. All rights reserved.</p>
-            <p class="footer-address">Molenstraat 64, 3078 Everberg, Belgium</p>
-            <p class="footer-privacy">This site does not use cookies. <a href="privacy.html" style="color: var(--text-secondary); text-decoration: underline;">Privacy Notice</a> | <a href="sitemap.html" style="color: var(--text-secondary); text-decoration: underline;">Sitemap</a></p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="logo.svg" alt="PEACH STUDIO">
+                    <p>Creative AI &amp; security studio building products with AI at their core. Based in Everberg, Belgium — serving clients worldwide.</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Studio</h4>
+                        <a href="#focus">What We Do</a>
+                        <a href="#products">Products</a>
+                        <a href="#training">Training</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="macframe/">Macframe</a>
+                        <a href="profilers/">Business Profiler</a>
+                        <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer">Foil</a>
+                        <a href="https://github.com/vitorallo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.linkedin.com/company/peachstudiobv" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer">Medium</a>
+                        <a href="mailto:info@peachstudio.be">info@peachstudio.be</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025–2026 PEACH STUDIO · Molenstraat 64, 3078 Everberg, Belgium</span>
+                <span>This site does not use cookies. <a href="privacy.html">Privacy Notice</a> · <a href="sitemap.html">Sitemap</a></span>
+            </div>
         </div>
     </footer>
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- ============ STRUCTURED DATA (SEO) ============ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -663,10 +766,10 @@
             },
             {
                 "@type": "Question",
-                "name": "What is MacFrame?",
+                "name": "What is Macframe?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "MacFrame is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use."
+                    "text": "Macframe is our IBM Mainframe emulator for macOS. It allows you to run MVS 3.8J on your Mac with a single click, featuring native Apple Silicon support, a built-in 3270 terminal, and DASD browser. It's free for personal and educational use."
                 }
             },
             {
@@ -703,6 +806,64 @@
             }
         ]
     }
+    </script>
+
+    <!-- ============ INTERACTIONS ============ -->
+    <script>
+    (function () {
+        // Header border on scroll
+        var header = document.getElementById('siteHeader');
+        var onScroll = function () {
+            if (window.scrollY > 12) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Mobile nav
+        var toggle = document.getElementById('navToggle');
+        var nav = document.getElementById('nav');
+        toggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nav.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-q').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.parentElement;
+                var ans = item.querySelector('.faq-a');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(function (o) {
+                    o.classList.remove('open');
+                    o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+                    o.querySelector('.faq-a').style.maxHeight = null;
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    ans.style.maxHeight = ans.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Scroll reveal
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var els = document.querySelectorAll('.reveal');
+        if (reduce || !('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('in'); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        }
+    })();
     </script>
 </body>
 </html>

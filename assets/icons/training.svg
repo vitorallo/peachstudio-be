@@ -1,0 +1,14 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Building Offensive Tools with Claude Code">
+  <defs>
+    <linearGradient id="tg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8A5B"></stop>
+      <stop offset="1" stop-color="#E55A2B"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="14" width="104" height="84" rx="14" fill="url(#tg)"></rect>
+  <rect x="8" y="14" width="104" height="84" rx="14" fill="#000" opacity="0.04"></rect>
+  <rect x="20" y="28" width="80" height="56" rx="8" fill="#2F2218"></rect>
+  <path d="M34 48l10 8-10 8" stroke="#FFB892" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M58 66h18" stroke="#FF8A5B" stroke-width="4.5" stroke-linecap="round"></path>
+  <circle cx="60" cy="106" r="5" fill="url(#tg)"></circle>
+</svg>

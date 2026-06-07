@@ -1,78 +1,145 @@
-/* Abstracts - Clean reading stylesheet */
-/* Inherits Peach Studio palette but optimized for long-form reading */
+/* Abstracts — Warm brand stylesheet */
+/* Peach Studio: cream + clay palette, Newsreader / Hanken Grotesk / IBM Plex Mono */
 
-* {
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ─── Design Tokens ───────────────────────────────────────── */
+:root {
+    --cream:       #F3F0E9;
+    --cream-deep:  #ECE7DC;
+    --surface:     #FBFAF6;
+    --surface-2:   #FFFFFF;
+
+    --ink:         #211D18;
+    --ink-soft:    #57514A;
+    --ink-faint:   #8A847B;
+    --line:        #DED7C9;
+
+    --clay:        #C2603A;
+    --clay-deep:   #A84E2C;
+    --clay-bright: #D9693E;
+    --clay-tint:   #EDDFD4;
+
+    --serif: "Newsreader", Georgia, serif;
+    --sans:  "Hanken Grotesk", -apple-system, sans-serif;
+    --mono:  "IBM Plex Mono", monospace;
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --primary: #FF6B35;
-    --bg: #FAF9F7;
-    --text: #1F1F1F;
-    --text-muted: #6B7280;
-    --border: rgba(31, 31, 31, 0.08);
-    --white: #FFFFFF;
-    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+/* ─── Base ───────────────────────────────────────────────── */
 body {
-    font-family: var(--font);
+    font-family: var(--sans);
     font-size: 18px;
     line-height: 1.75;
-    color: var(--text);
-    background-color: var(--bg);
+    color: var(--ink-soft);
+    background-color: var(--cream);
     -webkit-font-smoothing: antialiased;
 }
 
+/* ─── Site header ────────────────────────────────────────── */
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 0 24px;
+}
+
+.site-header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+}
+
+.site-wordmark {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.site-wordmark:hover {
+    color: var(--clay-deep);
+}
+
+.site-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    margin-left: 24px;
+}
+
+.site-nav a:hover {
+    color: var(--clay-deep);
+}
+
+/* ─── Abstract article wrapper ───────────────────────────── */
 .abstract {
     max-width: 720px;
     margin: 0 auto;
     padding: 64px 24px 96px;
 }
 
-/* Header / Meta */
+/* ─── Header / Meta ──────────────────────────────────────── */
 .abstract-header {
     margin-bottom: 48px;
     padding-bottom: 32px;
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 2px solid var(--clay);
 }
 
 .abstract-title {
+    font-family: var(--serif);
     font-size: clamp(32px, 5vw, 44px);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: var(--text);
+    color: var(--ink);
     margin-bottom: 8px;
 }
 
 .abstract-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
     font-size: clamp(18px, 3vw, 22px);
     font-weight: 400;
-    color: var(--text-muted);
+    color: var(--ink-soft);
     line-height: 1.4;
     margin-bottom: 24px;
 }
 
 .abstract-meta {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.6;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+    line-height: 1.7;
 }
 
 .abstract-meta strong {
-    color: var(--text);
-    font-weight: 600;
+    color: var(--ink);
+    font-weight: 500;
 }
 
 .abstract-meta a {
-    color: var(--primary);
+    color: var(--clay-deep);
     text-decoration: none;
 }
 
@@ -80,53 +147,75 @@ body {
     text-decoration: underline;
 }
 
-/* Sections */
+/* ─── Section headings ───────────────────────────────────── */
 .abstract h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text);
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink);
     margin-top: 48px;
     margin-bottom: 16px;
     letter-spacing: -0.01em;
 }
 
 .abstract h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text);
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--ink);
     margin-top: 32px;
     margin-bottom: 12px;
 }
 
-/* Body text */
+/* ─── Body text ──────────────────────────────────────────── */
 .abstract p {
     margin-bottom: 20px;
-    color: var(--text);
+    color: var(--ink-soft);
 }
 
 .abstract .lead {
+    font-family: var(--serif);
     font-size: 20px;
-    color: var(--text-muted);
+    font-style: italic;
+    color: var(--ink-soft);
     line-height: 1.7;
     margin-bottom: 32px;
 }
 
-/* Dimension blocks */
+/* ─── Links ──────────────────────────────────────────────── */
+.abstract a {
+    color: var(--clay-deep);
+    text-decoration: none;
+}
+
+.abstract a:hover {
+    text-decoration: underline;
+}
+
+/* ─── Dimension blocks ───────────────────────────────────── */
 .dimension {
-    margin-bottom: 24px;
-    padding-left: 20px;
-    border-left: 3px solid var(--primary);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--clay);
+    border-radius: 0 14px 14px 0;
+    margin-bottom: 16px;
+    padding: 20px 20px 20px 22px;
+    transition: box-shadow .2s ease;
+}
+
+.dimension:hover {
+    box-shadow: 0 4px 16px rgba(33, 29, 24, .07);
 }
 
 .dimension strong {
-    color: var(--text);
+    color: var(--ink);
 }
 
 .dimension p {
     margin-bottom: 0;
 }
 
-/* Lists */
+/* ─── Lists ──────────────────────────────────────────────── */
 .abstract ul {
     margin-bottom: 24px;
     padding-left: 0;
@@ -144,41 +233,42 @@ body {
     position: absolute;
     left: 0;
     top: 11px;
-    width: 8px;
-    height: 8px;
-    background: var(--primary);
+    width: 7px;
+    height: 7px;
+    background: var(--clay);
     border-radius: 50%;
 }
 
 .abstract ul li strong {
-    color: var(--text);
+    color: var(--ink);
 }
 
-/* Code */
+/* ─── Code ───────────────────────────────────────────────── */
 .abstract code {
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 0.88em;
-    background: rgba(255, 107, 53, 0.08);
-    color: #C4420A;
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--clay-tint);
+    color: var(--clay-deep);
     padding: 2px 6px;
     border-radius: 4px;
 }
 
-/* Separator */
+/* ─── Separator ──────────────────────────────────────────── */
 .abstract hr {
     border: none;
     height: 1px;
-    background: var(--border);
+    background: var(--line);
     margin: 48px 0;
 }
 
-/* Author bio */
+/* ─── Author bio ─────────────────────────────────────────── */
 .author-bio {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
     padding: 32px;
     margin-top: 48px;
+    overflow: hidden;
 }
 
 .author-photo {
@@ -189,38 +279,52 @@ body {
     float: left;
     margin-right: 20px;
     margin-bottom: 8px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--clay-tint);
 }
 
 .author-bio h2 {
+    font-family: var(--mono);
     margin-top: 0;
-    font-size: 20px;
-    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--clay-deep);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: .16em;
+    margin-bottom: 8px;
 }
 
 .author-bio p {
-    font-size: 16px;
-    color: var(--text-muted);
+    font-size: 15px;
+    color: var(--ink-soft);
     line-height: 1.7;
 }
 
-/* References */
+/* ─── References ─────────────────────────────────────────── */
 .references {
     font-size: 15px;
-    color: var(--text-muted);
+    color: var(--ink-soft);
+}
+
+.references h2 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--clay-deep);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .references ul li::before {
-    width: 6px;
-    height: 6px;
-    background: var(--text-muted);
+    width: 5px;
+    height: 5px;
+    background: var(--ink-faint);
     top: 12px;
 }
 
 .references a {
-    color: var(--primary);
+    color: var(--clay-deep);
     text-decoration: none;
 }
 
@@ -228,7 +332,124 @@ body {
     text-decoration: underline;
 }
 
-/* Responsive */
+/* ─── Index page: abstract listing ──────────────────────── */
+.abstracts-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 24px 48px;
+    text-align: left;
+}
+
+.abstracts-hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.abstracts-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.abstracts-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+}
+
+.abstracts-hero p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.65;
+}
+
+.abstracts-list {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.abstract-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+.abstract-card:hover {
+    box-shadow: 0 6px 24px rgba(33, 29, 24, .09);
+    border-color: var(--clay-tint);
+}
+
+.abstract-card-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.abstract-card h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 6px;
+}
+
+.abstract-card-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-bottom: 14px;
+}
+
+.abstract-card p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.abstract-card-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+}
+
+.abstract-card:hover .abstract-card-link {
+    text-decoration: underline;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 600px) {
     .abstract {
         padding: 40px 16px 64px;
@@ -240,24 +461,37 @@ body {
     }
 
     .abstract h2 {
-        font-size: 24px;
+        font-size: 22px;
         margin-top: 36px;
     }
 
     .dimension {
-        padding-left: 16px;
+        padding-left: 18px;
     }
 
     .author-bio {
         padding: 24px;
     }
+
+    .abstracts-hero {
+        padding: 40px 16px 36px;
+    }
+
+    .abstracts-list {
+        padding: 32px 16px 64px;
+    }
+
+    .abstract-card {
+        padding: 24px;
+    }
 }
 
-/* Print */
+/* ─── Print ──────────────────────────────────────────────── */
 @media print {
     body {
         background: white;
         font-size: 12pt;
+        color: #000;
     }
 
     .abstract {
@@ -271,5 +505,11 @@ body {
 
     .dimension {
         border-left-color: #000;
+        background: none;
+        box-shadow: none;
+    }
+
+    .site-header {
+        display: none;
     }
 }

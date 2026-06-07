@@ -35,7 +35,7 @@
     <meta property="twitter:image" content="https://peachstudio.be/images/og-image.png">
 
     <!-- Additional Meta -->
-    <meta name="theme-color" content="#FF6B35">
+    <meta name="theme-color" content="#C2603A">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -44,52 +44,49 @@
 
     <link rel="stylesheet" href="../styles.css">
     <style>
-        :root {
-            --training-accent: #E55A2B;
-            --training-accent-light: #FF8A5B;
-            --training-dark: #2F2218;
-            --training-bg: #FFF5F0;
-        }
-
-        .training-header {
-            background-color: rgba(255, 245, 240, 0.95);
-            border-bottom: 1px solid rgba(229, 90, 43, 0.15);
-            backdrop-filter: blur(8px);
-        }
-        .training-header .nav-link { color: #6b5344; }
-        .training-header .nav-link:hover { color: var(--training-accent); background-color: rgba(229, 90, 43, 0.08); }
-
         .training-hero {
             padding: var(--spacing-xl) 0 var(--spacing-lg);
             text-align: center;
-            background: linear-gradient(135deg, #FFF5F0 0%, #FFE3D6 100%);
-            color: var(--training-dark);
+            background: radial-gradient(120% 140% at 100% 0%, var(--clay-tint-2) 0%, transparent 55%), var(--surface);
+            color: var(--ink);
         }
 
         .training-logo {
-            width: 104px;
-            height: 104px;
-            margin-bottom: var(--spacing-md);
-            filter: drop-shadow(0 8px 24px rgba(229, 90, 43, 0.35));
+            display: block;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto var(--spacing-md);
+            filter: drop-shadow(0 10px 24px rgba(194, 96, 58, 0.3));
         }
 
-        .training-hero .hero-title { color: var(--training-dark); font-size: clamp(36px, 6vw, 60px); max-width: 900px; margin-left: auto; margin-right: auto; }
-        .training-hero .hero-subtitle { color: #6b5344; max-width: 720px; }
+        .training-hero .hero-title {
+            font-family: var(--serif);
+            font-weight: 500;
+            color: var(--ink);
+            font-size: clamp(36px, 6vw, 60px);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .training-hero .hero-subtitle { color: var(--ink-soft); max-width: 720px; margin-left: auto; margin-right: auto; }
 
         .event-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--training-dark);
-            color: #FFD9C7;
+            background: var(--clay-tint);
+            color: var(--clay-deep);
             padding: 7px 18px;
-            border-radius: 22px;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
+            border-radius: 100px;
+            border: 1px solid var(--clay);
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             margin-bottom: var(--spacing-md);
         }
-        .event-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--training-accent-light); }
+        .event-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--clay-bright); }
 
         .training-meta {
             display: flex;
@@ -97,7 +94,7 @@
             justify-content: center;
             gap: var(--spacing-md);
             margin: var(--spacing-md) 0 var(--spacing-lg);
-            color: var(--training-dark);
+            color: var(--ink);
         }
         .training-meta-item {
             display: flex;
@@ -105,43 +102,59 @@
             align-items: center;
             min-width: 130px;
         }
-        .training-meta-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #a8917f; font-weight: 600; }
-        .training-meta-value { font-size: 17px; font-weight: 700; color: var(--training-dark); margin-top: 2px; }
+        .training-meta-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--ink-faint);
+            font-weight: 500;
+        }
+        .training-meta-value {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-top: 2px;
+        }
 
         .training-cta {
-            background-color: var(--training-accent);
-            box-shadow: 0 4px 20px rgba(229, 90, 43, 0.4);
+            background-color: var(--clay-bright);
+            color: #fff;
+            border-radius: 100px;
+            box-shadow: 0 10px 24px -10px rgba(194, 96, 58, 0.7);
+            border: none;
         }
-        .training-cta:hover { background-color: #C44A20; box-shadow: 0 6px 28px rgba(229, 90, 43, 0.5); }
+        .training-cta:hover { background-color: var(--clay-deep); box-shadow: 0 14px 30px -10px rgba(194, 96, 58, 0.7); }
 
         .training-cta-secondary {
             background-color: transparent;
-            border: 2px solid rgba(229, 90, 43, 0.4);
-            color: var(--training-accent);
+            border: 1px solid var(--line);
+            color: var(--ink);
+            border-radius: 100px;
             box-shadow: none;
             margin-left: var(--spacing-sm);
         }
-        .training-cta-secondary:hover { background-color: rgba(229, 90, 43, 0.08); border-color: var(--training-accent); box-shadow: none; }
+        .training-cta-secondary:hover { border-color: var(--ink); background-color: transparent; box-shadow: none; }
 
         .cta-group { display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; }
 
         .back-link {
             display: inline-flex; align-items: center; gap: 8px;
-            color: #6b5344; text-decoration: none; font-size: 14px;
-            margin-bottom: var(--spacing-md); transition: var(--transition);
+            color: var(--ink-soft); text-decoration: none; font-size: 14px;
+            margin-bottom: var(--spacing-md); transition: var(--ease);
         }
-        .back-link:hover { color: var(--training-accent); }
+        .back-link:hover { color: var(--clay); }
 
         /* Overview */
-        .overview-section { padding: var(--spacing-xl) 0; background: linear-gradient(180deg, #FFE3D6 0%, var(--background) 100%); }
+        .overview-section { padding: var(--spacing-xl) 0; background: var(--cream-deep); }
         .overview-text {
             max-width: 760px; margin: 0 auto; text-align: center;
-            font-size: 19px; line-height: 1.75; color: var(--text-primary);
+            font-size: 19px; line-height: 1.75; color: var(--ink-soft);
         }
-        .overview-text strong { color: var(--training-accent); }
+        .overview-text strong { color: var(--clay-deep); }
 
         /* Learn / objectives */
-        .learn-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
+        .learn-section { padding: var(--spacing-xxl) 0; background-color: var(--cream); }
         .learn-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -150,19 +163,28 @@
         }
         @media (max-width: 640px) { .learn-grid { grid-template-columns: 1fr; } }
         .learn-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
+            background-color: var(--surface);
+            border-radius: var(--radius-sm);
             padding: var(--spacing-lg);
-            border: 1px solid rgba(31, 31, 31, 0.08);
-            transition: var(--transition);
+            border: 1px solid var(--line);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
         }
-        .learn-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(229, 90, 43, 0.1); border-color: rgba(229, 90, 43, 0.3); }
-        .learn-icon { font-size: 34px; margin-bottom: var(--spacing-sm); }
-        .learn-title { font-size: 19px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--spacing-xs); }
-        .learn-description { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
+        .learn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 26px 50px -32px rgba(120, 70, 40, 0.42);
+            border-color: color-mix(in srgb, var(--clay) 35%, var(--line));
+        }
+        .learn-title {
+            font-family: var(--serif);
+            font-size: 19px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: var(--spacing-xs);
+        }
+        .learn-description { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
 
         /* Curriculum */
-        .curriculum-section { padding: var(--spacing-xxl) 0; background-color: #FFF5F0; }
+        .curriculum-section { padding: var(--spacing-xxl) 0; background-color: var(--cream-deep); }
         .days-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -174,23 +196,41 @@
         }
         @media (max-width: 900px) { .days-grid { grid-template-columns: 1fr; max-width: 560px; } }
         .day-card {
-            background: linear-gradient(160deg, #2F2218 0%, #3d2c1d 100%);
-            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border-radius: var(--radius-sm);
             padding: var(--spacing-lg);
-            border: 1px solid rgba(229, 90, 43, 0.2);
-            transition: var(--transition);
+            border: 1px solid var(--line);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
         }
-        .day-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(229, 90, 43, 0.25); border-color: rgba(229, 90, 43, 0.45); }
-        .day-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--training-accent-light); font-weight: 700; }
-        .day-title { font-size: 21px; font-weight: 700; color: var(--white); margin: 6px 0 var(--spacing-md); line-height: 1.3; }
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 26px 50px -32px rgba(120, 70, 40, 0.42);
+            border-color: color-mix(in srgb, var(--clay) 35%, var(--line));
+        }
+        .day-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--clay-deep);
+            font-weight: 500;
+        }
+        .day-title {
+            font-family: var(--serif);
+            font-size: 21px;
+            font-weight: 500;
+            color: var(--ink);
+            margin: 6px 0 var(--spacing-md);
+            line-height: 1.3;
+        }
         .session-list { list-style: none; padding: 0; margin: 0; }
         .session-list li {
-            color: rgba(255, 255, 255, 0.72);
+            color: var(--ink-soft);
             font-size: 14px;
             line-height: 1.55;
             padding: 10px 0 10px 22px;
             position: relative;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--line);
         }
         .session-list li:first-child { border-top: none; }
         .session-list li::before {
@@ -199,12 +239,12 @@
             left: 0; top: 16px;
             width: 8px; height: 8px;
             border-radius: 2px;
-            background: var(--training-accent);
+            background: var(--clay);
         }
-        .session-list li strong { color: #fff; font-weight: 600; }
+        .session-list li strong { color: var(--ink); font-weight: 600; }
 
         /* Details: prerequisites + bring + audience */
-        .details-section { padding: var(--spacing-xxl) 0; background-color: var(--background); }
+        .details-section { padding: var(--spacing-xxl) 0; background-color: var(--cream); }
         .details-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -215,87 +255,93 @@
             margin-right: auto;
         }
         .detail-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
+            background-color: var(--surface);
+            border-radius: var(--radius-sm);
             padding: var(--spacing-lg);
-            border: 1px solid rgba(31, 31, 31, 0.08);
+            border: 1px solid var(--line);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 26px 50px -32px rgba(120, 70, 40, 0.42);
+            border-color: color-mix(in srgb, var(--clay) 35%, var(--line));
         }
         .detail-card h3 {
-            font-size: 18px; font-weight: 700; color: var(--training-dark);
-            margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-sm);
-            border-bottom: 2px solid var(--training-accent);
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--clay);
         }
         .detail-list { list-style: none; padding: 0; margin: 0; }
         .detail-list li {
-            color: var(--text-secondary); font-size: 15px; line-height: 1.55;
+            color: var(--ink-soft); font-size: 15px; line-height: 1.55;
             padding: 7px 0 7px 26px; position: relative;
         }
         .detail-list li::before {
             content: "→"; position: absolute; left: 0; top: 7px;
-            color: var(--training-accent); font-weight: 700;
+            color: var(--clay); font-weight: 700;
         }
 
         /* FOIL highlight */
-        .foil-section { padding: var(--spacing-xl) 0; background: linear-gradient(135deg, #FFF5F0 0%, #FFE3D6 100%); }
+        .foil-section { padding: var(--spacing-xl) 0; background: radial-gradient(120% 140% at 100% 0%, var(--clay-tint-2) 0%, transparent 55%), var(--surface); }
         .foil-box {
             max-width: 820px; margin: 0 auto; text-align: center;
-            background: var(--white);
-            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border-radius: var(--radius-sm);
             padding: var(--spacing-xl) var(--spacing-lg);
-            border: 1px solid rgba(229, 90, 43, 0.2);
-            box-shadow: 0 8px 32px rgba(229, 90, 43, 0.1);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 32px -16px rgba(120, 70, 40, 0.18);
         }
-        .foil-box h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 700; color: var(--training-dark); margin-bottom: var(--spacing-md); }
-        .foil-box p { color: var(--text-secondary); font-size: 17px; line-height: 1.7; max-width: 640px; margin: 0 auto var(--spacing-md); }
+        .foil-box h2 {
+            font-family: var(--serif);
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: var(--spacing-md);
+        }
+        .foil-box p { color: var(--ink-soft); font-size: 17px; line-height: 1.7; max-width: 640px; margin: 0 auto var(--spacing-md); }
         .foil-box .cta-button { margin-top: var(--spacing-xs); }
 
         /* Final CTA */
         .register-section {
             padding: var(--spacing-xxl) 0;
             text-align: center;
-            background: linear-gradient(135deg, #2F2218 0%, #4a3020 100%);
-            color: var(--white);
+            background: var(--ink);
+            color: var(--cream);
         }
-        .register-section .section-title { color: var(--white); }
-        .register-section .hero-subtitle { color: rgba(255, 255, 255, 0.75); }
-        .register-info { color: rgba(255, 255, 255, 0.6); font-size: 14px; margin-top: var(--spacing-md); }
-
-        .training-footer { background-color: #2F2218; }
-
-        body > main > .breadcrumbs {
-            background-color: rgba(255, 227, 214, 0.95);
-            border-bottom: 1px solid rgba(229, 90, 43, 0.15);
-            color: #6b5344;
+        .register-section .section-title {
+            font-family: var(--serif);
+            color: var(--cream);
         }
-        body > main > .breadcrumbs a { color: var(--training-accent); }
-        body > main > .breadcrumbs a:hover { color: #C44A20; }
-        body > main > .breadcrumbs span { color: #c0a898; }
+        .register-section .hero-subtitle { color: rgba(243, 240, 233, 0.75); }
+        .register-info { color: rgba(243, 240, 233, 0.6); font-size: 14px; margin-top: var(--spacing-md); }
 
         @media (max-width: 768px) {
             .cta-group { flex-direction: column; align-items: center; }
             .training-cta-secondary { margin-left: 0; }
             .training-hero .hero-title { font-size: 32px; }
             .training-logo { width: 80px; height: 80px; }
-            .training-header .container { flex-direction: column; gap: var(--spacing-sm); }
-            .training-header .nav { flex-wrap: wrap; justify-content: center; gap: var(--spacing-xs); }
-            .training-header .nav-link { font-size: 14px; padding: 6px 12px; }
         }
     </style>
 </head>
 <body>
-    <header class="header training-header">
-        <div class="container">
-            <div class="logo">
-                <a href="/">
-                    <img src="../logo.svg" alt="PEACH STUDIO" class="logo-img">
-                </a>
-            </div>
-            <nav class="nav">
-                <a href="#overview" class="nav-link">Overview</a>
-                <a href="#curriculum" class="nav-link">Curriculum</a>
-                <a href="#details" class="nav-link">Details</a>
-                <a href="/" class="nav-link">PEACH STUDIO</a>
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="/" class="brand" aria-label="PEACH STUDIO home">
+                <img src="../logo.svg" alt="PEACH STUDIO">
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#overview">Overview</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#details">Details</a>
+                <a href="/" class="nav-cta">PEACH STUDIO</a>
             </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -313,7 +359,7 @@
         <section class="training-hero">
             <div class="container">
                 <a href="/" class="back-link">&larr; Back to PEACH STUDIO</a>
-                <img src="icon.svg" alt="Building Offensive Tools with Claude Code" class="training-logo" />
+                <img src="../assets/icons/claude-code-color.png" alt="Building Offensive Tools with Claude Code" class="training-logo" width="96" height="96" />
                 <div class="event-badge"><span class="dot"></span> BruCON 2026 &middot; Mechelen, Belgium</div>
                 <h1 class="hero-title">Vibe Off, Spec On &mdash; Building Real Offensive Tools with Claude Code</h1>
                 <p class="hero-subtitle">A 3-day hands-on training. No canned labs: the class votes on a real offensive tool on day one, specs it with Claude, and ships a working application by day three.</p>
@@ -358,32 +404,26 @@
                 <p class="section-intro">Two years of accumulated R&amp;D on driving Claude Code for serious offensive work &mdash; distilled into three days.</p>
                 <div class="learn-grid">
                     <div class="learn-card">
-                        <div class="learn-icon">🧭</div>
                         <h3 class="learn-title">Spec-driven development</h3>
                         <p class="learn-description">Stop "vibe-coding" security tools. Use OpenSpec to drive Claude with intent, so output is reviewable, reproducible, and safe to ship.</p>
                     </div>
                     <div class="learn-card">
-                        <div class="learn-icon">🧩</div>
                         <h3 class="learn-title">Custom skills &amp; subagents</h3>
                         <p class="learn-description">Author your own skills, build subagents, wire up hooks, and distribute plugins across the Claude Code ecosystem.</p>
                     </div>
                     <div class="learn-card">
-                        <div class="learn-icon">🔌</div>
                         <h3 class="learn-title">MCP for production</h3>
                         <p class="learn-description">Integrate MCP servers into real workflows &mdash; connecting Claude to the tools, data, and infrastructure your tooling depends on.</p>
                     </div>
                     <div class="learn-card">
-                        <div class="learn-icon">🧪</div>
                         <h3 class="learn-title">Testing the non-deterministic</h3>
                         <p class="learn-description">Eval harnesses, golden testing, and Playwright-driven TDD for systems that don't behave the same way twice.</p>
                     </div>
                     <div class="learn-card">
-                        <div class="learn-icon">📦</div>
                         <h3 class="learn-title">Ship &amp; distribute</h3>
                         <p class="learn-description">Packaging across platforms and package managers, containerization, and sandbox architectures for security tools.</p>
                     </div>
                     <div class="learn-card">
-                        <div class="learn-icon">🔍</div>
                         <h3 class="learn-title">The FOIL playbook</h3>
                         <p class="learn-description">The exact techniques behind FOIL &mdash; the scanner that surfaced a 22-year-old zero-day &mdash; plus local-LLM and hybrid deployment options.</p>
                     </div>
@@ -473,15 +513,45 @@
                 <h2 class="section-title">Join us at BruCON 2026</h2>
                 <p class="hero-subtitle">Three days in Mechelen, Belgium &mdash; Sept 21&ndash;23, 2026. Seats are limited and hands-on.</p>
                 <a href="https://www.brucon.org/training-details/building-offensive-tools-ai" target="_blank" rel="noopener noreferrer" class="cta-button training-cta">Register at BruCON</a>
-                <p class="register-info">Questions about the training? <a href="mailto:info@peachstudio.be" style="color:#FFB892;">info@peachstudio.be</a></p>
+                <p class="register-info">Questions about the training? <a href="mailto:info@peachstudio.be" style="color:var(--clay-tint);">info@peachstudio.be</a></p>
             </div>
         </section>
     </main>
 
-    <footer class="footer training-footer">
+    <footer class="site-footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025-2026 PEACH STUDIO. All rights reserved.</p>
-            <p class="footer-address">Hands-on AI &amp; offensive security training &mdash; Everberg, Belgium</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="../logo.svg" alt="PEACH STUDIO">
+                    <p>Creative AI &amp; security studio building products with AI at their core. Based in Everberg, Belgium — serving clients worldwide.</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Studio</h4>
+                        <a href="/#focus">What We Do</a>
+                        <a href="/#products">Products</a>
+                        <a href="/#training">Training</a>
+                        <a href="/#about">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="/macframe/">Macframe</a>
+                        <a href="/profilers/">Business Profiler</a>
+                        <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer">Foil</a>
+                        <a href="https://github.com/vitorallo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.linkedin.com/company/peachstudiobv" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer">Medium</a>
+                        <a href="mailto:info@peachstudio.be">info@peachstudio.be</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025–2026 PEACH STUDIO · Molenstraat 64, 3078 Everberg, Belgium</span>
+                <span>This site does not use cookies. <a href="/privacy.html">Privacy Notice</a> · <a href="/sitemap.html">Sitemap</a></span>
+            </div>
         </div>
     </footer>
 
@@ -555,6 +625,19 @@
             { "@type": "ListItem", "position": 3, "name": "Building Offensive Tools with AI", "item": "https://peachstudio.be/training/" }
         ]
     }
+    </script>
+
+    <script>
+    (function () {
+        var h = document.getElementById('siteHeader');
+        function s(){ if (window.scrollY > 12) h.classList.add('scrolled'); else h.classList.remove('scrolled'); }
+        s(); window.addEventListener('scroll', s, { passive: true });
+        var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+        if (t && n) {
+            t.addEventListener('click', function () { var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+            n.addEventListener('click', function (e) { if (e.target.tagName === 'A') { n.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
+        }
+    })();
     </script>
 </body>
 </html>
