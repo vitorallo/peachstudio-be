@@ -1,0 +1,70 @@
+/* ============================================================
+   PEACH STUDIO — design tokens
+   Single source of truth for color, type, spacing, radius, shadow.
+   Copy this :root block into any project, or @import this file.
+   Mirrors the live site (../styles.css).
+   ============================================================ */
+
+:root {
+    /* ---- Color · warm palette ---- */
+    --ps-cream:        #F3F0E9;   /* page base */
+    --ps-cream-deep:   #ECE7DC;   /* alternate section base */
+    --ps-surface:      #FBFAF6;   /* cards */
+    --ps-surface-2:    #FFFFFF;
+    --ps-ink:          #211D18;   /* primary text, mono logo mark */
+    --ps-ink-soft:     #57514A;   /* secondary text, "STUDIO" in wordmark */
+    --ps-ink-faint:    #8A847B;   /* tertiary / labels */
+    --ps-line:         #DED7C9;   /* hairlines */
+    --ps-line-soft:    #E7E1D5;
+
+    /* ---- Color · clay accents ---- */
+    --ps-clay:         #C2603A;   /* primary accent, peach body */
+    --ps-clay-deep:    #A84E2C;   /* serif emphasis / hover */
+    --ps-clay-bright:  #D9693E;   /* CTA fill */
+    --ps-clay-tint:    #EDDFD4;   /* soft clay panel */
+    --ps-clay-tint-2:  #F4E9DF;
+    --ps-leaf:         #5E7C2F;   /* logo leaf */
+
+    /* ---- Type families ---- */
+    --ps-serif: "Newsreader", Georgia, "Times New Roman", serif;          /* display headlines */
+    --ps-sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* body + UI */
+    --ps-mono:  "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; /* eyebrows, code, meta */
+    --ps-pixel: "Silkscreen", "IBM Plex Mono", monospace;                 /* logo wordmark only */
+
+    /* ---- Type scale (fluid) ---- */
+    --ps-display:   clamp(46px, 7.4vw, 92px);   /* hero H1 */
+    --ps-h1:        clamp(40px, 6vw, 72px);     /* page hero */
+    --ps-h2:        clamp(34px, 5vw, 58px);     /* section title */
+    --ps-h3:        clamp(26px, 3.2vw, 40px);
+    --ps-lead:      clamp(18px, 2.1vw, 22px);   /* intro paragraph */
+    --ps-body:      18px;
+    --ps-small:     15px;
+    --ps-eyebrow:   12.5px;                     /* mono, uppercase, 0.22em tracking */
+
+    /* ---- Spacing ---- */
+    --ps-space-xs:  8px;
+    --ps-space-sm:  16px;
+    --ps-space-md:  24px;
+    --ps-space-lg:  48px;
+    --ps-space-xl:  72px;
+    --ps-space-2xl: 120px;
+    --ps-section-y: clamp(72px, 11vw, 150px);
+    --ps-gutter:    clamp(20px, 5vw, 56px);
+    --ps-maxw:      1180px;
+
+    /* ---- Radius ---- */
+    --ps-radius-sm: 14px;
+    --ps-radius-md: 16px;
+    --ps-radius-lg: 22px;
+    --ps-radius-pill: 100px;
+
+    /* ---- Elevation (warm, low-contrast shadows) ---- */
+    --ps-shadow-sm:  0 14px 30px -14px rgba(168, 78, 44, 0.5);
+    --ps-shadow-md:  0 28px 56px -34px rgba(120, 70, 40, 0.5);
+    --ps-shadow-lg:  0 44px 80px -42px rgba(120, 70, 40, 0.55);
+    --ps-shadow-cta: 0 10px 24px -10px rgba(194, 96, 58, 0.7);
+
+    /* ---- Motion ---- */
+    --ps-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ps-transition: 0.3s var(--ps-ease);
+}

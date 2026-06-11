@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PEACH STUDIO — Brand & Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="logo/favicon.svg">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--ps-sans);
+    color: var(--ps-ink);
+    background: var(--ps-cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(40px, 8vw, 110px) var(--ps-gutter); }
+  header.hero { border-bottom: 1px solid var(--ps-line); }
+  .eyebrow {
+    font-family: var(--ps-mono); font-size: var(--ps-eyebrow);
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--ps-clay-deep);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content:""; width: 26px; height: 1px; background: var(--ps-clay); }
+  h1.title { font-family: var(--ps-serif); font-weight: 400; font-size: var(--ps-h1); line-height: 1.02; letter-spacing: -0.022em; margin: 20px 0 14px; }
+  h1.title em { font-style: italic; color: var(--ps-clay-deep); }
+  .lead { font-size: var(--ps-lead); color: var(--ps-ink-soft); max-width: 640px; }
+
+  section { padding: clamp(48px, 8vw, 96px) 0; border-bottom: 1px solid var(--ps-line); }
+  h2.sec { font-family: var(--ps-serif); font-weight: 400; font-size: var(--ps-h2); letter-spacing: -0.018em; margin-bottom: 8px; }
+  h2.sec em { font-style: italic; color: var(--ps-clay-deep); }
+  .sec-sub { color: var(--ps-ink-soft); margin-bottom: 40px; max-width: 620px; }
+  h3.min { font-family: var(--ps-mono); font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ps-ink-faint); margin: 36px 0 16px; }
+
+  /* logo showcase */
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .logo-card {
+    background: var(--ps-surface); border: 1px solid var(--ps-line);
+    border-radius: var(--ps-radius-lg); padding: 36px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 18px; min-height: 200px;
+  }
+  .logo-card.dark { background: var(--ps-ink); border-color: transparent; }
+  .logo-card img { max-width: 100%; }
+  .logo-card .cap { font-family: var(--ps-mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--ps-ink-faint); }
+  .logo-card.dark .cap { color: #9a9389; }
+
+  /* color swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .swatch { border: 1px solid var(--ps-line); border-radius: var(--ps-radius-md); overflow: hidden; background: var(--ps-surface); }
+  .swatch .chip { height: 84px; }
+  .swatch .meta { padding: 12px 14px; }
+  .swatch .name { font-weight: 600; font-size: 14px; }
+  .swatch .hex { font-family: var(--ps-mono); font-size: 12px; color: var(--ps-ink-faint); text-transform: uppercase; }
+
+  /* type specimens */
+  .spec { padding: 22px 0; border-top: 1px solid var(--ps-line); }
+  .spec:first-of-type { border-top: none; }
+  .spec .label { font-family: var(--ps-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ps-ink-faint); margin-bottom: 10px; }
+  .t-serif { font-family: var(--ps-serif); font-weight: 400; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; }
+  .t-serif em { font-style: italic; color: var(--ps-clay-deep); }
+  .t-sans { font-family: var(--ps-sans); font-size: 19px; color: var(--ps-ink-soft); }
+  .t-mono { font-family: var(--ps-mono); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ps-clay-deep); }
+  .t-pixel { font-family: var(--ps-pixel); font-size: 26px; color: var(--ps-ink); }
+
+  /* buttons */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--ps-sans); font-weight: 600; font-size: 16px; line-height: 1; padding: 16px 26px; border-radius: var(--ps-radius-pill); border: 1px solid transparent; cursor: pointer; transition: transform var(--ps-transition), background var(--ps-transition), box-shadow var(--ps-transition); text-decoration: none; }
+  .btn--primary { background: var(--ps-ink); color: var(--ps-cream); }
+  .btn--primary:hover { background: var(--ps-clay-deep); transform: translateY(-2px); }
+  .btn--clay { background: var(--ps-clay-bright); color: #fff; box-shadow: var(--ps-shadow-cta); }
+  .btn--clay:hover { background: var(--ps-clay-deep); transform: translateY(-2px); }
+  .btn--ghost { background: transparent; color: var(--ps-ink); border-color: var(--ps-line); }
+  .btn--ghost:hover { border-color: var(--ps-ink); transform: translateY(-2px); }
+
+  /* misc tokens */
+  .token-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 16px; }
+  .rad-demo { background: var(--ps-clay-tint); border: 1px solid var(--ps-line); height: 90px; display: flex; align-items: flex-end; padding: 10px; font-family: var(--ps-mono); font-size: 11px; color: var(--ps-ink-soft); }
+  .shadow-demo { background: var(--ps-surface); border-radius: var(--ps-radius-md); height: 90px; display: flex; align-items: flex-end; padding: 12px; font-family: var(--ps-mono); font-size: 11px; color: var(--ps-ink-faint); }
+  footer { padding: 40px 0 0; color: var(--ps-ink-faint); font-size: 13px; font-family: var(--ps-mono); }
+  code { font-family: var(--ps-mono); font-size: 0.92em; background: var(--ps-clay-tint-2); padding: 2px 6px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Brand &amp; Design System</span>
+    <h1 class="title">PEACH STUDIO <em>visual identity</em></h1>
+    <p class="lead">Warm clay on cream, editorial serif headlines, and a pixel-art peach. Everything here is reusable — tokens in <code>tokens.css</code>, logos in <code>logo/</code>.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- LOGO -->
+  <section>
+    <h2 class="sec">The <em>logo</em></h2>
+    <p class="sec-sub">A pixel-art peach with a leaf, paired with the Silkscreen pixel wordmark. Mark in clay, leaf in green, "PEACH" in ink and "STUDIO" in soft ink.</p>
+    <div class="logo-grid">
+      <div class="logo-card"><img src="logo/lockup-horizontal.svg" width="380" alt="Horizontal lockup"><span class="cap">lockup-horizontal.svg · default</span></div>
+      <div class="logo-card"><img src="logo/lockup-stacked.svg" width="190" alt="Stacked lockup"><span class="cap">lockup-stacked.svg</span></div>
+      <div class="logo-card dark"><img src="logo/lockup-horizontal-reversed.svg" width="380" alt="Reversed lockup"><span class="cap">lockup-horizontal-reversed.svg</span></div>
+      <div class="logo-card"><img src="logo/peach-mark.svg" width="120" alt="Peach mark"><span class="cap">peach-mark.svg</span></div>
+      <div class="logo-card"><img src="logo/peach-mark-ink.svg" width="120" alt="Ink mark"><span class="cap">peach-mark-ink.svg</span></div>
+      <div class="logo-card dark"><img src="logo/peach-mark-cream.svg" width="120" alt="Reversed mark"><span class="cap">peach-mark-cream.svg</span></div>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section>
+    <h2 class="sec">Color</h2>
+    <p class="sec-sub">Cream backgrounds, ink text, one clay accent per view. Leaf green is reserved for the logo.</p>
+    <h3 class="min">Core</h3>
+    <div class="swatches" id="core"></div>
+    <h3 class="min">Clay accents</h3>
+    <div class="swatches" id="clay"></div>
+  </section>
+
+  <!-- TYPE -->
+  <section>
+    <h2 class="sec">Typography</h2>
+    <p class="sec-sub">Newsreader for display, Hanken Grotesk for everything you read, IBM Plex Mono for kickers and meta, Silkscreen for the logo only.</p>
+    <div class="spec"><div class="label">Newsreader · display serif</div><div class="t-serif">We build the future with <em>AI</em> at its core.</div></div>
+    <div class="spec"><div class="label">Hanken Grotesk · body &amp; UI</div><div class="t-sans">Autonomous agents, edge-AI security tools, and digital experiences — shipped as real products.</div></div>
+    <div class="spec"><div class="label">IBM Plex Mono · eyebrow / meta</div><div class="t-mono">Creative AI, Dev &amp; Security Studio</div></div>
+    <div class="spec"><div class="label">Silkscreen · logo wordmark only</div><div class="t-pixel">PEACH STUDIO</div></div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section>
+    <h2 class="sec">Buttons</h2>
+    <p class="sec-sub">Pill-shaped, lift 2px on hover. One easing curve everywhere.</p>
+    <div class="btn-row">
+      <a class="btn btn--clay" href="#">Get in Touch →</a>
+      <a class="btn btn--primary" href="#">See what we ship</a>
+      <a class="btn btn--ghost" href="#">Learn more</a>
+    </div>
+  </section>
+
+  <!-- TOKENS -->
+  <section style="border-bottom:none;">
+    <h2 class="sec">Radius &amp; elevation</h2>
+    <p class="sec-sub">Soft warm shadows (brown-tinted, never gray). Pill radius for interactive elements.</p>
+    <h3 class="min">Radius</h3>
+    <div class="token-row">
+      <div class="rad-demo" style="border-radius:var(--ps-radius-sm)">14px</div>
+      <div class="rad-demo" style="border-radius:var(--ps-radius-md)">16px</div>
+      <div class="rad-demo" style="border-radius:var(--ps-radius-lg)">22px</div>
+      <div class="rad-demo" style="border-radius:var(--ps-radius-pill)">pill</div>
+    </div>
+    <h3 class="min">Shadow</h3>
+    <div class="token-row">
+      <div class="shadow-demo" style="box-shadow:var(--ps-shadow-sm)">sm</div>
+      <div class="shadow-demo" style="box-shadow:var(--ps-shadow-md)">md</div>
+      <div class="shadow-demo" style="box-shadow:var(--ps-shadow-lg)">lg</div>
+      <div class="shadow-demo" style="box-shadow:var(--ps-shadow-cta)">cta</div>
+    </div>
+  </section>
+
+  <footer>PEACH STUDIO · design system · see DESIGN-SYSTEM.md</footer>
+</div>
+
+<script>
+  const core = [
+    ['cream','#F3F0E9'],['cream-deep','#ECE7DC'],['surface','#FBFAF6'],
+    ['ink','#211D18'],['ink-soft','#57514A'],['ink-faint','#8A847B'],['line','#DED7C9']
+  ];
+  const clay = [
+    ['clay','#C2603A'],['clay-deep','#A84E2C'],['clay-bright','#D9693E'],
+    ['clay-tint','#EDDFD4'],['leaf','#5E7C2F']
+  ];
+  const render = (id, list) => {
+    document.getElementById(id).innerHTML = list.map(([n,h]) =>
+      `<div class="swatch"><div class="chip" style="background:${h}"></div>
+       <div class="meta"><div class="name">${n}</div><div class="hex">${h}</div></div></div>`
+    ).join('');
+  };
+  render('core', core); render('clay', clay);
+</script>
+</body>
+</html>
