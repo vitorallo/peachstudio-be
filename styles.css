@@ -4,7 +4,7 @@
    Shared across the homepage and every inner page / minisite.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen:wght@400;700&display=swap');
 
 *,
 *::before,
@@ -245,16 +245,16 @@ img, svg { display: block; }
 }
 .brand img { height: 28px; width: auto; }
 .brand-name {
-    font-family: var(--sans);
-    font-size: 16px;
+    font-family: "Silkscreen", var(--mono);
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.01em;
     color: var(--ink);
     white-space: nowrap;
 }
 .brand-name em {
     font-style: normal;
-    font-weight: 450;
+    font-weight: 400;
     color: var(--ink-soft);
 }
 .nav {
