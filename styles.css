@@ -237,7 +237,26 @@ img, svg { display: block; }
     justify-content: space-between;
     height: 76px;
 }
-.brand img { height: 30px; width: auto; }
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+}
+.brand img { height: 28px; width: auto; }
+.brand-name {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    color: var(--ink);
+    white-space: nowrap;
+}
+.brand-name em {
+    font-style: normal;
+    font-weight: 450;
+    color: var(--ink-soft);
+}
 .nav {
     display: flex;
     align-items: center;
@@ -987,7 +1006,8 @@ img, svg { display: block; }
     padding-bottom: 40px;
     border-bottom: 1px solid var(--line);
 }
-.footer-brand img { height: 30px; margin-bottom: 18px; }
+.footer-brand .brand { margin-bottom: 18px; }
+.footer-brand img { height: 28px; }
 .footer-brand p {
     max-width: 280px;
     font-size: 14.5px;
