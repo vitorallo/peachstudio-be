@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Performance & Resource Hints -->
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="preload" href="icon.svg" as="image">
+    <link rel="dns-prefetch" href="https://github.com">
+
+    <!-- Primary Meta Tags -->
+    <title>Corporate Bullshit Agentic Generator | Local AI on DGX Spark | PEACH STUDIO</title>
+    <meta name="title" content="Corporate Bullshit Agentic Generator | Local AI on DGX Spark">
+    <meta name="description" content="A fun tool and a controlled offensive-security demo: confident corporate nonsense written by a local LLM, spoken in a cloned voice, and lip-synced to deepfake video — 100% on a NVIDIA DGX Spark or Dell GB10, no cloud.">
+    <meta name="keywords" content="DGX Spark, Dell GB10, GB10, local LLM, agentic AI, text to speech, voice cloning, talking head, lip sync, on-device AI, NVIDIA, open models, edge AI, corporate buzzwords">
+    <meta name="author" content="PEACH STUDIO">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://peachstudio.be/cbag/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peachstudio.be/cbag/">
+    <meta property="og:title" content="Corporate Bullshit Agentic Generator | Local AI on DGX Spark">
+    <meta property="og:description" content="Confident, scalable, mission-critical nonsense — written by a local LLM, spoken aloud, and lip-synced to video. 100% on a DGX Spark or Dell GB10, no cloud.">
+    <meta property="og:image" content="https://peachstudio.be/cbag/screenshot.png">
+    <meta property="og:site_name" content="PEACH STUDIO">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peachstudio.be/cbag/">
+    <meta property="twitter:title" content="Corporate Bullshit Agentic Generator | Local AI on DGX Spark">
+    <meta property="twitter:description" content="Confident, scalable, mission-critical nonsense — generated entirely on-device on a NVIDIA DGX Spark or Dell GB10.">
+    <meta property="twitter:image" content="https://peachstudio.be/cbag/screenshot.png">
+
+    <!-- Additional Meta -->
+    <meta name="theme-color" content="#C2603A">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="alternate icon" href="../favicon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* ── Hero ─────────────────────────────────────────────────────────── */
+        .cbag-hero {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            text-align: center;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+            color: var(--ink);
+        }
+
+        .cbag-logo {
+            display: block;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto var(--spacing-md);
+            filter: drop-shadow(0 8px 24px rgba(194, 96, 58, 0.30));
+        }
+
+        .cbag-hero .hero-title {
+            font-family: var(--serif);
+            font-weight: 500;
+            color: var(--ink);
+            font-size: clamp(38px, 5.5vw, 60px);
+            line-height: 1.05;
+        }
+
+        .cbag-hero .hero-subtitle {
+            color: var(--ink-soft);
+            max-width: 660px;
+            margin-inline: auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--ink-faint);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: var(--spacing-md);
+            transition: color .2s var(--ease);
+        }
+        .back-link:hover { color: var(--ink); }
+
+        .version-badge {
+            display: inline-block;
+            background: var(--clay-tint);
+            color: var(--clay-deep);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .cbag-cta-secondary {
+            background-color: transparent;
+            border: 2px solid var(--line);
+            color: var(--ink);
+            box-shadow: none;
+            border-radius: 100px;
+            padding: 12px 28px;
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color .2s var(--ease), border-color .2s var(--ease);
+        }
+        .cbag-cta-secondary:hover {
+            background-color: var(--surface);
+            border-color: color-mix(in srgb, var(--clay) 45%, var(--line));
+            box-shadow: none;
+        }
+
+        /* ── Screenshots ──────────────────────────────────────────────────── */
+        .screenshot-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--cream-deep);
+        }
+        .screenshot-container {
+            max-width: 760px;
+            margin: 0 auto;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 60px -28px rgba(120, 70, 40, .45);
+        }
+        .screenshot-container img { width: 100%; height: auto; display: block; }
+
+        .shot-pair {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            max-width: 900px;
+            margin: var(--spacing-md) auto 0;
+        }
+        .shot-pair figure {
+            margin: 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            box-shadow: 0 14px 36px -26px rgba(120, 70, 40, .4);
+        }
+        .shot-pair img { width: 100%; height: auto; display: block; }
+        .shot-pair figcaption {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            padding: 10px 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* ── Features ─────────────────────────────────────────────────────── */
+        .features-section { padding: var(--spacing-xxl) 0; background-color: var(--cream); }
+        .features-section .section-title { font-family: var(--serif); font-weight: 400; color: var(--ink); }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        .feature-card {
+            background-color: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--line);
+            transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 26px 50px -32px rgba(120, 70, 40, .42);
+            border-color: color-mix(in srgb, var(--clay) 35%, var(--line));
+        }
+        .feature-title { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: var(--spacing-xs); }
+        .feature-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px; }
+        .feature-description { color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+
+        /* ── Security focus band ──────────────────────────────────────────── */
+        .focus-band { padding: var(--spacing-xxl) 0; background-color: var(--ink); color: var(--cream); }
+        .focus-inner { max-width: 760px; }
+        .focus-band .eyebrow { color: var(--clay-bright); }
+        .focus-band .eyebrow::before { background: var(--clay-bright); }
+        .focus-title {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.1;
+            color: var(--cream);
+            margin: var(--spacing-xs) 0 var(--spacing-md);
+        }
+        .focus-title em { font-style: italic; color: var(--clay-bright); }
+        .focus-text { color: rgba(243, 240, 233, 0.82); font-size: 18px; line-height: 1.7; }
+        .focus-text strong { color: var(--cream); font-weight: 600; }
+        .focus-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            max-width: 900px;
+        }
+        .focus-point { border-top: 2px solid rgba(217, 105, 62, 0.5); padding-top: var(--spacing-sm); }
+        .focus-point h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay-bright); margin-bottom: 6px; }
+        .focus-point p { color: rgba(243, 240, 233, 0.7); font-size: 14px; line-height: 1.55; }
+
+        /* ── Pipeline (how it works) ──────────────────────────────────────── */
+        .pipeline-section { padding: var(--spacing-xxl) 0; background-color: var(--cream-deep); }
+        .pipeline-section .section-title { font-family: var(--serif); font-weight: 400; color: var(--ink); }
+        .pipeline-steps { max-width: 640px; margin: var(--spacing-lg) auto 0; }
+        .pipeline-step {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            background: var(--surface-2);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--line);
+        }
+        .step-number {
+            width: 32px; height: 32px; flex-shrink: 0;
+            background: var(--clay-bright); color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+        }
+        .step-text { font-size: 16px; color: var(--ink-soft); padding-top: 4px; }
+        .step-text strong { color: var(--ink); font-weight: 600; }
+
+        /* ── Requirements ─────────────────────────────────────────────────── */
+        .requirements-section { padding: var(--spacing-xl) 0; background-color: var(--surface-2); }
+        .requirements-section .section-title { font-family: var(--serif); font-weight: 400; color: var(--ink); }
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            max-width: 820px;
+            margin: var(--spacing-lg) auto 0;
+        }
+        .requirement-item { text-align: center; padding: var(--spacing-md); }
+        .requirement-label { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .16em; margin-bottom: var(--spacing-xs); }
+        .requirement-value { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); }
+
+        /* ── CTA (dark) ───────────────────────────────────────────────────── */
+        .download-section { padding: var(--spacing-xxl) 0; text-align: center; background: var(--ink); color: var(--cream); }
+        .download-section .section-title { font-family: var(--serif); font-weight: 400; color: var(--cream); }
+        .download-section .hero-subtitle { color: rgba(243, 240, 233, 0.75); margin-inline: auto; max-width: 620px; }
+        .download-info { color: rgba(243, 240, 233, 0.6); font-size: 14px; margin-top: var(--spacing-md); }
+        .download-info a { color: var(--clay-bright); }
+        .download-info a:hover { color: var(--clay-tint); }
+
+        @media (max-width: 768px) {
+            .cta-group { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="/" class="brand" aria-label="PEACH STUDIO home">
+                <img src="../logo.svg" alt="">
+                <span class="brand-name">PEACH <em>STUDIO</em></span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#features">Features</a>
+                <a href="#security">Security</a>
+                <a href="#pipeline">How it works</a>
+                <a href="#get">Get it</a>
+                <a href="/" class="nav-cta">PEACH STUDIO</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/#products">Products</a>
+                <span>/</span>
+                <span>Corporate Bullshit Agentic Generator</span>
+            </div>
+        </div>
+
+        <section class="cbag-hero">
+            <div class="container">
+                <a href="/" class="back-link">&larr; Back to PEACH STUDIO</a>
+                <img src="icon.svg" alt="Corporate Bullshit Agentic Generator" class="cbag-logo">
+                <span class="version-badge">Runs on NVIDIA DGX Spark &middot; Dell GB10</span>
+                <h1 class="hero-title">Corporate Bullshit<br>Agentic Generator</h1>
+                <p class="hero-subtitle">The Corporate Bullshit Generator is back &mdash; and it's AI now. Pick a topic and a persona. Receive confident, scalable, mission-critical nonsense &mdash; written by a local LLM, spoken aloud, and lip-synced to video. 100% on-device, no cloud.</p>
+                <div class="cta-group">
+                    <a href="https://github.com/vitorallo/CBAG" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                    <a href="#pipeline" class="cbag-cta-secondary">How it works</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshot-section">
+            <div class="container">
+                <div class="screenshot-container">
+                    <img src="screenshot.png" alt="CBAG generating a visionary-CEO monologue about AI strategy, entirely on a local DGX Spark" width="1200" height="1450" loading="lazy">
+                </div>
+                <div class="shot-pair">
+                    <figure>
+                        <img src="form.png" alt="CBAG controls: topic, persona, length, voice, and output options including clone my voice and upload a portrait" width="1788" height="980" loading="lazy">
+                        <figcaption>Topic &times; persona &times; voice &mdash; your nonsense, your way</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="record.png" alt="CBAG voice-cloning dialog asking you to read a short sample aloud" width="1200" height="764" loading="lazy">
+                        <figcaption>Clone your own voice from a short sample</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">What it does</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <p class="feature-kicker">Language</p>
+                        <h3 class="feature-title">Local LLM monologues</h3>
+                        <p class="feature-description">An open-weight model running on-device writes confident, scalable, end-to-end synergy &mdash; in short, medium, or long. Buzzword density: maximum.</p>
+                    </div>
+                    <div class="feature-card">
+                        <p class="feature-kicker">Personas</p>
+                        <h3 class="feature-title">Persona engine</h3>
+                        <p class="feature-description">Visionary CEO, McKinsey consultant, and friends. Each persona has its own voice, cadence, and special brand of mission-critical nonsense.</p>
+                    </div>
+                    <div class="feature-card">
+                        <p class="feature-kicker">Speech</p>
+                        <h3 class="feature-title">Spoken aloud</h3>
+                        <p class="feature-description">Local text-to-speech reads the monologue back to you. Pick a default voice &mdash; or have it read in your own.</p>
+                    </div>
+                    <div class="feature-card">
+                        <p class="feature-kicker">Voice clone</p>
+                        <h3 class="feature-title">Clone any voice</h3>
+                        <p class="feature-description">Read one short sentence aloud and CBAG clones the voice locally &mdash; the same capability an attacker would use for vishing and impersonation, shown end-to-end.</p>
+                    </div>
+                    <div class="feature-card">
+                        <p class="feature-kicker">Synthetic video</p>
+                        <h3 class="feature-title">Talking-head deepfake</h3>
+                        <p class="feature-description">Add a front-facing portrait and CBAG lip-syncs the audio into a talking-head clip &mdash; a controlled demonstration of how convincing local deepfake video has become.</p>
+                    </div>
+                    <div class="feature-card">
+                        <p class="feature-kicker">Edge</p>
+                        <h3 class="feature-title">100% on-device</h3>
+                        <p class="feature-description">LLM, speech, voice clone, and video all run locally on a NVIDIA DGX Spark or Dell GB10. Open models, no cloud, nothing leaves the box.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security" class="focus-band">
+            <div class="container">
+                <div class="focus-inner">
+                    <span class="eyebrow">Why it matters</span>
+                    <h2 class="focus-title">A fun toy &mdash; and a serious <em>offensive-security</em> demo.</h2>
+                    <p class="focus-text">Behind the jokes, CBAG is a deliberate demonstration. The same pipeline that writes a buzzword monologue proves that convincing <strong>voice cloning</strong> and <strong>deepfake video</strong> can now be produced end-to-end on a single local machine &mdash; a NVIDIA DGX Spark or Dell GB10 &mdash; with no cloud, no third-party API, and nothing ever leaving the device. If a red team can stand this up on commodity AI hardware in an afternoon, so can an adversary. Understanding that threat is the first step to defending against it.</p>
+                    <div class="focus-points">
+                        <div class="focus-point">
+                            <h4>Controlled</h4>
+                            <p>Built and run as a closed research environment &mdash; not a public service. No hosted generation, no uploads to anyone else's servers.</p>
+                        </div>
+                        <div class="focus-point">
+                            <h4>Local &amp; air-gappable</h4>
+                            <p>Everything executes on the Spark / GB10 itself, so synthetic-media capability can be studied entirely offline.</p>
+                        </div>
+                        <div class="focus-point">
+                            <h4>Threat-informed</h4>
+                            <p>A hands-on look at vishing, impersonation, and synthetic-media social engineering &mdash; the attacks defenders now have to anticipate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pipeline" class="pipeline-section">
+            <div class="container">
+                <h2 class="section-title">How it works</h2>
+                <div class="pipeline-steps">
+                    <div class="pipeline-step">
+                        <div class="step-number">1</div>
+                        <div class="step-text"><strong>Pick a topic and a persona.</strong> Type a theme &mdash; "AI strategy", "working together" &mdash; choose a persona, length, and voice.</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-number">2</div>
+                        <div class="step-text"><strong>A local LLM writes the monologue.</strong> Buzzwords are generated, then refined into a polished, straight-faced corporate monologue.</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-number">3</div>
+                        <div class="step-text"><strong>Local TTS speaks it.</strong> The text is read aloud on-device &mdash; in a default voice, or in a clone of your own.</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-number">4</div>
+                        <div class="step-text"><strong>Optionally, it becomes a face.</strong> Add a portrait and the audio is lip-synced into a talking-head video. Skip voice or video any time.</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-number">5</div>
+                        <div class="step-text"><strong>All of it stays local.</strong> Every stage runs on a DGX Spark or Dell GB10 with open models. No API keys, no cloud, no data leaving the machine.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="requirements-section">
+            <div class="container">
+                <h2 class="section-title">Runs on</h2>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <div class="requirement-label">Hardware</div>
+                        <div class="requirement-value">DGX Spark / Dell GB10</div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-label">Models</div>
+                        <div class="requirement-value">Open weights, local</div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-label">Pipeline</div>
+                        <div class="requirement-value">LLM &middot; TTS &middot; Video</div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-label">Cloud</div>
+                        <div class="requirement-value">None</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get" class="download-section">
+            <div class="container">
+                <h2 class="section-title">Get the code</h2>
+                <p class="hero-subtitle">CBAG is an open-source demo of a fully local, agentic AI pipeline &mdash; LLM, speech, and talking-head video &mdash; built for the NVIDIA DGX Spark and Dell GB10. Submitted to the NVIDIA DGX community playbooks.</p>
+                <a href="https://github.com/vitorallo/CBAG" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                <p class="download-info">Built by PEACH STUDIO &middot; runs 100% on-device, no cloud</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/" class="brand" aria-label="PEACH STUDIO home">
+                        <img src="../logo.svg" alt="">
+                        <span class="brand-name">PEACH <em>STUDIO</em></span>
+                    </a>
+                    <p>Creative AI &amp; security studio building products with AI at their core. Based in Everberg, Belgium — serving clients worldwide.</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Studio</h4>
+                        <a href="/#focus">What We Do</a>
+                        <a href="/#products">Products</a>
+                        <a href="/#training">Training</a>
+                        <a href="/#about">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="/cbag/">Corporate Bullshit Generator</a>
+                        <a href="/macframe/">Macframe</a>
+                        <a href="/profilers/">Business Profiler</a>
+                        <a href="https://foil.peachstudio.be" target="_blank" rel="noopener noreferrer">Foil</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.linkedin.com/company/peachstudiobv" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://medium.com/@vito.rallo" target="_blank" rel="noopener noreferrer">Medium</a>
+                        <a href="mailto:info@peachstudio.be">info@peachstudio.be</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025–2026 PEACH STUDIO · Molenstraat 64, 3078 Everberg, Belgium</span>
+                <span>This site does not use cookies. <a href="/privacy.html">Privacy Notice</a> · <a href="/sitemap.html">Sitemap</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Corporate Bullshit Agentic Generator",
+        "operatingSystem": "NVIDIA DGX Spark, Dell GB10",
+        "applicationCategory": "MultimediaApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "A fully local, agentic AI pipeline that turns a topic and a persona into a confident corporate monologue — written by a local LLM, spoken aloud with optional voice cloning, and lip-synced to a talking-head video. Doubles as a controlled offensive-security demonstration of local voice cloning and deepfake creation. Runs 100% on-device on a NVIDIA DGX Spark or Dell GB10.",
+        "url": "https://github.com/vitorallo/CBAG",
+        "author": {
+            "@type": "Organization",
+            "name": "PEACH STUDIO",
+            "url": "https://peachstudio.be"
+        }
+    }
+    </script>
+
+    <script>
+(function () {
+    var h = document.getElementById('siteHeader');
+    function s(){ if (window.scrollY > 12) h.classList.add('scrolled'); else h.classList.remove('scrolled'); }
+    s(); window.addEventListener('scroll', s, { passive: true });
+    var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+    if (t && n) {
+        t.addEventListener('click', function () { var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+        n.addEventListener('click', function (e) { if (e.target.tagName === 'A') { n.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
+    }
+})();
+</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://peachstudio.be/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://peachstudio.be/" },
+            { "@type": "ListItem", "position": 3, "name": "Corporate Bullshit Agentic Generator", "item": "https://peachstudio.be/cbag/" }
+        ]
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" shape-rendering="crispEdges">
+  <!-- CBAG pixel speech bubble — clay body, ink "typing" dots, on a 20px grid -->
+  <g fill="#C2603A">
+    <rect x="60" y="30" width="120" height="20"/>
+    <rect x="40" y="50" width="160" height="100"/>
+    <rect x="60" y="150" width="120" height="20"/>
+    <rect x="60" y="170" width="40" height="20"/>
+    <rect x="60" y="190" width="20" height="20"/>
+  </g>
+  <g fill="#211D18">
+    <rect x="70" y="90" width="20" height="20"/>
+    <rect x="110" y="90" width="20" height="20"/>
+    <rect x="150" y="90" width="20" height="20"/>
+  </g>
+</svg>
