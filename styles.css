@@ -635,6 +635,7 @@ img, svg { display: block; }
     filter: drop-shadow(0 8px 16px rgba(168,78,44,0.22));
 }
 .feature .product-title { font-size: clamp(28px, 3vw, 38px); }
+.feature--compact .product-title { font-size: clamp(24px, 2.2vw, 29px); line-height: 1.15; }
 .feature .product-desc { font-size: 16px; max-width: 46ch; flex: 0 1 auto; }
 .feature .tlink { margin-top: 24px; }
 
