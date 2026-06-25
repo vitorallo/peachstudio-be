@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Benelux FortiGate Exposure — Density</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
+<style>
+  html,body{margin:0;height:100%;font-family:-apple-system,Segoe UI,Roboto,sans-serif}
+  #map{height:100%;background:#0e1117}
+  .panel{position:absolute;top:12px;right:12px;z-index:1000;background:#1b1f2a;color:#e8eaf0;
+    padding:14px 16px;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.4);font-size:13px;min-width:200px}
+  .panel h3{margin:0 0 8px;font-size:15px}
+  .row{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .red{background:#ff3b3b}.blue{background:#2f7bff}.count{margin-left:auto;font-weight:600}
+  .muted{color:#9aa3b5;font-size:11px;margin-top:8px;line-height:1.4}
+  .num{background:transparent!important;border:none!important;box-shadow:none!important;
+    color:#fff;font-weight:700;font-size:12px;text-shadow:0 0 3px #000,0 0 3px #000;padding:0}
+  .num:before{display:none!important}
+  body.hidenum .num{display:none!important}   /* hide counts at very high zoom */
+  .title{position:absolute;top:12px;left:52px;z-index:1000;background:#1b1f2a;color:#fff;
+    padding:8px 14px;border-radius:8px;font-weight:600;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+</style></head><body>
+<div id="map"></div>
+<div class="title">🛡️ Benelux FortiGate Exposure — regional density</div>
+<div class="panel">
+  <h3>Exposed devices</h3>
+  <div class="row"><span class="dot red"></span> FortiBleed (2026) <span class="count">889</span></div>
+  <div class="row"><span class="dot blue"></span> FortiLeak (2025) <span class="count">692</span></div>
+  <div class="muted">Aggregated by region (~10&nbsp;km). Counts only — no
+   company, domain or IP data is included. Zoom is limited by design.</div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"
+  integrity="sha384-mFKkGiGvT5vo1fEyGCD3hshDdKmW3wzXW/x+fWriYJArD0R3gawT6lMvLboM22c0" crossorigin="anonymous"></script>
+<script>
+const DATA = [[53.2, 6.6, 3, 1], [51.1, 3.8, 28, 1], [50.9, 4.3, 41, 34], [50.7, 3.2, 6, 1], [43.7, -79.4, 38, 0], [50.8, 4.4, 15, 18], [52.4, 4.9, 88, 79], [48.9, 2.3, 7, 0], [51.2, 4.5, 12, 13], [55.7, 12.6, 4, 0], [56.2, 10.2, 1, 0], [51.0, 5.1, 10, 6], [50.9, 4.0, 11, 6], [51.1, 5.5, 1, 0], [51.0, 3.7, 19, 12], [46.2, 6.1, 3, 0], [50.6, 5.6, 9, 11], [50.7, 4.4, 2, 0], [50.7, 4.3, 4, 0], [50.8, 4.3, 5, 2], [52.1, 5.1, 13, 13], [50.9, 4.4, 19, 12], [52.3, 4.8, 6, 4], [51.2, 4.4, 41, 24], [50.6, 4.1, 2, 1], [50.6, 4.6, 1, 0], [39.0, -77.5, 3, 0], [50.9, 3.2, 3, 1], [50.9, 5.6, 1, 0], [50.9, 4.5, 3, 2], [51.0, 4.5, 10, 10], [49.4, 11.2, 1, 0], [45.4, -75.7, 1, 0], [50.5, 5.4, 1, 1], [51.2, 3.2, 12, 6], [37.8, -122.4, 5, 0], [45.7, 9.7, 1, 0], [50.6, 6.0, 1, 0], [51.5, 5.5, 10, 0], [53.3, -6.3, 6, 0], [46.8, -1.8, 1, 0], [48.9, 2.4, 14, 0], [49.2, -0.4, 1, 0], [48.8, 2.4, 2, 0], [48.5, -4.8, 1, 0], [50.8, 3.3, 3, 6], [47.3, -2.2, 1, 0], [50.9, 3.1, 3, 1], [50.9, 4.7, 3, 1], [50.5, 5.3, 1, 2], [51.1, 4.2, 3, 2], [50.9, 4.1, 1, 1], [50.6, 5.2, 1, 2], [51.1, 3.7, 1, 0], [50.7, 4.6, 3, 4], [50.5, 5.7, 1, 0], [50.4, 4.4, 5, 6], [50.5, 4.0, 1, 3], [51.0, 4.2, 1, 0], [50.3, 4.7, 1, 1], [50.6, 4.2, 1, 2], [50.4, 4.5, 1, 2], [49.6, 5.5, 1, 0], [52.5, 6.1, 2, 2], [51.2, 3.3, 1, 1], [51.2, 2.9, 1, 0], [50.8, 3.2, 1, 0], [51.2, 3.6, 1, 0], [51.1, 3.1, 2, 1], [51.1, 4.3, 2, 1], [51.1, 4.1, 1, 0], [51.2, 4.3, 2, 1], [51.1, 2.6, 2, 0], [50.9, 3.3, 1, 0], [51.0, 4.4, 1, 0], [51.2, 5.4, 1, 0], [50.9, 4.8, 1, 0], [50.8, 4.5, 1, 0], [51.3, 4.9, 2, 0], [51.4, 4.6, 1, 1], [51.2, 5.1, 1, 0], [51.3, 4.4, 1, 0], [51.3, 4.5, 2, 1], [50.3, 4.3, 2, 0], [50.7, 4.9, 1, 0], [50.5, 4.8, 1, 1], [50.2, 5.3, 1, 0], [50.5, 4.9, 1, 0], [49.6, 6.1, 11, 4], [49.8, 6.1, 3, 1], [49.9, 6.1, 3, 0], [49.8, 6.0, 1, 0], [50.0, 6.1, 1, 0], [49.5, 6.4, 1, 0], [49.5, 6.1, 2, 0], [49.5, 5.9, 2, 0], [51.8, 5.8, 2, 2], [25.8, -80.2, 1, 0], [50.4, 8.1, 1, 0], [51.4, 5.5, 5, 7], [52.5, 5.5, 4, 1], [52.3, 6.8, 1, 1], [52.0, 4.4, 4, 3], [50.1, 8.7, 4, 0], [52.8, 5.0, 1, 0], [-23.5, -46.6, 22, 0], [-22.9, -43.2, 5, 0], [50.9, 6.0, 1, 2], [52.3, 5.0, 3, 5], [52.2, 6.8, 4, 0], [52.3, 4.5, 4, 2], [52.6, 4.8, 3, 0], [-23.6, -46.6, 5, 0], [51.5, 5.4, 4, 1], [51.6, 5.0, 1, 2], [50.5, 12.4, 3, 0], [52.2, 4.5, 5, 4], [52.2, 5.2, 4, 1], [52.0, 5.9, 3, 4], [51.9, 4.2, 2, 2], [52.0, 5.1, 2, 2], [48.2, 17.1, 2, 0], [52.4, 4.8, 9, 15], [52.4, 5.2, 4, 2], [51.8, 4.2, 2, 0], [52.3, 5.6, 2, 4], [51.2, 6.0, 2, 1], [52.1, 6.2, 2, 1], [52.3, 4.9, 12, 12], [53.1, 6.1, 1, 1], [52.3, 6.6, 6, 0], [51.9, 4.5, 17, 20], [52.1, 4.4, 2, 3], [52.1, 4.9, 1, 0], [52.3, 5.2, 2, 0], [51.9, 4.4, 7, 6], [51.6, 4.8, 4, 2], [51.8, 5.9, 1, 3], [51.5, 3.7, 1, 0], [51.5, 3.6, 4, 5], [51.8, 4.3, 2, 0], [51.6, 4.2, 1, 0], [52.0, 4.2, 4, 11], [52.7, 4.8, 2, 0], [52.4, 5.0, 2, 2], [52.4, 4.7, 2, 2], [33.7, -84.4, 1, 0], [29.8, -95.4, 2, 0], [51.5, -0.1, 3, 0], [41.0, 29.0, 1, 0], [45.5, 9.2, 1, 0], [40.4, -3.7, 1, 0], [37.6, 127.0, 1, 0], [32.8, -96.8, 2, 0], [38.9, -77.0, 1, 0], [51.7, 5.1, 1, 3], [52.5, 13.3, 1, 0], [51.8, 4.7, 6, 14], [42.4, -71.1, 2, 0], [60.2, 24.9, 1, 3], [52.1, 5.4, 1, 3], [52.4, 5.8, 1, 0], [52.3, 4.6, 2, 4], [53.1, 4.8, 1, 0], [51.4, 6.2, 2, 1], [52.0, 5.6, 6, 3], [51.8, 5.7, 1, 0], [52.0, 4.5, 1, 3], [52.0, 4.6, 2, 2], [51.8, 5.1, 1, 0], [51.7, 4.5, 2, 1], [51.9, 4.3, 1, 0], [52.0, 5.8, 2, 0], [52.0, 4.3, 3, 5], [52.2, 6.9, 3, 1], [52.2, 6.0, 3, 3], [52.2, 5.3, 1, 4], [52.2, 5.0, 2, 2], [53.2, 5.4, 1, 0], [52.2, 5.4, 2, 4], [51.4, 5.6, 1, 0], [52.0, 4.9, 2, 2], [52.2, 4.6, 1, 1], [51.9, 4.6, 3, 5], [51.8, 5.2, 3, 1], [52.2, 6.2, 1, 1], [44.5, 26.0, 1, 0], [51.5, 4.3, 1, 0], [51.9, 5.9, 1, 0], [50.5, 30.5, 1, 0], [52.5, 5.9, 2, 0], [49.5, 11.1, 2, 0], [52.0, 5.0, 1, 1], [51.7, 5.3, 2, 3], [37.3, -121.9, 2, 0], [51.9, 6.5, 1, 0], [51.7, 5.9, 1, 0], [51.6, 5.5, 3, 2], [51.3, 6.1, 4, 0], [51.4, 5.7, 1, 0], [52.0, 5.2, 1, 2], [52.7, 5.6, 1, 0], [51.6, 5.1, 1, 4], [52.1, 6.5, 3, 1], [51.7, 5.0, 2, 0], [52.4, 4.5, 1, 0], [52.2, 4.8, 1, 1], [52.5, 5.7, 2, 0], [51.2, 5.8, 1, 0], [52.1, 4.3, 5, 13], [51.9, 6.1, 1, 0], [51.6, 4.7, 1, 0], [40.1, -83.1, 1, 0], [52.6, 5.0, 1, 1], [52.3, 4.7, 1, 1], [52.1, 5.2, 1, 2], [52.7, 5.9, 1, 0], [53.4, -6.3, 2, 0], [53.4, -6.2, 2, 0], [53.3, -6.4, 1, 0], [53.4, -6.4, 2, 0], [52.1, 4.5, 2, 2], [51.6, 5.7, 1, 0], [51.8, 4.4, 1, 1], [52.4, 4.6, 1, 3], [51.5, 5.0, 1, 0], [51.6, 4.9, 1, 0], [51.8, 5.5, 1, 4], [51.8, 4.6, 4, 7], [50.9, 5.9, 1, 2], [52.8, 6.9, 1, 0], [52.7, 5.0, 1, 0], [53.1, 7.0, 1, 1], [53.3, 6.9, 1, 0], [53.0, 6.6, 1, 1], [50.5, 4.4, 0, 1], [50.7, 5.6, 0, 1], [50.7, 5.3, 0, 1], [50.5, 4.3, 0, 2], [51.0, 3.5, 0, 5], [50.8, 3.6, 0, 1], [51.2, 3.4, 0, 1], [51.3, 4.6, 0, 1], [51.0, 3.8, 0, 3], [50.7, 5.5, 0, 1], [51.2, 3.0, 0, 1], [50.9, 3.4, 0, 3], [51.0, 3.9, 0, 1], [50.4, 5.5, 0, 1], [51.0, 3.0, 0, 1], [50.7, 3.8, 0, 1], [51.1, 4.8, 0, 1], [50.5, 5.1, 0, 2], [50.9, 5.5, 0, 1], [51.0, 4.8, 0, 1], [51.1, 5.7, 0, 1], [51.1, 4.7, 0, 1], [51.2, 5.0, 0, 1], [51.1, 4.5, 0, 3], [51.1, 4.6, 0, 1], [50.4, 4.3, 0, 1], [50.8, 4.1, 0, 1], [51.4, 4.5, 0, 1], [51.3, 4.7, 0, 1], [50.1, 6.0, 0, 1], [-33.9, 151.2, 0, 1], [51.4, 5.4, 0, 2], [52.0, 6.4, 0, 1], [52.4, 6.6, 0, 1], [52.2, 4.4, 0, 5], [52.1, 4.7, 0, 2], [52.3, 5.3, 0, 1], [51.4, 6.0, 0, 1], [51.5, 4.4, 0, 2], [51.4, 5.2, 0, 8], [51.9, 5.8, 0, 3], [51.8, 5.0, 0, 5], [51.6, 4.6, 0, 1], [52.7, 5.2, 0, 1], [52.3, 5.1, 0, 2], [52.0, 5.7, 0, 3], [51.9, 6.4, 0, 1], [52.3, 6.5, 0, 1], [52.4, 6.8, 0, 1], [52.2, 6.3, 0, 1], [51.5, 5.6, 0, 1], [52.5, 5.0, 0, 1], [51.7, 5.5, 0, 1], [52.8, 4.9, 0, 1], [51.3, 5.9, 0, 1], [52.8, 6.4, 0, 1], [52.1, 5.0, 0, 4], [52.6, 6.6, 0, 2], [52.0, 6.3, 0, 1], [51.5, 5.7, 0, 5], [51.7, 6.0, 0, 2], [52.2, 6.6, 0, 1], [52.8, 7.0, 0, 1], [52.0, 4.7, 0, 1], [52.5, 4.7, 0, 3], [51.9, 5.0, 0, 3], [51.4, 5.1, 0, 1], [52.2, 5.5, 0, 1], [52.1, 6.3, 0, 1], [51.7, 4.9, 0, 1], [52.1, 5.6, 0, 1], [51.1, 5.9, 0, 1], [53.0, 6.5, 0, 1], [52.4, 6.5, 0, 2], [52.4, 5.3, 0, 2], [52.3, 5.5, 0, 2], [52.3, 6.2, 0, 1], [51.8, 4.8, 0, 1], [51.7, 5.8, 0, 1], [51.6, 5.9, 0, 1], [53.2, 6.5, 0, 1], [52.2, 5.9, 0, 1], [53.2, 5.8, 0, 1], [51.7, 5.4, 0, 1], [51.9, 5.4, 0, 1], [52.2, 4.9, 0, 1], [52.5, 5.1, 0, 1], [50.9, 5.8, 0, 1], [50.9, 5.7, 0, 1]];   // [ [lat, lon, redCount, blueCount], ... ]  (no identities)
+const map = L.map('map',{preferCanvas:true,minZoom:6,maxZoom:9,
+  maxBounds:[[46.5,-2],[55,12]],maxBoundsViscosity:0.7}).setView([50.7,5.2],7);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {attribution:'&copy; OpenStreetMap, &copy; CARTO',maxZoom:9}).addTo(map);
+
+// translucent circles (see-through) with the regional count centred on top
+const rad = n => 5 + Math.sqrt(n)*4;
+function disc(la,lo,n,color,fop,label,layer){
+  L.circleMarker([la,lo],{radius:rad(n),color:color,weight:1,
+    fillColor:color,fillOpacity:fop})
+    .bindTooltip(String(n),{permanent:true,direction:'center',className:'num'})
+    .bindPopup(`${label}: <b>${n}</b> (this region)`).addTo(layer);
+}
+const redLayer = L.layerGroup(), blueLayer = L.layerGroup();
+DATA.sort((a,b)=>(b[2]+b[3])-(a[2]+a[3]));            // big behind, small in front
+DATA.forEach(([la,lo,r,b])=>{
+  if(b) disc(la,lo,b,'#2f7bff',.35,'FortiLeak 2025',blueLayer);
+  if(r) disc(la,lo,r,'#ff3b3b',.45,'FortiBleed 2026',redLayer);
+});
+blueLayer.addTo(map); redLayer.addTo(map);
+
+// counts hidden when zoomed out; they appear as you zoom in (keeps circles/heat)
+function toggleNums(){ document.body.classList.toggle('hidenum', map.getZoom() < 8); }
+map.on('zoomend', toggleNums); toggleNums();
+
+const redHeat = L.heatLayer(DATA.filter(d=>d[2]).map(d=>[d[0],d[1],Math.min(1,d[2]/8)]),
+  {radius:28,blur:22,maxZoom:9,gradient:{0.2:'#5a0000',0.5:'#ff3b3b',1:'#ffd23b'}});
+const blueHeat = L.heatLayer(DATA.filter(d=>d[3]).map(d=>[d[0],d[1],Math.min(1,d[3]/8)]),
+  {radius:28,blur:22,maxZoom:9,gradient:{0.2:'#001a5a',0.5:'#2f7bff',1:'#3bf0ff'}});
+
+L.control.layers(null,{
+  '🔴 FortiBleed 2026 (circles)':redLayer,'🔵 FortiLeak 2025 (circles)':blueLayer,
+  '🔥 FortiBleed 2026 heatmap':redHeat,'🔥 FortiLeak 2025 heatmap':blueHeat
+},{collapsed:false}).addTo(map);
+</script></body></html>
