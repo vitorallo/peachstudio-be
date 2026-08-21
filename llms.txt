@@ -83,4 +83,7 @@ A: We focus on building products rather than traditional consulting. We do provi
 - Macframe: https://peachstudio.be/macframe/
 - Business Profiler: https://peachstudio.be/profilers/
 - CV / About: https://peachstudio.be/cv/
+- CV (Technical): https://peachstudio.be/cv/tech/
+- CV (Short / PR, English): https://peachstudio.be/cv/pr/
+- CV (Short / PR, Italian): https://peachstudio.be/cv/pr/it/
 - Privacy Notice: https://peachstudio.be/privacy.html
